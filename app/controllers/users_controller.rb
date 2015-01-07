@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(:id)
+    @user = User.find(params[:id])
 
-    if user
+    if @user
       render :show
     else
 

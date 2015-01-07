@@ -14,6 +14,12 @@ class User < ActiveRecord::Base
     user
   end
 
+  def reset_token!
+    self.session_token = SecureRandom.urlsafe_base64(16)
+    self.save!
+    self.session_token
+  end
+
   def is_password?(password)
     BCrypt::Password.new(self.password_digest) == password
   end
@@ -27,6 +33,5 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
-
 
 end
