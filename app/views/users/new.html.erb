@@ -1,0 +1,15 @@
+<%= render 'layouts/errors' %>
+
+<form class="user_create" action="<%= users_url %>" method="post">
+  <%= auth_token %>
+  <label for="user_username">Username</label>
+  <input type="text" id="user_username" name="user[username]" value="">
+
+  <label for="user_password">Password</label>
+  <input type="password" id="user_password" name="user[password]" value="">
+
+  <label for="user_password_verify">Verify Password</label>
+  <input type="password" id="user_password_verify" name="user[password_verify]" value="">
+
+  <button name="button">Create!</button>
+</form>

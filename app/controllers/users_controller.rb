@@ -6,10 +6,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.save!
-      render json: @user
+    if @user.password == params[:user][:password_verify]
+      if @user.save!
+        render json: @user
+      else
+        render json: @user.errors.full_messages
+      end
+
     else
-      render json: @user.errors.full_messages
+      flash.now[:errors] = ["Passwords do not match"]
+      render :new
     end
   end
 
