@@ -12,6 +12,10 @@ a
   text-decoration: none;
 }
 
+body {
+  background: #e6e6e6;
+}
+
 ul {
   list-style: none;
 }
