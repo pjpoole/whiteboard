@@ -10,8 +10,6 @@ Test branch
 * populate test database
 
 Development
-* sidebar partial
-* basic styling
 * user show view
 * user name show
 * user index view
@@ -31,6 +29,9 @@ Development
 * event post page
 * event comment
 * notifications
+
+* styling: develop color scheme
+* styling: check contrast of color scheme
 
 ## Models
 * class

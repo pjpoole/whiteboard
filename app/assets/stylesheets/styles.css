@@ -1,4 +1,4 @@
-html, body, section, header, nav, form,
+html, body, section, header, footer, nav, form,
 label, input, h1, p, ul, li, button,
 a
   {
@@ -25,11 +25,10 @@ ul {
 .sidebar {
   position: absolute;
   display: block;
-  /*float: left;*/
   width: 160px;
   height: 100%;
   padding: 20px;
-  background: lightgreen;
+  background: #05AB3A;
   color: #050;
   font-size: 16px;
 }
@@ -48,5 +47,14 @@ ul {
 
 .nav-links li {
   border-top: 1px solid #060;
+}
+
+.nav-links a {
   padding: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+.nav-links a:hover {
+  background:
 }
