@@ -1,4 +1,4 @@
-Assignment
+Event (Assignment)
 type
 gradeable
 start date (opt)
