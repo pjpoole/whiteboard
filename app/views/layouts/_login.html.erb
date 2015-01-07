@@ -10,17 +10,19 @@
 
 <%= render 'layouts/errors' %>
 
-<form class="user_create" action="<%= action %>" method="post">
+<form class="user-create" action="<%= action %>" method="post">
   <%= auth_token %>
+  <h1>Whiteboard</h1>
+
   <label for="user_username">Username</label>
-  <input type="text" id="user_username" name="user[username]" value="">
+  <input type="text" id="user_username" name="user[username]" value="" placeholder="e-mail address">
 
   <label for="user_password">Password</label>
-  <input type="password" id="user_password" name="user[password]" value="">
+  <input type="password" id="user_password" name="user[password]" value="" placeholder="Password">
 
   <% if show_verify %>
     <label for="user_password_verify">Verify Password</label>
-    <input type="password" id="user_password_verify" name="user[password_verify]" value="">
+    <input type="password" id="user_password_verify" name="user[password_verify]" value="" placeholder="Verify password">
   <% end %>
 
   <button name="button"><%= button_text %></button>

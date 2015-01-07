@@ -1,0 +1,32 @@
+.user-create {
+  position: relative;
+  width: 500px;
+  padding: 50px;
+  margin: 40px auto;
+  background: lightgreen;
+  font-size: 20px;
+}
+
+.user-create h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user-create label {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.user-create input {
+  display: block;
+  width: 480px;
+  padding: 10px;
+}
+
+.user-create button {
+  margin: 20px 0;
+  padding: 10px;
+}
