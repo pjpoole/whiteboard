@@ -24,3 +24,7 @@ group :development do
   gem 'better_errors'
   gem 'pry-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
