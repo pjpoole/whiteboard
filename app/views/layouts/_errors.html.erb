@@ -1,1 +1,6 @@
-<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+<% if flash[:errors] %>
+<ul class="errors">
+  <%= flash[:errors].each do |error| %>
+  <li class="error"><%= error %></li>
+</ul>
+<% end %>
