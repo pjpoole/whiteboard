@@ -11,6 +11,7 @@ Test branch
 
 Development
 * sidebar partial
+* basic styling
 * user show view
 * user name show
 * user index view
