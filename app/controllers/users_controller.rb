@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     if @user.password == params[:user][:password_verify]
       if @user.save
+        sign_in(@user)
         redirect_to user_url(@user)
       else
         flash.now[:errors] = @user.errors.full_messages

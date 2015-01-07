@@ -12,4 +12,10 @@
       <li><a href="#">To-dos</a></li>
     </ul>
   </nav>
+
+  <form id="sign-out" action="<%= session_url %>" method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="delete">
+    <button name="sign-out">Sign Out</button>
+  </form>
 </section>
