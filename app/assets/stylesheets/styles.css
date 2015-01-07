@@ -16,6 +16,10 @@ body {
   background: #e6e6e6;
 }
 
+a:hover, button:hover {
+  cursor: pointer;
+}
+
 ul {
   list-style: none;
 }
