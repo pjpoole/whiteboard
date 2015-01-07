@@ -7,10 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.password == params[:user][:password_verify]
-      if @user.save!
-        render json: @user
+      if @user.save
+        redirect_to user_url
       else
-        render json: @user.errors.full_messages
+        flash.now[:errors] = @user.errors.full_messages
+        render :new
       end
 
     else
