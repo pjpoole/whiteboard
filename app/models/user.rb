@@ -1,7 +1,14 @@
 class User < ActiveRecord::Base
-  validates :username, :password_digest, presence: true
-  validates :username, uniqueness: true
+  validates :email, :password_digest, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: {
+    with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
+    on: :create,
+    message: "Invalid email address"
+  }
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  after_validation :set_initial_name, on: :create
 
   attr_reader :password
 
@@ -32,6 +39,11 @@ class User < ActiveRecord::Base
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def set_initial_name
+    puts "test"
+    self.name = self.email.match(/\A([^@\s]+)@.*/)[1]
   end
 
 end
