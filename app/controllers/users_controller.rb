@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :require_logged_in!, only: [:new, :create]
+  skip_before_action :require_signed_in!, only: [:new, :create]
 
   def new
     @user = User.new
@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     else
       flash.now[:errors] = ["Passwords do not match"]
       render :new
+    end
+  end
+
+  def show
+    @user = User.find(:id)
+
+    if user
+      render :show
+    else
+
     end
   end
 

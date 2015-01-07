@@ -13,6 +13,7 @@ Development
 * sidebar partial
 * user show view
 * user name show
+* user index view
 * email confirmation
 * student detail view
 * other user show
