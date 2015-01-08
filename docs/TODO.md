@@ -10,6 +10,7 @@ Test branch
 * populate test database
 
 Development
+* commentable concern
 * user index view
 * email confirmation
 * sessions controller send to

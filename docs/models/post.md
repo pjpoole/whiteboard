@@ -1,8 +1,8 @@
 Post
-topic
-body
-tags
+/*topic*/
+/*body*/
+/*tags*/
 
 has many: comments
-belongs to: user
-belongs to: class
+/*belongs to: user*/
+/*belongs to: class*/

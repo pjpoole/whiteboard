@@ -1,10 +1,10 @@
 User
-name
-email
-password
+/*name*/
+/*email*/
+/*password*/
 
-has many: enrollments
-has many: professorships
+/*has many: enrollments*/
+/*has many: professorships*/
 belongs to: study group
-has many: posts
+/*has many: posts*/
 has many: comments
