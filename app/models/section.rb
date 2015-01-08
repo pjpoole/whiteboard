@@ -1,6 +1,7 @@
 class Section < ActiveRecord::Base
   validates :title, presence: true
 
+
   belongs_to(
     :instructor,
     class_name: 'User',
@@ -8,5 +9,7 @@ class Section < ActiveRecord::Base
     foreign_key: :instructor_id
   )
 
+  has_many :enrollments, dependent: :destroy
+  has_many :students, through: :enrollments, source: :user
 
 end
