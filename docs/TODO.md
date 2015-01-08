@@ -14,9 +14,6 @@ Development
 * email confirmation
 * sessions controller send to
 * status codes for invalid routes
-* student detail view
-* other user show
-* class new view
 * class show view (modal enrolled, instructing)
 * student dashboard
 * enrollment new view
