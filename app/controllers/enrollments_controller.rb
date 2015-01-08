@@ -15,6 +15,18 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+  # TODO: Think about whether this is secure?
+  def index
+    @user = User.includes(:classes).find(params[:user_id])
+
+    if @user
+      render :index
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :back # This is probably not the right answer
+    end
+  end
+
   def destroy
   end
 
