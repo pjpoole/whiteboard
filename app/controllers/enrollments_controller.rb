@@ -17,7 +17,7 @@ class EnrollmentsController < ApplicationController
 
   # TODO: Think about whether this is secure?
   def index
-    @user = User.includes(:classes).find(params[:user_id])
+    @user = User.includes(:classes, :classes_taught).find(params[:user_id])
 
     if @user
       render :index

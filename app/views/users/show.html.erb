@@ -3,5 +3,6 @@
 
 <% if @user == current_user %>
   <%= button_to "Edit Profile", { action: :edit }, method: :get %>
-  <%= render 'sections/add_create_buttons' %>
+  <%= render 'sections/create_button' %>
+  <%= render 'sections/add_button' %>
 <% end %>
