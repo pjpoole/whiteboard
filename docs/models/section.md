@@ -1,4 +1,4 @@
-Class
+Section
 
 has many: enrollments
 belongs to: instructor
