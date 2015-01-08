@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
   end
 
   def index
-    @sections = Section.all
+    @sections = Section.includes(:instructor).all
   end
 
   def edit

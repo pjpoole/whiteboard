@@ -11,7 +11,7 @@
     <% @sections.each do |section| %>
       <tr>
         <!-- TODO: make button change depending on whether student is enrolled -->
-        <td><%= button_to "Enroll", { action: :create, controller: :enrollments, user_id: current_user.id, section_id: section.id } %></td>
+        <td><%= button_to "Enroll", { action: :create, controller: :enrollments, user_id: current_user.id, section_id: section.id } unless current_user == section.instructor %></td>
         <td><a href="<%= section_url(section) %>"><%= section.title %></a></td>
         <td><%= section.description %></td>
       </tr>

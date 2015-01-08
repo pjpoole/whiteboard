@@ -1,6 +1,7 @@
 class EnrollmentsController < ApplicationController
   # TODO: Only instructor and student can destroy an enrollment
   # TODO: Only specific users can create an enrollment
+  # TODO: An instructor can't enroll in his own course
 
   def create
     enrollment = Enrollment.new(
