@@ -2,8 +2,7 @@
 <p>Email: <%= @user.email %></p>
 
 <% if @user == current_user %>
-  <a href="<%= edit_user_url %>">Edit</a>
+  <%= button_to "Edit Profile", { action: "edit" }, method: :get %>
+  <%= button_to "Create a course", { action: "new", controller: "sections" }, method: :get %>
+  <%= button_to "Enroll in a course", { action: "index", controller: "sections" }, method: :get %>
 <% end %>
-
-<a href="<%= new_section_url %>">Create a course</a>
-<a href="<%= sections_url %>">Enroll in a course</a>
