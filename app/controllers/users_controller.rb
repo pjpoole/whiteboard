@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to user_url(@user)
+      redirect_to @user
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
     if @user
       render :show
     else
-      flash.now[:errors] = @user.errors.full_messages
-      # render
+      flash[:errors] = @user.errors.full_messages
+      redirect_to user_url(current_user)
     end
   end
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to user_url
+      redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
       render :edit

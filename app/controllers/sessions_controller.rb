@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   skip_before_action :require_signed_in!, only: [:new, :create]
 
   def new
+    redirect_to current_user if current_user
   end
 
   def create
@@ -13,7 +14,7 @@ class SessionsController < ApplicationController
 
     if user
       sign_in(user)
-      redirect_to user_url(user)
+      redirect_to user
     else
       flash.now[:errors] = ["Invalid username or password"]
       render :new

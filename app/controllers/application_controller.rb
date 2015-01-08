@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def ensure_correct_user
     unless current_user.id == params[:id]
       flash[:errors] = ["You don't have permission to view this page"]
-      redirect_to user_url(current_user)
+      redirect_to current_user
     end
   end
 end
