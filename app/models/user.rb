@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     on: :create,
     message: "Invalid email address"
   }
+  # TODO: allow_blank isn't the right answer
   validates :password, length: { minimum: 6, allow_blank: true }
   validate :password_matches_verification,
     on: [:create, :update],
@@ -60,6 +61,10 @@ class User < ActiveRecord::Base
     self.classes.include?(section)
   end
 
+  def teaches?(section)
+    self.classes_taught.include?(section)
+  end
+  
 
   private
   def ensure_session_token

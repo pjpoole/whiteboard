@@ -1,6 +1,8 @@
 <header class="course-section">
-  <h2><%= section.title %></h2>
-  <p class="description"><%= section.description %></p>
+  <h2><%= @section.title %></h2>
+  <p class="description"><%= @section.description %></p>
 </header>
 
-<% current_user.enrolled_in?(section) ? :  %>
+<%= render 'sections/edit_button' if current_user.teaches?(@section) %>
+
+<% current_user.enrolled_in?(@section) ? true : false  %>
