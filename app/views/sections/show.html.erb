@@ -1,0 +1,6 @@
+<header class="course-section">
+  <h2><%= section.title %></h2>
+  <p class="description"><%= section.description %></p>
+</header>
+
+<% current_user.enrolled_in?(section) ? :  %>

@@ -1,0 +1,21 @@
+<% if section.persisted? %>
+  <% button_name = "Update" %>
+  <!-- <% action = session_url %> -->
+  <% method = "PUT" %>
+<% else %>
+  <% button_name = "Create" %>
+  <% method = "POST" %>
+<% end %>
+
+<form id="section-form" action="<%= section_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="_method" value="<%= method %>">
+
+  <label for="section_title">Title</label>
+  <input type="text" id="section_title" name="section[title]" value="<%= section.title %>">
+
+  <label for="section_description">Description</label>
+  <input type="text" name="section[description]" value="<%= section.description %>">
+  
+  <button name="submit"><%= button_name %></button>
+</form>
