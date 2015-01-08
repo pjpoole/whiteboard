@@ -34,6 +34,8 @@ Development
 * styling: develop color scheme
 * styling: check contrast of color scheme
 * styling: course links, student page
+* Icon
+* Favicon
 
 ## Models
 * class

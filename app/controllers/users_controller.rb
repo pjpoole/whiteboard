@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_action :require_signed_in!, only: [:new, :create]
   before_action :ensure_correct_user, only: [:edit, :update]
+  # TODO: redirect logged in users heading toward /new
 
   def new
     @user = User.new
