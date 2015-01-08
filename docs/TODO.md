@@ -10,10 +10,10 @@ Test branch
 * populate test database
 
 Development
-* user show view
-* user name show
 * user index view
 * email confirmation
+* sessions controller send to
+* status codes for invalid routes
 * student detail view
 * other user show
 * class new view
@@ -29,9 +29,11 @@ Development
 * event post page
 * event comment
 * notifications
+* More formal name processing: first name, last name
 
 * styling: develop color scheme
 * styling: check contrast of color scheme
+* styling: course links, student page
 
 ## Models
 * class

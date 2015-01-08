@@ -7,6 +7,10 @@
   <% if @user == current_user %>
     <a href="<%= edit_user_url %>">Edit</a>
   <% end %>
+  
+  <a href="<%= new_section_url %>">Create a course</a>
+  <a href="<%= sections_url %>">Enroll in a course</a>
 </main>
+
 
 <%= render 'layouts/footer' %>
