@@ -16,8 +16,25 @@ body {
   background: #e6e6e6;
 }
 
+label, input, button {
+  display: block;
+  margin: 10px;
+  padding: 5px;
+}
+
 a:hover, button:hover {
   cursor: pointer;
+}
+
+.errors {
+  position: absolute;
+  left: 50%;
+  color: red;
+}
+
+.error {
+  position: relative;
+  left: -50%
 }
 
 ul {

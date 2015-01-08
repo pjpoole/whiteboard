@@ -6,11 +6,14 @@ class User < ActiveRecord::Base
     on: :create,
     message: "Invalid email address"
   }
-  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :password, length: { minimum: 6, allow_blank: true }
+  validate :password_matches_verification,
+    on: [:create, :update],
+    message: "Password must match"
 
   after_validation :set_initial_name, on: :create
 
-  attr_reader :password
+  attr_reader :password, :password_verify
 
   after_initialize :ensure_session_token
 
@@ -36,6 +39,10 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
+  def password_verify=(password)
+    @password_verify = password
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
@@ -44,6 +51,11 @@ class User < ActiveRecord::Base
   def set_initial_name
     puts "test"
     self.name = self.email.match(/\A([^@\s]+)@.*/)[1]
+  end
+
+  def password_matches_verification
+    return self.password == self.password_verify if self.password
+    return true
   end
 
 end
