@@ -1,16 +1,9 @@
-<%= render 'layouts/sidebar' %>
+<h2><%= @user.name %></h2>
+<p>Email: <%= @user.email %></p>
 
-<main class="content">
-  <h2><%= @user.name %></h2>
-  <p>Email: <%= @user.email %></p>
+<% if @user == current_user %>
+  <a href="<%= edit_user_url %>">Edit</a>
+<% end %>
 
-  <% if @user == current_user %>
-    <a href="<%= edit_user_url %>">Edit</a>
-  <% end %>
-  
-  <a href="<%= new_section_url %>">Create a course</a>
-  <a href="<%= sections_url %>">Enroll in a course</a>
-</main>
-
-
-<%= render 'layouts/footer' %>
+<a href="<%= new_section_url %>">Create a course</a>
+<a href="<%= sections_url %>">Enroll in a course</a>

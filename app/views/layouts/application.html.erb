@@ -9,7 +9,13 @@
 <body>
 <%= render 'layouts/errors' %>
 
-<%= yield %>
+<%= render 'layouts/sidebar' if current_user %>
+
+<main class="content">
+  <%= yield %>
+</main>
+
+<%= render 'layouts/footer' if current_user %>
 
 </body>
 </html>
