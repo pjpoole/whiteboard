@@ -2,7 +2,7 @@
 
 Testing
 * unit tests for user creation and authentication
-* unit tests for sessons
+* unit tests for sessions
 * Faker
 * Factory-girl
 
