@@ -1,5 +1,5 @@
-* sections views
 * section debugging, because it's going to have to be done...
+  * what did this mean?
 
 * section show view from instructor's perspective
 
