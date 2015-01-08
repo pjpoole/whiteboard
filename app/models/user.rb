@@ -12,17 +12,29 @@ class User < ActiveRecord::Base
     message: "Password must match"
 
   after_validation :set_initial_name, on: :create
+  after_initialize :ensure_session_token
+
+
+  has_many(
+    :classes_taught,
+    class_name: 'Section',
+    foreign_key: :instructor_id
+  )
+
+  has_many :enrollments, dependent: :destroy
+  has_many :classes, through: :enrollments, source: :section
+
 
   attr_reader :password, :password_verify
 
-  after_initialize :ensure_session_token
-
+  public
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
 
     return nil unless user && user.is_password?(password)
     user
   end
+
 
   def reset_token!
     self.session_token = SecureRandom.urlsafe_base64(16)
@@ -42,6 +54,12 @@ class User < ActiveRecord::Base
   def password_verify=(password)
     @password_verify = password
   end
+
+
+  def enrolled_in?(section)
+    self.classes.include?(section)
+  end
+
 
   private
   def ensure_session_token
