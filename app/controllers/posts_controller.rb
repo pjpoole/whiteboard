@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments).find(params[:id])
 
     if @post
       render :show
@@ -47,8 +47,6 @@ class PostsController < ApplicationController
       :user_id,
       :event_id
     )
-
-
   end
 
 end
