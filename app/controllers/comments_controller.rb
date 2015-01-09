@@ -6,9 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    params[:comment].merge(user_id: current_user.id)
-
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
     if @comment.save
       redirect_to post_url(@comment.post_id)
@@ -24,11 +22,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     @comment.update(comment_params)
-
+    # TODO:
   end
 
   def destroy
-
+    # TODO:
   end
 
 

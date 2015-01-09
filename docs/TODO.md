@@ -25,6 +25,7 @@ MVC
 Major Features
 * body markdown formatting
 * commentable concern
+* comments hash like in the reddit clone project
 
 Features
 * Post add form on Event page, and Course page

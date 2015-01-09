@@ -12,7 +12,7 @@ class Comment < ActiveRecord::Base
     primary_key: :id
   )
   has_many(
-    :child_comments,
+    :children,
     class_name: 'Comment',
     foreign_key: :parent_id,
     primary_key: :id

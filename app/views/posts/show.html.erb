@@ -7,3 +7,15 @@
 <p>
   <%= @post.body %>
 </p>
+<% comment = Comment.new(post_id: @post.id) %>
+<%= render 'comments/leaf', comment: comment %>
+
+<ul class="comment_tree">
+  <% comments_by_parent = @post.comments_by_parent %>
+  <% comments_by_parent[nil].each do |comment| %>
+    <li><%= render('comments/tree',
+                    comment: comment,
+                    comments_by_parent: comments_by_parent) %>
+    </li>
+  <% end %>
+</ul>
