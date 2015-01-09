@@ -1,0 +1,12 @@
+<h2>Create new post</h2>
+
+<form id="section-post" action="<%= section_posts_url %>" method="post">
+  <%= auth_token %>
+  <label for="post_topic">Topic</label>
+  <input type="text" id="post_topic" name="post[topic]" value="">
+
+  <label for="post_body">Body</label>
+  <textarea id="post_body" name="post[body]" rows="8" cols="40"></textarea>
+
+  <button name="submit">Post!</button>
+</form>

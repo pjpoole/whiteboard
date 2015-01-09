@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  resources :posts, shallow: true do
+    resources :comments
+  end
+
   resources :enrollments, only: [:destroy]
 end
