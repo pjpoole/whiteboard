@@ -1,6 +1,7 @@
 # TODOs
 
 Bucket
+* ""
 
 ## Testing
 Main
@@ -28,12 +29,13 @@ Major Features
 * comments hash like in the reddit clone project
 
 Features
-* Post add form on Event page, and Course page
 * email confirmation
 * student dashboard
 * calendar
 * gradebook
 * notifications
+* drop class
+* Filter assignments by type, date, etc.
 
 Tweaks
 * More formal name processing: first name, last name
