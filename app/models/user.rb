@@ -6,13 +6,11 @@ class User < ActiveRecord::Base
     on: :create,
     message: "Invalid email address"
   }
-  # TODO: allow_blank isn't the right answer
   validates :password, length: { minimum: 6, allow_nil: true }
   validate :password_matches_verification,
     on: [:create, :update],
     message: "Password must match"
 
-  # before_validation :clear_empty_password_string, on: :update
   after_validation :set_initial_name, on: :create
   after_initialize :ensure_session_token
 
@@ -26,7 +24,11 @@ class User < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :classes, through: :enrollments, source: :section
 
-  has_many :posts
+  # Not a fan of dependent: :destroy here... orphaned comments have a
+  # place in certain contexts. TODO: Do this how reddit does it: nullify
+  # the username, but keep the text.
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
   attr_reader :password, :password_verify

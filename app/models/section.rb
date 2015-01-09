@@ -12,6 +12,9 @@ class Section < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :students, through: :enrollments, source: :user
 
-  has_many :posts
+  # dependent: :destroy *does* make sense here
+  has_many :events, dependent: :destroy
+
+  has_many :posts, dependent: :destroy
 
 end
