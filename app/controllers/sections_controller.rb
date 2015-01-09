@@ -17,7 +17,7 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:id])
+    @section = Section.includes(:events).find(params[:id])
   end
 
   def index

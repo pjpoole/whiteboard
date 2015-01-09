@@ -28,6 +28,7 @@ class EnrollmentsController < ApplicationController
     end
   end
 
+  # TODO: Implement
   def destroy
   end
 

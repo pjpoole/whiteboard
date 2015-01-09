@@ -6,6 +6,4 @@
 * assignments
 
 Bugs
-* Can create user profile with no password at all.
-* Re-center login form
 * Opening chrome inspector makes sidebar too short

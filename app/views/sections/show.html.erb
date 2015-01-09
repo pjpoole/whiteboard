@@ -1,8 +1,13 @@
+<% teaches = current_user.teaches?(@section) %>
+<% enrolled = current_user.enrolled_in?(@section) %>
+
 <header class="course-section">
   <h2><%= @section.title %></h2>
   <p class="description"><%= @section.description %></p>
 </header>
 
-<%= render 'sections/edit_button' if current_user.teaches?(@section) %>
+<% if teaches || enrolled %>
+  <%= render 'sections/edit_button' if teaches %>
 
-<% current_user.enrolled_in?(@section) ? true : false  %>
+  <%= render partial: 'events/syllabus', locals: { events: @section.events, section: @section } %>
+<% end %>

@@ -22,6 +22,10 @@ label, input, button {
   padding: 5px;
 }
 
+table input, table button, table select {
+  margin: 0;
+}
+
 a:hover, button:hover, input[type='submit']:hover {
   cursor: pointer;
 }
