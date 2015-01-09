@@ -12,4 +12,6 @@ class Section < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :students, through: :enrollments, source: :user
 
+  has_many :posts
+
 end

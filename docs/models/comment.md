@@ -1,5 +1,5 @@
 Comment
-post
-parent
-body
-user
+/*post*/
+/*parent*/
+/*body*/
+/*user*/

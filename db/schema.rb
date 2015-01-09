@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108232400) do
+ActiveRecord::Schema.define(version: 20150109005003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "enrollments", force: true do |t|
     t.integer  "user_id"
@@ -26,9 +38,19 @@ ActiveRecord::Schema.define(version: 20150108232400) do
   add_index "enrollments", ["section_id"], name: "index_enrollments_on_section_id", using: :btree
   add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id", using: :btree
 
+  create_table "events", force: true do |t|
+    t.datetime "date",       null: false
+    t.integer  "section_id", null: false
+    t.string   "event_type", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["section_id"], name: "index_events_on_section_id", using: :btree
+
   create_table "posts", force: true do |t|
     t.string   "topic",      null: false
-    t.string   "body"
+    t.text     "body"
     t.integer  "user_id"
     t.integer  "section_id"
     t.datetime "created_at"
