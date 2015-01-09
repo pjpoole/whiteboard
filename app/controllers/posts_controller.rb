@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    # There may be a more idiomatic way to do this.
+    # TODO: There may be a more idiomatic way to do this.
     params[:post].merge!(
       section_id: params[:section_id],
       user_id: current_user.id
