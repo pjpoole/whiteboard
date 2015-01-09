@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:index, :create]
   end
 
-  resources :sections
+  resources :sections, shallow: true do
+    resources :events
+  end
+
   resources :enrollments, only: [:destroy]
 end
