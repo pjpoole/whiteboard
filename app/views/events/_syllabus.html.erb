@@ -17,9 +17,10 @@
       <td>
         <%= event.event_type %>
       </td>
-      <td></td>
+      <td><%= button_to "Make a post", { action: :new, controller: :posts }, method: :get %>
+      </td>
     </tr>
   <% end %>
-    <%= render partial: 'events/form_row', locals: { section: section } %>
+    <%= render partial: 'events/form_row', locals: { section: section } if current_user.teaches?(section) %>
   </tbody>
 </table>
