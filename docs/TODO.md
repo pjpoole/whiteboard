@@ -1,5 +1,8 @@
 # TODOs
 
+Bucket
+* Post add form on Event page, and Course page
+
 ## Testing
 Main
 * unit tests for user creation and authentication
@@ -12,11 +15,12 @@ Test branch
 
 ## Development
 MVC
+* Models *could* validate on presence of their associations
+  * Add "validates :association_name, presence: true"
+  * Add "inverse_of: :source" to association
 * user index view
 * class roster view
 * class show view (modal enrolled, instructing)
-* event new view
-* event edit view
 * post comment
 
 Features
