@@ -1,3 +1,4 @@
+<h3>Syllabus</h3>
 <table class="syllabus">
   <thead>
     <td>Name</td>
@@ -17,7 +18,7 @@
       <td>
         <%= event.event_type %>
       </td>
-      <td><%= button_to "Make a post", { action: :new, controller: :posts, section_id: params[:id] }, method: :get %>
+      <td><%= button_to "Make a post", new_event_post_url(event), method: :get %>
       </td>
     </tr>
   <% end %>

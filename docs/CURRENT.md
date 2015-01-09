@@ -1,3 +1,2 @@
-* event show view
+* add comments
 * section show view from instructor's perspective
-* edit event view/controller

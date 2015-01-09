@@ -1,19 +1,24 @@
 class PostsController < ApplicationController
   def new
-    @post = Post.new(section_id: params[:section_id])
+    @post = Post.new(
+      section_id: params[:section_id],
+      event_id: params[:event_id]
+    )
   end
 
   def create
     # TODO: There may be a more idiomatic way to do this.
-    params[:post].merge!(
-      section_id: params[:section_id],
-      user_id: current_user.id
-    )
+    section_id = params[:section_id] ||
+      Event.find(params[:event_id]).section_id
 
+    params[:post].merge!(
+      section_id: section_id,
+      user_id: current_user.id,
+      event_id: params[:event_id]
+    )
     @post = Post.new(post_params)
 
     if @post.save
-      # What does url_for(@post.section_id) yield?
       redirect_to section_url(@post.section_id)
     else
       flash.now[:errors] = @post.errors.full_messages
@@ -39,7 +44,8 @@ class PostsController < ApplicationController
       :topic,
       :body,
       :section_id,
-      :user_id
+      :user_id,
+      :event_id
     )
 
 

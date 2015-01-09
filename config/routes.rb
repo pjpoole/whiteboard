@@ -7,9 +7,13 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:index, :create]
   end
 
-  resources :sections, shallow: true do
-    resources :events
-    resources :posts
+  resources :sections do
+    resources :events, only: [:new, :create, :index]
+    resources :posts, only: [:new, :create, :index]
+  end
+
+  resources :events do
+    resources :posts, only: [:new, :create, :index]
   end
 
   resources :posts, shallow: true do

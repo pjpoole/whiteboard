@@ -11,6 +11,7 @@
 
   <%= render partial: 'events/syllabus', locals: { events: @section.events, section: @section } %>
 
+  <h3>Course Forum</h3>
   <%= button_to "Create New Post", new_section_post_url(@section), method: :get %>
   <%= render partial: 'posts/forum', locals: { posts: @section.posts } %>
 <% end %>

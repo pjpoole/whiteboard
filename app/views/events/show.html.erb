@@ -1,6 +1,13 @@
-<h2><%= @event.section.title %></h2>
+<h2><a href="<%= section_url(@event.section) %>"><%= @event.section.title %></a></h2>
 <h3><%= @event.name %></h3>
 <p>On: <%= @event.date %></p>
 <p>Type: <%= @event.event_type %></p>
 <%= button_to "Edit", { action: :edit }, method: :get if current_user.teaches?(@event.section) %>
 <p><%= @event.body %></p>
+
+<h3>Event forum</h3>
+<%= button_to "Create New Post", { controller: :posts, action: :new, section_id: @event.section }, method: :get %>
+
+<% unless @event.posts.empty? %>
+  <%= render partial: 'posts/forum', locals: { posts: @event.posts } %>
+<% end %>

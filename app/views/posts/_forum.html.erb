@@ -1,4 +1,4 @@
-<ul>
+<ul class="forum">
   <% posts.each do |post| %>
   <li><a href="<%= post_url(post) %>"><%= post.topic %></a> by <%= post.user.name %>, created <%= time_ago_in_words(post.created_at) %> ago</li>
   <% end %>
