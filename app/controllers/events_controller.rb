@@ -19,26 +19,38 @@ class EventsController < ApplicationController
   end
 
   def index
+    @events = Event.find_by(section_id: params[:section_id])
   end
 
 
   # non-shallow
   def show
+    @event = Event.includes(:posts).find(params[:id])
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      flash.now[:errors] = @event.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
+    # TODO:
   end
 
 
   private
   def event_params
-    params.require(:event).permit(:name, :date, :event_type)
+    params.require(:event).permit(:name, :date, :body, :event_type)
   end
 
 end
