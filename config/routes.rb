@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :sections, shallow: true do
     resources :events
+    resources :posts
   end
 
   resources :enrollments, only: [:destroy]

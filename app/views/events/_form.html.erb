@@ -1,12 +1,12 @@
 <form id="create-event" action="<%= section_events_url(section.id) %>" method="post">
   <%= auth_token %>
-  <label for="event_name">Event name</label>
+  <label for="event_name">Name</label>
   <input type="text" id="event_name" name="event[name]" value="">
 
-  <label for="event_date">Event date</label><!-- TODO: default to today -->
+  <label for="event_date">Date</label><!-- TODO: default to today -->
   <input type="date" id="event_date" name="event[date]" value="">
 
-  <label for="event_event_type">Event type</label>
+  <label for="event_event_type">Type</label>
   <select id="event_event_type" name="event[event_type]">
     <option value="event">Event (default)</option>
     <option value="session">Session</option>
@@ -16,4 +16,7 @@
   </select>
 
   <button name="submit">Create</button>
+
+  <label for="event_body">Body</label>
+  <textarea id="event_body" name="event[body]" rows="8" cols="40"></textarea>
 </form>

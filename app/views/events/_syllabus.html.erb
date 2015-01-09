@@ -9,7 +9,7 @@
   <% events.each do |event| %>
     <tr>
       <td>
-        <%= event.name %>
+        <a href="<%= event_url %>"><%= event.name %></a>
       </td>
       <td>
         <%= event.date %>
@@ -17,7 +17,7 @@
       <td>
         <%= event.event_type %>
       </td>
-      <td><%= button_to "Make a post", { action: :new, controller: :posts }, method: :get %>
+      <td><%= button_to "Make a post", { action: :new, controller: :posts, section_id: params[:id] }, method: :get %>
       </td>
     </tr>
   <% end %>

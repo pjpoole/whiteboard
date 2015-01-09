@@ -30,6 +30,7 @@ Development
 * nullify deleted user names, don't delete posts
 * admin can re-categorize post to other topic
 
+* refactor css into scss files based on scopes
 * styling: develop color scheme
 * styling: check contrast of color scheme
 * styling: course links, student page

@@ -20,6 +20,7 @@ class SectionsController < ApplicationController
     @section = Section
       .includes(:events)
       .order('events.date')
+      .includes(:posts)
       .find(params[:id])
   end
 
