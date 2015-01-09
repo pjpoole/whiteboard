@@ -13,12 +13,11 @@ Development
 * commentable concern
 * user index view
 * email confirmation
-* sessions controller send to
+* sessions controller send to (??)
 * status codes for invalid routes
 * class show view (modal enrolled, instructing)
 * student dashboard
 * enrollment new view
-* class search view
 * class roster
 * calendar
 * event new view
@@ -28,6 +27,7 @@ Development
 * event comment
 * notifications
 * More formal name processing: first name, last name
+* nullify deleted user names, don't delete posts
 
 * styling: develop color scheme
 * styling: check contrast of color scheme

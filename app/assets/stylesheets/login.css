@@ -1,8 +1,14 @@
+#signin-wrapper {
+  position: absolute;
+  left: 50%;
+}
+
 .user-create {
   position: relative;
+  left: -50%;
   width: 500px;
   padding: 50px;
-  margin: 40px auto;
+  margin: 40px 0;
   background: lightgreen;
   font-size: 20px;
 }
