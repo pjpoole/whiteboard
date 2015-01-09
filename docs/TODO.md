@@ -1,7 +1,6 @@
 # TODOs
 
 Bucket
-* Post add form on Event page, and Course page
 
 ## Testing
 Main
@@ -23,16 +22,17 @@ MVC
 * class show view (modal enrolled, instructing)
 * post comment
 
+Major Features
+* body markdown formatting
+* commentable concern
+
 Features
+* Post add form on Event page, and Course page
 * email confirmation
 * student dashboard
 * calendar
 * gradebook
 * notifications
-
-Major Features
-* body markdown formatting
-* commentable concern
 
 Tweaks
 * More formal name processing: first name, last name
