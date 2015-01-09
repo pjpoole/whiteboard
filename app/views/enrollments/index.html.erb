@@ -1,6 +1,6 @@
 <% unless @user.classes.empty? && @user.classes_taught.empty? %>
-  <%= render 'sections/create_button' %>
   <% unless @user.classes_taught.empty? %>
+  <h2>You are teaching:</h2>
     <table class="course-list">
       <thead>
         <td><strong>Title</strong></td>
@@ -18,9 +18,10 @@
       </tbody>
     </table>
   <% end %>
+  <%= render 'sections/create_button' %>
 
-  <%= render 'sections/add_button' %>
   <% unless @user.classes.empty? %>
+  <h2>You are taking:</h2>
     <table class="course-list">
       <thead>
         <td><strong>Title</strong></td>
@@ -38,6 +39,7 @@
       </tbody>
     </table>
   <% end %>
+  <%= render 'sections/add_button' %>
 
 <% else %>
   <h2>No classes found!</h2>
