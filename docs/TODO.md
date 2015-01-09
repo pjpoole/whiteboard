@@ -1,6 +1,7 @@
 # TODOs
 
-Testing
+## Testing
+Main
 * unit tests for user creation and authentication
 * unit tests for sessions
 * Faker
@@ -9,37 +10,45 @@ Testing
 Test branch
 * populate test database
 
-Development
-* commentable concern
+## Development
+MVC
 * user index view
-* email confirmation
-* sessions controller send to (??)
-* status codes for invalid routes
+* class roster view
 * class show view (modal enrolled, instructing)
-* student dashboard
-* enrollment new view
-* class roster
-* calendar
 * event new view
 * event edit view
+* post comment
+
+Features
+* email confirmation
+* student dashboard
+* calendar
 * gradebook
-* event post page
-* event comment
 * notifications
+
+Major Features
+* body markdown formatting
+* commentable concern
+
+Tweaks
 * More formal name processing: first name, last name
 * nullify deleted user names, don't delete posts
 * admin can re-categorize post to other topic
+* status codes for invalid routes
 
+Bugs
+* Opening chrome inspector makes sidebar too short
+* TODO: comments
+
+Unknown
+* sessions controller send to (??)
+* section debugging, because it's going to have to be done...
+
+
+Styles/Visual
 * refactor css into scss files based on scopes
 * styling: develop color scheme
 * styling: check contrast of color scheme
 * styling: course links, student page
 * Icon
 * Favicon
-
-## Models
-* class
-* event
-* post
-* comment
-* task
