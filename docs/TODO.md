@@ -35,6 +35,8 @@ Tweaks
 * nullify deleted user names, don't delete posts
 * admin can re-categorize post to other topic
 * status codes for invalid routes
+* Order posts by date
+* order posts by custom attributes
 
 Bugs
 * Opening chrome inspector makes sidebar too short

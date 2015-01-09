@@ -16,9 +16,11 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :index]
   end
 
-  resources :posts, shallow: true do
-    resources :comments
+  resources :posts do
+    resources :comments, only: [:new, :create]
   end
+
+  resources :comments, only: [:edit, :update, :destroy]
 
   resources :enrollments, only: [:destroy]
 end
