@@ -28,6 +28,7 @@ Development
 * notifications
 * More formal name processing: first name, last name
 * nullify deleted user names, don't delete posts
+* admin can re-categorize post to other topic
 
 * styling: develop color scheme
 * styling: check contrast of color scheme
