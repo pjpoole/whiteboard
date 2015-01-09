@@ -41,6 +41,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    if params[:user][:password] == "" &&
+      params[:user][:password_verify] == ""
+        params[:user].delete :password
+        params[:user].delete :password_verify
+    end
+
     if @user.update(user_params)
       redirect_to @user
     else

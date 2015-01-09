@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
     message: "Invalid email address"
   }
   # TODO: allow_blank isn't the right answer
-  validates :password, length: { minimum: 6, allow_blank: true }
+  validates :password, length: { minimum: 6, allow_nil: true }
   validate :password_matches_verification,
     on: [:create, :update],
     message: "Password must match"
 
+  # before_validation :clear_empty_password_string, on: :update
   after_validation :set_initial_name, on: :create
   after_initialize :ensure_session_token
 
@@ -24,6 +25,8 @@ class User < ActiveRecord::Base
 
   has_many :enrollments, dependent: :destroy
   has_many :classes, through: :enrollments, source: :section
+
+  has_many :posts
 
 
   attr_reader :password, :password_verify
@@ -64,7 +67,7 @@ class User < ActiveRecord::Base
   def teaches?(section)
     self.classes_taught.include?(section)
   end
-  
+
 
   private
   def ensure_session_token
@@ -72,9 +75,15 @@ class User < ActiveRecord::Base
   end
 
   def set_initial_name
-    puts "test"
     self.name = self.email.match(/\A([^@\s]+)@.*/)[1]
   end
+
+  # def clear_empty_password_string
+  #   if self.password == "" && self.password_verify == ""
+  #     self.password = nil
+  #     self.password_verify = nil
+  #   end
+  # end
 
   def password_matches_verification
     return self.password == self.password_verify if self.password
