@@ -9,7 +9,7 @@
   <% events.each do |event| %>
     <tr>
       <td>
-        <a href="<%= event_url %>"><%= event.name %></a>
+        <a href="<%= event_url(event) %>"><%= event.name %></a>
       </td>
       <td>
         <%= event.date %>
