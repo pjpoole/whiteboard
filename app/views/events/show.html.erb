@@ -1,0 +1,6 @@
+<h2><%= @event.section.title %></h2>
+<h3><%= @event.name %></h3>
+<p>On: <%= @event.date %></p>
+<p>Type: <%= @event.event_type %></p>
+<%= button_to "Edit", { action: :edit }, method: :get if current_user.teaches?(@event.section) %>
+<p><%= @event.body %></p>
