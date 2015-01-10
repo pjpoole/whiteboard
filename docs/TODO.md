@@ -36,8 +36,10 @@ Features
 * notifications
 * drop class
 * Filter assignments by type, date, etc.
+* event uploads
 
 Tweaks
+* Sign in button from Sign up page
 * More formal name processing: first name, last name
 * nullify deleted user names, don't delete posts
 * admin can re-categorize post to other topic
@@ -59,5 +61,6 @@ Styles/Visual
 * styling: develop color scheme
 * styling: check contrast of color scheme
 * styling: course links, student page
+* user icons
 * Icon
 * Favicon
