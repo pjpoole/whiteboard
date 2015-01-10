@@ -4,7 +4,9 @@ window.Whiteboard = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new Whiteboard.Routers.Router();
+
+    Backbone.history.start();
   }
 };
 

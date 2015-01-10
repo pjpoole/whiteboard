@@ -21,12 +21,10 @@ MVC
 * user index view
 * class roster view
 * class show view (modal enrolled, instructing)
-* post comment
 
 Major Features
 * body markdown formatting
 * commentable concern
-* comments hash like in the reddit clone project
 
 Features
 * email confirmation
@@ -49,7 +47,6 @@ Tweaks
 
 Bugs
 * Opening chrome inspector makes sidebar too short
-* TODO: comments
 
 Unknown
 * sessions controller send to (??)
