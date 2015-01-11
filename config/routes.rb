@@ -10,15 +10,20 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
 
-  # Backbone
+  # # Backbone
+
+  # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:show]
   end
 
 
-  # Rails I deliberately keep these sparse/conservative, only creating
-  # routes for essential actions inasmuch as possible. There are still
-  # some orphaned routes, though, sadly.
+  # # Rails
+
+  # I deliberately keep these sparse/conservative, only creating routes
+  # for essential actions inasmuch as possible. There are still some
+  # orphaned routes, though, sadly.
+  # TODO: Clean up orphaned routes.
   resources :users do
     resources :enrollments, only: [:index, :create]
   end

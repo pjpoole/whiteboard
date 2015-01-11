@@ -9,8 +9,7 @@
 <body>
 <%= render 'layouts/errors' %>
 
-<%= render 'layouts/sidebar' if signed_in? %>
-
+<%= render 'layouts/backbone_sidebar' if signed_in? %>
 <main class="content">
   <%= yield %>
 </main>
