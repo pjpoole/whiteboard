@@ -5,3 +5,6 @@ At the most rigid, an Institution has many Programs, which have Courses. Instanc
 At the most flexible, a person will create a Class which will have attached resources, and which students can enroll in and complete. They will be the de facto Instructor but that will mostly entail collecting resources and composing the curriculum.
 
 An Enrollment is the primary identifier for grading and attendance.
+
+
+var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
