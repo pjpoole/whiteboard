@@ -1,8 +1,24 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  # # Rails root
+  # root to: 'sessions#new'
 
+  # Backbone root
+  root to: 'static_pages#root'
+
+
+  # Same for Rails and Backbone
   resource :session, only: [:new, :create, :destroy]
 
+
+  # Backbone
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [:show]
+  end
+
+
+  # Rails I deliberately keep these sparse/conservative, only creating
+  # routes for essential actions inasmuch as possible. There are still
+  # some orphaned routes, though, sadly.
   resources :users do
     resources :enrollments, only: [:index, :create]
   end
