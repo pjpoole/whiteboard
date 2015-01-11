@@ -24,14 +24,12 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
       sectionsInstructed: this.sectionsInstructed
     });
 
-
-
-    this._swapview(view);
+    this._swapView(view);
   },
 
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
-    this.$rootEl(view.render().$el)
+    this.$rootEl.html(view.render().$el)
   }
 });

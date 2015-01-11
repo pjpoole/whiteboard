@@ -5,15 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= yield :head %>
 </head>
 <body>
 <%= render 'layouts/errors' %>
 
 <%= render 'layouts/backbone_sidebar' if signed_in? %>
 
-<main id="content" class="content">
-  <%= yield %>
-</main>
+<main id="content" class="content"><%= yield %></main>
 
 <%= render 'layouts/footer' if signed_in? %>
 

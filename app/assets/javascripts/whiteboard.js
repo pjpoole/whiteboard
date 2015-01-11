@@ -3,13 +3,9 @@ window.Whiteboard = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    new Whiteboard.Routers.Router();
+  initialize: function(options) {
+    new Whiteboard.Routers.Router({ user_id: options.user_id });
 
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Whiteboard.initialize();
-});

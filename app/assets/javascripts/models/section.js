@@ -1,4 +1,4 @@
-Whiteboard.Models.Sections = Backbone.Model.extend({
+Whiteboard.Models.Section = Backbone.Model.extend({
   url: function () {
     if (this.collection.instructs) {
       return '/api/sections/' + this.user_id;
