@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   #
   # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
-    # get :dashboard, to: 'dashboard#index', as: 'dashboard'
     resources :users, only: [:show] do
       resources :sections, only: [:new, :create, :index]
       resources :enrollments, only: [:create, :index]
