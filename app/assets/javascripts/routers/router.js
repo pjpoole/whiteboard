@@ -24,8 +24,10 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     this.sectionsInstructed.fetch();
 
     var view = new Whiteboard.Views.Dashboard({
-      sections: this.sections,
-      sectionsInstructed: this.sectionsInstructed
+      sections: {
+        'sections': this.sections,
+        'instructed': this.sectionsInstructed
+      }
     });
 
     this._swapView(view);
