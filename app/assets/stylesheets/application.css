@@ -15,7 +15,7 @@
  */
 
 html, body, section, header, footer, nav, form,
-label, input, h1, p, ul, li, button,
+label, input, textarea, h1, p, ul, li, button,
 a
   {
   margin: 0;
@@ -32,7 +32,13 @@ body {
   background: #e6e6e6;
 }
 
-label, input, button {
+label, input {
+  display: block;
+  margin: 10px 0;
+  padding: 5px 0;
+}
+
+button {
   display: block;
   margin: 10px;
   padding: 5px;
@@ -62,6 +68,35 @@ a {
   display: block;
 }
 
-button#search-sections {
-  background: red;
+.modal-backdrop {
+  background: black;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1001;
+}
+
+.modal-form {
+  position: absolute;
+  left: 50%;
+  z-index: 1002;
+}
+
+.modal-form div {
+  margin: 100px;
+  position: relative;
+  left: -50%;
+  width: 540px;
+  background: #e6e6e6;
+  padding: 30px;
+}
+
+.modal-input {
+  border: 0;
+  width: 530px;
+  margin: 0;
+  padding: 5px;
 }

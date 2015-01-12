@@ -14,6 +14,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
+    'sections/new': 'createSection',
     'sections/:id': 'showSection'
     // 'profile': 'showProfile'
   },
@@ -31,6 +32,16 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+
+  createSection: function () {
+    var section = new Whiteboard.Models.Section();
+
+    var view = new Whiteboard.Views.SectionModal({
+      model: section
+    });
+    $('body').prepend(view.render().$el);
+    view.delegateEvents();
   },
 
   showSection: function (id) {

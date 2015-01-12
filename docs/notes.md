@@ -12,3 +12,5 @@ var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className',
 spellcheck="true" attribute on HTML elements
 
 tabindex: negative = focusable but not tabbable
+
+how do you clean up a complex router?
