@@ -7,25 +7,28 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     this.sections = new Whiteboard.Collections.Sections([], {
       user_id: this.user_id
     });
-    this.sectionsInstructed = new Whiteboard.Collections.Sections([], {
-      user_id: this.user_id,
-      instructs: true
+    this.sectionsInstructed = new Whiteboard.Collections.SectionsInstructed([], {
+      user_id: this.user_id
     });
   },
 
   routes: {
     '': 'dashboard',
+    'sections/new': 'createSection',
     'sections/:id': 'showSection'
     // 'profile': 'showProfile'
   },
 
   dashboard: function () {
     this.sections.fetch();
+
     this.sectionsInstructed.fetch();
 
     var view = new Whiteboard.Views.Dashboard({
-      sections: this.sections,
-      sectionsInstructed: this.sectionsInstructed
+      sections: {
+        'sections': this.sections,
+        'instructed': this.sectionsInstructed
+      }
     });
 
     this._swapView(view);

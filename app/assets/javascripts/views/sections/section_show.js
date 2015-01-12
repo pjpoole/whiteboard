@@ -6,7 +6,7 @@ Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.model = options.model;
-    
+
     this.listenTo(this.model, 'sync', this.render);
   },
 
