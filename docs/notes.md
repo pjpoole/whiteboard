@@ -8,3 +8,7 @@ An Enrollment is the primary identifier for grading and attendance.
 
 
 var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
+
+spellcheck="true" attribute on HTML elements
+
+tabindex: negative = focusable but not tabbable
