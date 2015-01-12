@@ -19,6 +19,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   },
 
   dashboard: function () {
+    this.sections.fetch();
+    this.sectionsInstructed.fetch();
+
     var view = new Whiteboard.Views.Dashboard({
       sections: this.sections,
       sectionsInstructed: this.sectionsInstructed

@@ -12,7 +12,7 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
   renderSections: function () {
     var view = new Whiteboard.Views.SectionsIndex({
       collection: this.sections,
-      title: "You are a student in:"
+      heading: "You are a student in:"
     });
 
     this.addSubview('#all-classes', view);
@@ -21,7 +21,7 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
   renderSectionsInstructed: function () {
     var view = new Whiteboard.Views.SectionsIndex({
       collection: this.sectionsInstructed,
-      title: "You are teaching:"
+      heading: "You are teaching:"
     });
 
     this.addSubview('#all-classes', view);
