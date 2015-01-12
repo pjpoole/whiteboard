@@ -3,7 +3,7 @@ json.extract! @section, :id, :title, :description, :instructor_id
 json.instructor do
   json.id @section.instructor.id
   json.name @section.instructor.name
-  json.email @section.instructor.email
+  # json.email @section.instructor.email
 end
 
 json.events @section.events do |event|
