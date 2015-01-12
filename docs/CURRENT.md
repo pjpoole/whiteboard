@@ -1,6 +1,10 @@
-* Implement CompositeView
-* Static page
+* SectionShow composite view: events
+* Add course, add enrollment
+* UserShow / profile
 
+
+
+* Backbone Auth: Session view in top left, overlay sidebar
 
 ---
 Notes
