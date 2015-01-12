@@ -4,36 +4,47 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
   tagName: 'section',
   className: 'dashboard',
 
+
   initialize: function (options) {
-    this.sections = options.sections;
-    this.sectionsInstructed = options.sectionsInstructed;
+    this.sections = {};
+    this.sections['sections'] = options.sections;
+    this.sections['instructed'] = options.sectionsInstructed;
+    this.courseButtons = new Whiteboard.Views.SectionButtons();
+    this.addSubview('#create-search', this.courseButtons);
   },
 
-  renderSections: function () {
+  renderSections: function (sections, options) {
+
     var view = new Whiteboard.Views.SectionsIndex({
-      collection: this.sections,
-      heading: "You are a student in:"
+      collection: sections,
+      heading: options.heading
     });
 
     this.addSubview('#all-classes', view);
   },
 
-  renderSectionsInstructed: function () {
-    var view = new Whiteboard.Views.SectionsIndex({
-      collection: this.sectionsInstructed,
-      heading: "You are teaching:"
-    });
-
-    this.addSubview('#all-classes', view);
-  },
+  // renderSectionsInstructed: function () {
+  //   var view = new Whiteboard.Views.SectionsIndex({
+  //     collection: this.sectionsInstructed,
+  //     heading: "You are teaching:"
+  //   });
+  //
+  //   this.addSubview('#all-classes', view);
+  // },
 
   render: function () {
     var content = this.template();
     this.$el.html(content);
 
-    if (this.sectionsInstructed) this.renderSectionsInstructed();
-    if (this.sections) this.renderSections();
-
+    if (this.sections['instructed']) this.renderSections(
+      this.sections['instructed'], {
+      heading: "You are teaching:"
+    });
+    if (this.sections) this.renderSections(
+      this.sections['sections'], {
+      heading: "You are enrolled in:"
+    });
+    this.attachSubviews();
     return this;
   }
 });

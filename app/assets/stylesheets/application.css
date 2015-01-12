@@ -61,3 +61,7 @@ a {
 .section-buttons {
   display: block;
 }
+
+button#search-sections {
+  background: red;
+}
