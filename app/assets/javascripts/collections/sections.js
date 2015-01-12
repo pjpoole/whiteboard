@@ -9,8 +9,7 @@ Whiteboard.Collections.Sections = Backbone.Collection.extend({
 
   model: Whiteboard.Models.Section,
 
-  initialize: function (options) {
-    // debugger
+  initialize: function (models, options) {
     if (options.instructs) {
       this.instructs = true;
     }

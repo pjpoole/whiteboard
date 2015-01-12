@@ -4,10 +4,10 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
     this.user_id = options.user_id;
 
-    this.sections = new Whiteboard.Collections.Sections({
+    this.sections = new Whiteboard.Collections.Sections([], {
       user_id: this.user_id
     });
-    this.sectionsInstructed = new Whiteboard.Collections.Sections({
+    this.sectionsInstructed = new Whiteboard.Collections.Sections([], {
       user_id: this.user_id,
       instructs: true
     });

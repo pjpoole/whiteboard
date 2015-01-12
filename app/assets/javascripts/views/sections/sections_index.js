@@ -6,11 +6,11 @@ Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.heading = options.heading;
-    this.collection.each(this.addSection, this);
-    this.listenTo(this.collection, 'add', this.addSection);
+    this.collection.each(this.addSectionView, this);
+    this.listenTo(this.collection, 'add', this.addSectionView);
   },
 
-  addSection: function (section) {
+  addSectionView: function (section) {
     var view = new Whiteboard.Views.SectionItemShow({
       model: section
     });

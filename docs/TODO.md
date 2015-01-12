@@ -46,6 +46,7 @@ Tweaks
 * order posts by custom attributes
 
 Bugs
+* Dashboard SectionsIndex adds subview for the Objects hash ? 
 * Opening chrome inspector makes sidebar too short
 
 Unknown
