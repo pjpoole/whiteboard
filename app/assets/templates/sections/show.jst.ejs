@@ -1,4 +1,7 @@
-<h3><%= section.escape('title') %></h3>
-<p class='description'>
-  <%= section.escape('description') %>
-</p>
+<header class='section-header'>
+  <h3><%= section.escape('title') %></h3>
+  <p class='description'><%= section.escape('description') %></p>
+  <p class='instructor'>Instructor: <a href="#/users/<%= section.instructor().id %>"><%= section.instructor().escape('name') %></a></p>
+
+</header>
+<section class='syllabus'></section>

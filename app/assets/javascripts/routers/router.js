@@ -15,8 +15,8 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
-    'sections/:id': 'showSection',
-    'profile': 'showProfile'
+    'sections/:id': 'showSection'
+    // 'profile': 'showProfile'
   },
 
   dashboard: function () {
