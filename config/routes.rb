@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     resources :sections, only: [:index, :show, :create] do
       resources :events, only: [:create, :index]
     end
+
+    resources :events, only: [:show]
   end
 
 

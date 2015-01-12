@@ -6,17 +6,19 @@ module Api
       )
 
       if @event.save
-        render json: @event
+        render :show
       else
         render json: @event.errors.full_messages,
           status: :unprocessable_entity
       end
     end
 
+    def show
+      @event = Event.find(params[:id])
+    end
+
     def index
       @events = Event.where(section_id: params[:section_id]).all
-
-      render :index
     end
 
     private
