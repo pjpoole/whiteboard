@@ -42,3 +42,22 @@ a {
   color: #060;
   text-decoration: underline;
 }
+
+/* "Borrowed" from fb */
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.button-container {
+  float: left;
+}
+
+.section-buttons {
+  display: block;
+}
