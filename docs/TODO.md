@@ -44,6 +44,8 @@ Tweaks
 * status codes for invalid routes
 * Order posts by date
 * order posts by custom attributes
+* write to_builder methods in classes
+* change JBuilder case to camelize: :lower
 
 Bugs
 * Dashboard SectionsIndex adds subview for the Objects hash ?
