@@ -15,6 +15,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
+    'sections/:id': 'showSection',
     'profile': 'showProfile'
   },
 
@@ -25,6 +26,18 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     var view = new Whiteboard.Views.Dashboard({
       sections: this.sections,
       sectionsInstructed: this.sectionsInstructed
+    });
+
+    this._swapView(view);
+  },
+
+  showSection: function (id) {
+    var section = new Whiteboard.Models.Section({ id: id });
+
+    section.fetch();
+
+    var view = new Whiteboard.Views.SectionShow({
+      model: section
     });
 
     this._swapView(view);

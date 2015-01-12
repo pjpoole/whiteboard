@@ -46,8 +46,9 @@ Tweaks
 * order posts by custom attributes
 
 Bugs
-* Dashboard SectionsIndex adds subview for the Objects hash ? 
+* Dashboard SectionsIndex adds subview for the Objects hash ?
 * Opening chrome inspector makes sidebar too short
+* handle 404s from routes
 
 Unknown
 * sessions controller send to (??)
