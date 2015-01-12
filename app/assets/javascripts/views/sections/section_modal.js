@@ -17,8 +17,9 @@ Whiteboard.Views.SectionModal = Backbone.View.extend({
       description: this.$('#section_description').val()
     }, {
       success: function () {
-        Backbone.history.navigate(this.model)
-      }
+        this.remove();
+        Backbone.history.navigate('#/sections/' + this.model.id, true);
+      }.bind(this)
     });
   },
 

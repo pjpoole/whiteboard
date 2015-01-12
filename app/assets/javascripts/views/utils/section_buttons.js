@@ -5,13 +5,20 @@ Whiteboard.Views.SectionButtons = Backbone.View.extend({
   template: JST['utils/section_buttons'],
 
   events: {
-    'click .create-section': 'create',
+    'click .create-section': 'showModal',
     'click .search-sections': 'search'
   },
 
-  create: function () {
-    Backbone.history.navigate('#/sections/new', true);
+  showModal: function () {
+    var section = new Whiteboard.Models.Section();
+
+    var view = new Whiteboard.Views.SectionModal({
+      model: section
+    });
+    $('body').prepend(view.render().$el);
+    view.delegateEvents();
   },
+
 
   search: function () {
     Backbone.history.navigate('#/sections', true);

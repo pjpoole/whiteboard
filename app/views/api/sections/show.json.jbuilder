@@ -7,7 +7,6 @@ json.instructor do
 end
 
 json.events @section.events do |event|
-  
   json.name event.name
   json.date event.date
   json.event_type event.event_type

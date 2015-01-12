@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :enrollments, only: [:create, :index]
     end
 
-    resources :sections, only: [:index, :show]
+    resources :sections, only: [:index, :show, :create]
   end
 
 
