@@ -3,15 +3,6 @@
 Bucket  
 *anything that doesn't fit elsewhere*
 
-## Testing
-Main
-* Unit tests
-* Faker
-* Factory-girl
-
-Test branch
-* populate test database
-
 ## Development
 MVC/Rails
 * Models *could* validate on presence of their associations
@@ -47,6 +38,7 @@ Major Features
 * body markdown formatting
 * <opt> commentable concern
 
+
 Features
 * email confirmation
 * calendar
@@ -58,6 +50,7 @@ Features
 * event uploads
 * sorting (events, posts, comments)
 * filtering (events, posts, comments)
+
 
 Tweaks
 * status codes for invalid routes
@@ -71,16 +64,28 @@ Tweaks
 * change JBuilder case to camelize: :lower
 * pass tagNames to views as appropriate
 
+
 Bugs
 * Dashboard SectionsIndex adds subview for the Objects hash ?
 * Opening chrome inspector makes sidebar too short
 * handle 404s from routes
 
+
+
 Unknown
 * sessions controller send to (??)
 
+## Testing
+Main
+* Unit tests
+* Faker
+* Factory-girl
 
-Styles/Visual
+Test branch
+* populate test database
+
+
+## Styles/Visual
 * refactor css into scss files based on scopes
   * learn more about scss
 * generate wireframe mockup of site main stylesheet
