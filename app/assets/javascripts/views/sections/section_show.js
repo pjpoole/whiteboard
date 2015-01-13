@@ -6,7 +6,11 @@ Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.model = options.model;
+    this.eventListView = new Whiteboard.Views.EventsList({
+      collection: this.model.eevents()
+    });
 
+    this.addSubview('.syllabus', this.eventListView);
     this.listenTo(this.model, 'sync', this.render);
   },
 
@@ -14,8 +18,8 @@ Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
     var content = this.template({
       section: this.model
     });
-
     this.$el.html(content);
+    this.attachSubviews();
     return this;
   }
 });
