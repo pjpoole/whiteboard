@@ -2,6 +2,7 @@
 
 Bucket  
 *anything that doesn't fit elsewhere*
+* send tagName into subviews
 
 ## Development
 MVC/Rails

@@ -36,14 +36,17 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   sectionsIndex: function () {
     var allSections = new Whiteboard.Collections.Sections();
-
     allSections.fetch();
-    
+
+    var view = new Whiteboard.Views.SectionsIndex({
+      collection: allSections
+    });
+
+    this._swapView(view);
   },
 
   sectionShow: function (id) {
     var section = new Whiteboard.Models.Section({ id: id });
-
     section.fetch();
 
     var view = new Whiteboard.Views.SectionShow({
