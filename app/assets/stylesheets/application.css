@@ -102,3 +102,7 @@ a {
   margin: 0;
   padding: 5px;
 }
+
+td {
+  min-width: 200px;
+}
