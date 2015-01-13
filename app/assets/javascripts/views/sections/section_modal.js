@@ -1,12 +1,4 @@
-Whiteboard.Views.SectionModal = Backbone.View.extend({
-  tagName: 'div',
-  className: 'modal',
-
-  events: {
-    'submit': 'create',
-    'click .modal-backdrop': 'dismiss'
-  },
-
+Whiteboard.Views.SectionModal = Backbone.ModalView.extend({
   template: JST['sections/form'],
 
   create: function (event) {
@@ -21,16 +13,5 @@ Whiteboard.Views.SectionModal = Backbone.View.extend({
         Backbone.history.navigate('#/sections/' + this.model.id, true);
       }.bind(this)
     });
-  },
-
-  dismiss: function (event) {
-    event.preventDefault();
-    this.remove();
-  },
-
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
-    return this;
   }
 });
