@@ -4,6 +4,15 @@ Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
 
   template: JST['sections/index'],
 
+  searchOptions: {
+    selector: '.sections-body tr',
+    searchBox: '#section-search'
+  },
+
+  events: {
+    'keydown #section-search': 'liveSearch'
+  },
+
   initialize: function (options) {
     this.addSectionList();
   },
@@ -22,3 +31,5 @@ Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
     return this;
   }
 });
+
+_.extend(Whiteboard.Views.SectionsIndex.prototype, Whiteboard.Utils.LiveSearch);

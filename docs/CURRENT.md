@@ -3,9 +3,7 @@
 
 * events click li: makeEditable
 
-
 * add enrollment
-  * course search
 
 * UserShow / profile
 * Backbone Auth: Session view in top left, overlay sidebar
