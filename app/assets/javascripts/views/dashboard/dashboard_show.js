@@ -16,7 +16,8 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
 
     var view = new Whiteboard.Views.SectionsIndex({
       collection: sections,
-      heading: options.heading
+      heading: options.heading,
+      tagName: 'div'
     });
 
     this.addSubview('#all-classes', view);

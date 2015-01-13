@@ -1,5 +1,5 @@
 Whiteboard.Collections.Sections = Backbone.Collection.extend({
-  url: '/api/sections'
+  url: '/api/sections',
 
-  model: Whiteboard.Models.Section,
+  model: Whiteboard.Models.Section
 });
