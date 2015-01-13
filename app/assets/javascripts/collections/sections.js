@@ -1,11 +1,5 @@
 Whiteboard.Collections.Sections = Backbone.Collection.extend({
-  url: function () {
-    return '/api/users/' + this.user_id + '/enrollments';
-  },
+  url: '/api/sections'
 
   model: Whiteboard.Models.Section,
-
-  initialize: function (models, options) {
-    this.user_id = options.user_id;
-  }
 });
