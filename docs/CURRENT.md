@@ -1,9 +1,13 @@
 * SectionShow composite view: events
-* Add course, add enrollment
+  * events index subview
+
+* events click li: makeEditable
+
+
+* add enrollment
+  * course search
+
 * UserShow / profile
-
-
-
 * Backbone Auth: Session view in top left, overlay sidebar
 
 ---
