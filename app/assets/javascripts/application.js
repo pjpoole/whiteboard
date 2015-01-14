@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require underscore
+//= require moment
 //
 //= require whiteboard
 //
