@@ -10,7 +10,7 @@ Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
   },
 
   addSectionView: function (section) {
-    var view = new Whiteboard.Views.SectionItemShow({
+    var view = new Whiteboard.Views.SectionItem({
       model: section
     });
     this.addSubview('.sections-body', view);

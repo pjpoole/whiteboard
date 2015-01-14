@@ -9,7 +9,7 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
   },
 
   addEventView: function (eevent) {
-    var view = new Whiteboard.Views.EventItemShow({
+    var view = new Whiteboard.Views.EventItem({
       model: eevent
     });
     this.addSubview('.events-body', view);

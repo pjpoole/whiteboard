@@ -9,7 +9,7 @@ Whiteboard.Views.PostsList = Backbone.CompositeView.extend({
   },
 
   addPostView: function (post) {
-    var view = new Whiteboard.Views.PostItemShow({
+    var view = new Whiteboard.Views.PostItem({
       model: post
     });
     this.addSubview('.posts-body', view);

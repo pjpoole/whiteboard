@@ -1,8 +1,8 @@
-Whiteboard.Views.EventItemShow = Backbone.View.extend({
+Whiteboard.Views.PostItem = Backbone.View.extend({
   tagName: 'tr',
-  className: 'event-item',
+  className: 'post-item',
 
-  template: JST['events/item_show'],
+  template: JST['posts/item'],
 
   render: function () {
     var content = this.template({
