@@ -1,4 +1,5 @@
 window.Whiteboard = {
+  Utils: {},
   Models: {},
   Collections: {},
   Views: {},

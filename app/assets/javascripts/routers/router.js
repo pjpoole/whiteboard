@@ -4,7 +4,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
     this.user_id = options.user_id;
 
-    this.sections = new Whiteboard.Collections.Sections([], {
+    this.sections = new Whiteboard.Collections.SectionsEnrolled([], {
       user_id: this.user_id
     });
     this.sectionsInstructed = new Whiteboard.Collections.SectionsInstructed([], {
@@ -14,8 +14,8 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
-    'sections/new': 'createSection',
-    'sections/:id': 'showSection'
+    'sections': 'sectionsIndex',
+    'sections/:id': 'sectionShow'
     // 'profile': 'showProfile'
   },
 
@@ -34,9 +34,19 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  showSection: function (id) {
-    var section = new Whiteboard.Models.Section({ id: id });
+  sectionsIndex: function () {
+    var allSections = new Whiteboard.Collections.Sections();
+    allSections.fetch();
 
+    var view = new Whiteboard.Views.SectionsIndex({
+      collection: allSections
+    });
+
+    this._swapView(view);
+  },
+
+  sectionShow: function (id) {
+    var section = new Whiteboard.Models.Section({ id: id });
     section.fetch();
 
     var view = new Whiteboard.Views.SectionShow({

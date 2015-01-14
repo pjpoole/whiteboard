@@ -4,25 +4,33 @@ Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
 
   template: JST['sections/index'],
 
-  initialize: function (options) {
-    this.heading = options.heading;
-    this.collection.each(this.addSectionView, this);
-    this.listenTo(this.collection, 'add', this.addSectionView);
+  searchOptions: {
+    selector: '.sections-body tr',
+    searchBox: '#section-search'
   },
 
-  addSectionView: function (section) {
-    var view = new Whiteboard.Views.SectionItemShow({
-      model: section
+  events: {
+    'keydown #section-search': 'liveSearch',
+    'keyup #section-search': 'liveSearch'
+  },
+
+  initialize: function (options) {
+    this.addSectionList();
+  },
+
+  addSectionList: function (sections) {
+    var view = new Whiteboard.Views.SectionsList({
+      collection: this.collection
     });
-    this.addSubview('.sections-body', view);
+    this.addSubview('#sections-list', view);
   },
 
   render: function () {
-    var content = this.template({
-      heading: this.heading
-    });
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;
   }
 });
+
+_.extend(Whiteboard.Views.SectionsIndex.prototype, Whiteboard.Utils.LiveSearch);

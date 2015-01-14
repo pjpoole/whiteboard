@@ -14,3 +14,7 @@ spellcheck="true" attribute on HTML elements
 tabindex: negative = focusable but not tabbable
 
 how do you clean up a complex router?
+
+escape: 27
+count event listeners:
+$._data( $('.element')[0], 'events' );

@@ -1,5 +1,5 @@
 Whiteboard.Views.SectionButtons = Backbone.View.extend({
-  tagName: 'section',
+  tagName: 'div',
   className: 'clearfix section-buttons',
 
   template: JST['utils/section_buttons'],
