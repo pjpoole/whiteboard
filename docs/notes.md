@@ -18,3 +18,8 @@ how do you clean up a complex router?
 escape: 27
 count event listeners:
 $._data( $('.element')[0], 'events' );
+
+_.result = Object value or function result
+
+$& = portion after the matched expression
+$` = portion before the matched expression
