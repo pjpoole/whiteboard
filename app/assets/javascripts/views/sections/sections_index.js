@@ -10,7 +10,8 @@ Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
   },
 
   events: {
-    'keydown #section-search': 'liveSearch'
+    'keydown #section-search': 'liveSearch',
+    'keyup #section-search': 'liveSearch'
   },
 
   initialize: function (options) {
