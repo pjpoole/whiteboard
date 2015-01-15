@@ -7,7 +7,7 @@ Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.model = options.model;
     this.eventListView = new Whiteboard.Views.EventsList({
-      collection: this.model.eevents()
+      collection: this.model.vents()
     });
 
     this.addSubview('.syllabus', this.eventListView);

@@ -8,9 +8,10 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addEventView);
   },
 
-  addEventView: function (eevent) {
+  addEventView: function (vent) {
     var view = new Whiteboard.Views.EventItem({
-      model: eevent
+      model: vent,
+      collection: this.collection
     });
     this.addSubview('.events-body', view);
   },
