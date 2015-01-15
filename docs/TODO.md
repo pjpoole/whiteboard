@@ -2,18 +2,25 @@
 Migrated to trello
 
 Bucket  
-* Time formatting
-* Time ranges
-* Recurring events
-* user timezone preference (get timezone)
-* push notifications to user (how?)
-* router before and after action callbacks
+* TWEAK: Time formatting
+* FEATURE: Time ranges
+* FEATURE: Recurring events
+* FEATURE: user timezone preference (get timezone)
+* MAJOR: push notifications to user (how?)
+* REFACTOR: router before and after action callbacks
 
-* table sortable widget
-* modal controller - app level
+* FEATURE: table sortable widget
+* REFACTOR: modal controller - app level
 
-* preserve requested route when redirected to sign-in page
+* FEATURE: preserve requested route when redirected to sign-in page
 
-* Why do we clone attributes?
+* QUESTION: Why do we clone attributes?
 
-* refactor repetitive code up the hierarchy
+* REFACTOR: refactor repetitive code up the hierarchy
+
+* TWEAK: Add indicator showing which direction the column is sorted
+* BUG: subviews re-rendering way too often: section show re-renders four-five times
+
+* TWEAK: Activate Section
+* TWEAK: Constrain event creation to <datalist> values
+* FIX: event_form.js replace setTimeout on '.select-after-input'

@@ -6,6 +6,8 @@ At the most flexible, a person will create a Class which will have attached reso
 
 An Enrollment is the primary identifier for grading and attendance.
 
+Don't forget to `bundle update` !
+
 
 var viewOptions = ['model', 'collection', 'el', 'id', 'attributes', 'className', 'tagName', 'events'];
 
