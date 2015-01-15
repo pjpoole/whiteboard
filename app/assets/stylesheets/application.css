@@ -49,6 +49,10 @@ button {
   color: #fff;
 }
 
+input[type=text] {
+  background: #fff;
+}
+
 a {
   color: #060;
   text-decoration: underline;

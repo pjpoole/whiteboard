@@ -9,6 +9,8 @@ Bucket
 * push notifications to user (how?)
 * router before and after action callbacks
 
+* table sortable widget
+
 * preserve requested route when redirected to sign-in page
 
 * Why do we clone attributes?
