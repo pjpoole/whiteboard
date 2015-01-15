@@ -3,9 +3,20 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
 
   template: JST['events/list'],
 
+  events: {
+    'click .events-header td': 'sortColumn'
+  },
+
   initialize: function () {
+    // default sort by date
+    // TODO: user prefs
+    this.comparator = 'date';
+    this.sign = 1;
+
     this.collection.each(this.addEventView, this);
     this.listenTo(this.collection, 'add', this.addEventView);
+    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'sort', this.refreshOrder);
   },
 
   addEventView: function (vent) {
@@ -16,6 +27,10 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
     this.addSubview('.events-body', view);
   },
 
+  refreshOrder: function () {
+    this.resortSubviews('.events-body');
+  },
+
   render: function () {
     var content = this.template();
 
@@ -24,3 +39,5 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
     return this;
   }
 });
+
+_.extend(Whiteboard.Views.EventsList.prototype, Whiteboard.Utils.SortableColumns);

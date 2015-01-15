@@ -1,3 +1,3 @@
-<td><%= model.get('date') %></td>
-<td><%= model.escape('name') %></td>
+<td><%= moment(model.get('date')).format('MMM D') %></td>
+<td><a href="#/events/<%= model.id %>"><%= model.escape('name') %></a></td>
 <td><%= model.get('event_type') %></td>
