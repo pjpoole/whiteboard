@@ -2,7 +2,8 @@ Whiteboard.Collections.Events = Backbone.Collection.extend({
   url: '/api/events',
   model: Whiteboard.Models.Event,
 
-  initialize: function () {
+  initialize: function (models, options) {
+    this.section = options.section;
     this.sortVar = 'date';
     this.sign = 1;
   },

@@ -21,10 +21,10 @@ Rails.application.routes.draw do
     end
 
     resources :sections, only: [:index, :show, :create] do
-      resources :events, only: [:create, :index]
+      resources :events, only: [:index]
     end
 
-    resources :events, only: [:show]
+    resources :events, only: [:create, :show]
   end
 
 

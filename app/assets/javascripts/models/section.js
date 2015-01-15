@@ -10,7 +10,7 @@ Whiteboard.Models.Section = Backbone.Model.extend({
 
   vents: function () {
     if (!this._vents) {
-      this._vents = new Whiteboard.Collections.Events();
+      this._vents = new Whiteboard.Collections.Events({}, { section: this });
     }
     return this._vents;
   },
