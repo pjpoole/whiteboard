@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/selectmenu
+ *
  */
 
 html, body, section, header, footer, nav, form,
