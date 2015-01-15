@@ -8,13 +8,6 @@
   <%= yield :head %>
 </head>
 <body>
-<%= render 'layouts/errors' %>
-
-<%= render 'layouts/backbone_sidebar' if signed_in? %>
-
-<main id="content" class="content"><%= yield %></main>
-
-<%= render 'layouts/footer' if signed_in? %>
-
+  <main id="content" class="content"><%= yield %></main>
 </body>
 </html>
