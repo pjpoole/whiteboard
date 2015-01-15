@@ -10,7 +10,10 @@ Bucket
 * router before and after action callbacks
 
 * table sortable widget
+* modal controller - app level
 
 * preserve requested route when redirected to sign-in page
 
 * Why do we clone attributes?
+
+* refactor repetitive code up the hierarchy

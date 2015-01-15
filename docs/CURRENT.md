@@ -1,12 +1,13 @@
 * events click tr - view post
 * event view
+* Forum view
 * new post - separate button
 * posts show view - section index
 
 * events click tr: makeEditable - only in syllabus view
   * tabbable edit fields
 
-* 
+
 
 * add enrollment
 
