@@ -18,7 +18,8 @@
 
 html, body, section, header, footer, nav, form,
 table, thead, tbody, tr, td,
-label, input, textarea, h1, p, ul, li, button,
+label, input, textarea, button, select,
+h1, p, ul, li,
 a
   {
   margin: 0;
@@ -38,10 +39,19 @@ body {
   color: #333;
 }
 
-label, input {
+label, input, select {
   display: block;
+  background: #fff;
   margin: 10px 0;
   padding: 5px 10px;
+}
+
+tr input, tr select {
+  display: block;
+  margin: auto;
+  height: 34px;
+  width: 95%;
+  box-sizing: border-box;
 }
 
 button {
@@ -51,9 +61,13 @@ button {
   color: #fff;
 }
 
-input[type=text] {
-  background: #fff;
+:focus {
+  border: 1px solid #0c0;
 }
+
+/*input[type=text] {
+  background: #fff;
+}*/
 
 a {
   color: #060;
