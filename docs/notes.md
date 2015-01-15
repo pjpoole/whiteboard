@@ -1,3 +1,7 @@
+Questions:
+Why _.clone??
+
+
 A course doesn't have to be tied to any dates or even simultaneous enrollments
 
 At the most rigid, an Institution has many Programs, which have Courses. Instances of these courses, Classes, meet during specific Terms, using specific Resources (rooms, etc). When a Student has completed a number of classes with requisite Grades, the student will be deemed to have achieved a Degree in the Program.
