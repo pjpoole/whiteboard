@@ -3,6 +3,8 @@ Migrated to trello
 
 Bucket  
 * Time formatting
+* Time ranges
+* Recurring events
 * user timezone preference (get timezone)
 * push notifications to user (how?)
 * router before and after action callbacks
