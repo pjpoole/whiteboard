@@ -27,3 +27,4 @@ Bucket
 * FIX: label backgrounds are white
 * FIX: login input areas are wrong width
 * FIX: login h1 needs styling
+* FIX: Session create form is transparent

@@ -25,14 +25,19 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
 
-    if (!_.isEmpty(this.sections['instructed'])) this.renderSections(
-      this.sections['instructed'], {
-      heading: "You are teaching:"
-    });
-    if (!_.isEmpty(this.sections['sections'])) this.renderSections(
-      this.sections['sections'], {
-      heading: "You are enrolled in:"
-    });
+    if (!this.sections['instructed'].isEmpty()) {
+      this.renderSections(
+        this.sections['instructed'], {
+          heading: "You are teaching:"
+      });
+    }
+    if (!this.sections['sections'].isEmpty()) {
+      this.renderSections(
+        this.sections['sections'], {
+        heading: "You are enrolled in:"
+      });
+    }
+    
     this.attachSubviews();
     return this;
   }
