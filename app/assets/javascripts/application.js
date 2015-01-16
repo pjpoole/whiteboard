@@ -16,11 +16,7 @@
 //= require jquery-ui/selectmenu
 //= require underscore
 //= require backbone
-//= require underscore
 //= require moment
-//
-// Is it wrong to monkey-patch the Backbone router?
-//= require router_callbacks
 //
 //= require whiteboard
 //
