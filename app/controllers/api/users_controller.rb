@@ -14,7 +14,7 @@ module Api
 
       if @user.save
         sign_in(@user)
-        render partial: 'api/sessions/show'
+        render 'api/sessions/show'
       else
         head :unprocessable_entity
       end

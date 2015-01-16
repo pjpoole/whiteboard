@@ -6,7 +6,6 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
 
 
   initialize: function (options) {
-    this.sections;
     this.sections = options.sections;
     this.courseButtons = new Whiteboard.Views.SectionButtons();
     this.addSubview('#create-search', this.courseButtons);
@@ -26,11 +25,11 @@ Whiteboard.Views.Dashboard = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
 
-    if (this.sections['instructed']) this.renderSections(
+    if (!_.isEmpty(this.sections['instructed'])) this.renderSections(
       this.sections['instructed'], {
       heading: "You are teaching:"
     });
-    if (this.sections) this.renderSections(
+    if (!_.isEmpty(this.sections['sections'])) this.renderSections(
       this.sections['sections'], {
       heading: "You are enrolled in:"
     });

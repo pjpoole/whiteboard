@@ -3,7 +3,8 @@ Backbone.ModalView = Backbone.View.extend({
   className: 'modal',
 
   initialize: function (options) {
-    this.dismissable = options.dismissable || true;
+    _.defaults(options, { dismissable: true });
+    this.dismissable = options.dismissable;
 
     if (this.dismissable) {
       $(window).on('keydown', this.maybeDismiss.bind(this));
@@ -16,12 +17,17 @@ Backbone.ModalView = Backbone.View.extend({
     'keydown': 'maybeDismiss'
   },
 
-  dismiss: function (event) {
-    event.preventDefault();
+  dismiss: function () {
     if (!this.dismissable) return;
 
-    $(window).off('keydown');
     this.remove();
+  },
+
+  remove: function (event) {
+    event && event.preventDefault();
+
+    $(window).off('keydown');
+    Backbone.View.prototype.remove.call(this);
   },
 
   maybeDismiss: function (event) {

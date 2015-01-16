@@ -6,7 +6,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
-    // 'users/new': 'accountCreate',
+    'users/new': 'accountCreate',
     // 'users/:id': 'userShow',
     'session/new': 'signIn',
     'sections': 'sectionsIndex',
@@ -56,6 +56,20 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
     var view = new Whiteboard.Views.SectionShow({
       model: section
+    });
+
+    this._swapView(view);
+  },
+
+
+  accountCreate: function (callback) {
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var newUser = new Whiteboard.Models.User();
+
+    var view = new Whiteboard.Views.UserNew({
+      model: newUser,
+      dismissable: false
     });
 
     this._swapView(view);

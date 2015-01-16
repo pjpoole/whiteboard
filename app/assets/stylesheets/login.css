@@ -3,36 +3,35 @@
   left: 50%;
 }
 
-.user-create {
+.create-form {
   position: relative;
   left: -50%;
   width: 500px;
   padding: 50px;
-  margin: 40px 0;
   background: lightgreen;
   font-size: 20px;
 }
 
-.user-create h1 {
+.create-form h1 {
   text-align: center;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.user-create label {
+.create-form label {
   display: block;
   width: 100%;
   padding: 10px 0;
 }
 
-.user-create input {
+.create-form input {
   display: block;
   width: 480px;
   padding: 10px;
 }
 
-.user-create button {
+.create-form button {
   margin: 20px 0;
   padding: 10px;
 }

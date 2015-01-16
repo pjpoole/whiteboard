@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # TODO: show route
     resource :session, only: [:create, :show, :destroy]
 
-    resources :users, only: [:show] do
+    resources :users, only: [:create, :show] do
       resources :sections, only: [:new, :create, :index]
       resources :enrollments, only: [:create, :index]
     end
