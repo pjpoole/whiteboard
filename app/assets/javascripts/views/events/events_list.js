@@ -13,12 +13,16 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
     this.comparator = 'date';
     this.sign = 1;
 
-    this.eventFormView = new Whiteboard.Views.EventForm({
-      model: new Whiteboard.Models.Event(),
-      collection: this.collection
-    });
+    var sections = Whiteboard.currentUser.sectionsInstructed();
+    if (sections.get(this.collection.section.id)) {
+      this.eventFormView = new Whiteboard.Views.EventForm({
+        model: new Whiteboard.Models.Event(),
+        collection: this.collection
+      });
 
-    this.addSubview('.event-list-form', this.eventFormView);
+      this.addSubview('.event-list-form', this.eventFormView);
+    }
+
     this.collection.each(this.addEventView, this);
 
 

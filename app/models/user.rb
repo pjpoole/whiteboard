@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
   end
 
 
+  def can_see?(section)
+    self.enrolled_in?(section) || self.teaches?(section)
+  end
+
   def enrolled_in?(section)
     self.classes.include?(section)
   end
