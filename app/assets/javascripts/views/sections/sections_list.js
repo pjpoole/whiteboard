@@ -5,6 +5,7 @@ Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.heading = options.heading;
+
     this.collection.each(this.addSectionView, this);
     this.listenTo(this.collection, 'add', this.addSectionView);
   },

@@ -36,7 +36,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       'user[email]': options.email,
       'user[password]': options.password
     };
-    debugger
+
     $.ajax({
       url: this.url,
       type: 'POST',
@@ -44,7 +44,6 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       dataType: 'json',
       success: function (data) {
         model.parse(data);
-        debugger
         model.set(data);
         options.success && options.success();
       },
