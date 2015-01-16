@@ -1,5 +1,5 @@
 Whiteboard.Models.User = Backbone.Model.extend({
-  url: '/api/users',
+  urlRoot: '/api/users',
 
   memberOf: function (section) {
     if (!section) return;
@@ -49,6 +49,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       type: 'POST',
       data: credentials,
       dataType: 'json',
+      async: false,
       success: function (data) {
         model.parse(data);
         model.set(data);

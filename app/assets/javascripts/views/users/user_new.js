@@ -21,6 +21,7 @@ Whiteboard.Views.UserNew = Backbone.ModalView.extend({
         password_verify: $('#user_password_verify').val()
       }}, {
       success: function (model) {
+        Whiteboard.currentUser.set(model);
         Backbone.history.navigate('', { trigger: true });
       }.bind(this),
       error: function () {
