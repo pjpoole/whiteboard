@@ -2,8 +2,12 @@ Backbone.ModalView = Backbone.View.extend({
   tagName: 'div',
   className: 'modal',
 
-  initialize: function () {
-    $(window).on('keydown', this.maybeDismiss.bind(this));
+  initialize: function (options) {
+    this.dismissable = options.dismissable || true;
+
+    if (this.dismissable) {
+      $(window).on('keydown', this.maybeDismiss.bind(this));
+    }
   },
 
   events: {
@@ -14,12 +18,14 @@ Backbone.ModalView = Backbone.View.extend({
 
   dismiss: function (event) {
     event.preventDefault();
+    if (!this.dismissable) return;
+
     $(window).off('keydown');
     this.remove();
   },
 
   maybeDismiss: function (event) {
-    if (event.keyCode === 27) {
+    if (this.dismissable && event.keyCode === 27) {
       $(window).off('keydown');
       this.remove();
     }
