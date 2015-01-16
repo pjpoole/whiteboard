@@ -13,7 +13,8 @@ Whiteboard.Views.SectionButtons = Backbone.View.extend({
     var section = new Whiteboard.Models.Section();
 
     var view = new Whiteboard.Views.SectionModal({
-      model: section
+      model: section,
+      collection: this.collection
     });
     $('body').prepend(view.render().$el);
     view.delegateEvents();

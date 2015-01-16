@@ -8,6 +8,8 @@ Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
 
     this.collection.each(this.addSectionView, this);
     this.listenTo(this.collection, 'add', this.addSectionView);
+    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'all', this.showEvent)
   },
 
   addSectionView: function (section) {
@@ -15,6 +17,10 @@ Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
       model: section
     });
     this.addSubview('.sections-body', view);
+  },
+
+  showEvent: function () {
+    
   },
 
   render: function () {
