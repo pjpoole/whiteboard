@@ -5,7 +5,12 @@ window.Whiteboard = {
   Views: {},
   Routers: {},
   initialize: function(options) {
-    new Whiteboard.Routers.Router({ user_id: options.user_id });
+    this.currentUser = new Whiteboard.Models.CurrentUser();
+    this.currentUser.fetch();
+
+    Whiteboard.router = new Whiteboard.Routers.Router({
+      $rootEl: $('#content')
+    });
 
     Backbone.history.start();
   }

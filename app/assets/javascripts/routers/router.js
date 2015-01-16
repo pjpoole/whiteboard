@@ -22,7 +22,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   dashboard: function () {
     this.sections.fetch();
 
-    this.sectionsInstructed.fetch();
+  dashboard: function () {
+    var callback = this.dashboard.bind(this);
+    if (!this._requireSignedIn(callback)) { return };
 
     var view = new Whiteboard.Views.Dashboard({
       sections: {
@@ -35,6 +37,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   },
 
   sectionsIndex: function () {
+    var callback = this.sectionsIndex.bind(this);
+    if (!this._requireSignedIn(callback)) { return };
+
     var allSections = new Whiteboard.Collections.Sections();
     allSections.fetch();
 
@@ -46,6 +51,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   },
 
   sectionShow: function (id) {
+    var callback = this.sectionsShow.bind(this);
+    if (!this._requireSignedIn(callback)) { return };
+
     var section = new Whiteboard.Models.Section({ id: id });
     section.fetch();
 
@@ -54,6 +62,42 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(view);
+  },
+
+  signIn: function (callback) {
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var view = new Whiteboard.Views.SignIn({
+      callback: callback,
+      dismissable: false
+    });
+
+    this._swapView(view);
+  },
+
+
+  _requireSignedIn: function (callback) {
+    if (!Whiteboard.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this)
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function (callback) {
+    if (Whiteboard.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function () {
+    Backbone.history.navigate('', { trigger: true });
   },
 
   _swapView: function (view) {
