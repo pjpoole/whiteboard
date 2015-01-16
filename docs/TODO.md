@@ -12,11 +12,6 @@ Bucket
 * FEATURE: table sortable widget
 * REFACTOR: modal controller - app level
 
-* FEATURE: preserve requested route when redirected to sign-in page
-
-* QUESTION: Why do we clone attributes?
-
-* REFACTOR: refactor repetitive code up the hierarchy
 
 * TWEAK: Add indicator showing which direction the column is sorted
 * BUG: subviews re-rendering way too often: section show re-renders four-five times
@@ -31,3 +26,8 @@ Bucket
 * FIX: Adding a course doesn't make it appear on the page
 * FIX: Focus on re-render: swapview
 * FIX: date format on event submit
+* FEATURE: Add copious delete buttons, methods, routes
+* FIX: Column sort insensitive
+* FEATURE: TableBuilder
+* FEATURE: preserve requested route when redirected to sign-in page using before callbacks and monkey patch
+* FIX: Column sizing and text overflow
