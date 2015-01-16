@@ -41,9 +41,12 @@ body {
 
 label, input, select {
   display: block;
-  background: #fff;
   margin: 10px 0;
   padding: 5px 10px;
+}
+
+input, select, textarea {
+  background: #fff;
 }
 
 tr input, tr select {
@@ -64,10 +67,6 @@ button {
 :focus {
   border: 1px solid #0c0;
 }
-
-/*input[type=text] {
-  background: #fff;
-}*/
 
 a {
   color: #060;
