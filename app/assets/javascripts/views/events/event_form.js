@@ -8,7 +8,9 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
   },
 
   render: function (currentDate) {
-    var defaultDate = currentDate || moment().format('YYYY-MM-DD');
+
+    var defaultDate = (moment(currentDate) || moment()).format('YYYY-MM-DD');
+    console.log(defaultDate)
     var content = this.template({ defaultDate: defaultDate });
 
     this.$el.html(content);
@@ -39,6 +41,6 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
 
     setTimeout(function () {
       this.$('.select-after-input').focus();
-    }.bind(this), 50);
+    }.bind(this), 100);
   }
 });
