@@ -12,13 +12,7 @@ Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
 
     this.addSubview('.syllabus', this.eventListView);
     this.listenTo(this.model, 'change', this.render);
-    // this.listenTo(this.model, 'all', this.showCall);
   },
-
-  // showCall: function (name) {
-  //   console.log("name: ", name);
-  //   console.log(this.model)
-  // },
 
   render: function () {
     var content = this.template({
