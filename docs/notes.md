@@ -2,6 +2,7 @@ Questions:
 Why _.clone??
 
 
+
 A course doesn't have to be tied to any dates or even simultaneous enrollments
 
 At the most rigid, an Institution has many Programs, which have Courses. Instances of these courses, Classes, meet during specific Terms, using specific Resources (rooms, etc). When a Student has completed a number of classes with requisite Grades, the student will be deemed to have achieved a Degree in the Program.
@@ -29,3 +30,5 @@ _.result = Object value or function result
 
 $& = portion after the matched expression
 $` = portion before the matched expression
+
+2015 Jan 15 15:40: Router monkeypatch inserts before callback. This callback will temporarily halt execution... right? So I can pull up the user login page if need be, and then allow them through.

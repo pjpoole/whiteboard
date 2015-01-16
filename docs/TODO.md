@@ -24,3 +24,6 @@ Bucket
 * TWEAK: Activate Section
 * TWEAK: Constrain event creation to <datalist> values
 * FIX: event_form.js replace setTimeout on '.select-after-input'
+* FIX: label backgrounds are white
+* FIX: login input areas are wrong width
+* FIX: login h1 needs styling
