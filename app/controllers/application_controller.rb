@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :require_signed_in!
+  # before_action :require_signed_in!
 
   helper_method :current_user, :signed_in?
 
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless signed_in?
   end
 
-  def ensure_correct_user
+  def ensure_correct_user(params)
     unless current_user.id == params[:id].to_i
       flash[:errors] = ["You don't have permission to view this page"]
       redirect_to current_user
