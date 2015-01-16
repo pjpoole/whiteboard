@@ -1,26 +1,21 @@
 Whiteboard.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = $('#content');
-
-    this.user_id = options.user_id;
-
-    this.sections = new Whiteboard.Collections.SectionsEnrolled([], {
-      user_id: this.user_id
-    });
-    this.sectionsInstructed = new Whiteboard.Collections.SectionsInstructed([], {
-      user_id: this.user_id
-    });
+    this.$rootEl = options.$rootEl;
   },
 
   routes: {
     '': 'dashboard',
+    // 'users/new': 'accountCreate',
+    // 'users/:id': 'userShow',
+    'session/new': 'signIn',
     'sections': 'sectionsIndex',
     'sections/:id': 'sectionShow'
     // 'profile': 'showProfile'
   },
 
-  dashboard: function () {
-    this.sections.fetch();
+  before: function (route) {
+    console.log("route: ", route);
+  },
 
   dashboard: function () {
     var callback = this.dashboard.bind(this);
@@ -28,8 +23,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
     var view = new Whiteboard.Views.Dashboard({
       sections: {
-        'sections': this.sections,
-        'instructed': this.sectionsInstructed
+        // TODO: fix
+        sections: Whiteboard.currentUser.sections(),
+        instructed: Whiteboard.currentUser.sectionsInstructed()
       }
     });
 

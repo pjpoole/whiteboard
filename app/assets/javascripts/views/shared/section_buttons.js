@@ -2,7 +2,7 @@ Whiteboard.Views.SectionButtons = Backbone.View.extend({
   tagName: 'div',
   className: 'clearfix section-buttons',
 
-  template: JST['utils/section_buttons'],
+  template: JST['shared/section_buttons'],
 
   events: {
     'click .create-section': 'showModal',
