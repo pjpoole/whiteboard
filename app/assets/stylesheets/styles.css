@@ -30,8 +30,7 @@ ul {
 }
 
 .sidebar {
-  position: absolute;
-  display: block;
+  position: fixed;
   width: 160px;
   height: 100%;
   padding: 20px;

@@ -8,8 +8,9 @@ Whiteboard.Views.Sidebar = Backbone.View.extend({
   },
 
   initialize: function (options) {
+    this.$el.animate({left: "-=200"}, 0);
     this.listenTo(Whiteboard.currentUser, 'signIn', this.render);
-    this.listenTo(Whiteboard.currentUser, 'signOut', this.remove);
+    this.listenTo(Whiteboard.currentUser, 'signOut', this.hide);
   },
 
   signOut: function () {
@@ -20,10 +21,24 @@ Whiteboard.Views.Sidebar = Backbone.View.extend({
     });
   },
 
+  hide: function () {
+    this.$el.animate({
+      left: "-=200"
+    }, 500, "linear", function () {
+      this.$el.empty();
+    }.bind(this));
+  },
+
   render: function () {
     var content = this.template({
       currentUser: Whiteboard.currentUser
     });
+
+    this.$el.animate({
+        left: "+=200"
+      }, 500, "linear"
+    );
+
     $('body').prepend(this.$el.html(content));
 
     return this;
