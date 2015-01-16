@@ -10,19 +10,13 @@ Rails.application.routes.draw do
   #
   # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
-    # TODO: show route
     resource :session, only: [:create, :show, :destroy]
 
-    resources :users, only: [:create, :show] do
-      resources :sections, only: [:new, :create, :index]
-      resources :enrollments, only: [:create, :index]
-    end
+    resources :users, only: [:create, :show]
 
-    resources :sections, only: [:index, :show, :create] do
-      resources :events, only: [:index]
-    end
-
-    resources :events, only: [:create, :show]
+    resources :sections, only: [:create, :show, :index]
+    resources :events, only: [:create, :show, :index]
+    resources :posts, only: [:create, :show, :index]
   end
 
 
