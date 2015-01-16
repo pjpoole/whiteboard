@@ -31,3 +31,4 @@ Bucket
 * FEATURE: TableBuilder
 * FEATURE: preserve requested route when redirected to sign-in page using before callbacks and monkey patch
 * FIX: Column sizing and text overflow
+* FIX: Weld form on bottom of row
