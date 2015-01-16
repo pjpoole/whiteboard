@@ -1,6 +1,7 @@
 Whiteboard.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    var sidebar = new Whiteboard.Views.Sidebar();
   },
 
   routes: {
