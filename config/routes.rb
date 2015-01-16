@@ -3,18 +3,16 @@ Rails.application.routes.draw do
   # root to: 'sessions#new'
 
   # Backbone root
-  root to: 'static_pages#root'
-
-
-  # Same for Rails and Backbone
-  resources :users, only: [:new, :create]
-  resource :session, only: [:new, :create, :destroy]
+  root to: 'pages#root'
 
 
   # # Backbone
   #
   # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
+    # TODO: show route
+    resource :session, only: [:create, :show, :destroy]
+
     resources :users, only: [:show] do
       resources :sections, only: [:new, :create, :index]
       resources :enrollments, only: [:create, :index]
@@ -26,6 +24,11 @@ Rails.application.routes.draw do
 
     resources :events, only: [:create, :show]
   end
+
+
+  # # Rails sign in
+  # resources :users, only: [:new, :create]
+  # resource :session, only: [:new, :create, :destroy]
 
 
   # # Rails
