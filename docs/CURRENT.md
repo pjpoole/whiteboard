@@ -1,5 +1,4 @@
-* user login
-
+* User new
 * event view
 * Forum view
 * new post - separate button
