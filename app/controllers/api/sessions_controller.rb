@@ -27,13 +27,7 @@ module Api
 
     def destroy
       sign_out
-      redirect_to new_session_url
-    end
-
-
-    private
-    def create_user_object(params)
-
+      render json: {}
     end
   end
 end
