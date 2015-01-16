@@ -48,7 +48,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   },
 
   sectionShow: function (id) {
-    var callback = this.sectionsShow.bind(this);
+    var callback = this.sectionShow.bind(this);
     if (!this._requireSignedIn(callback)) { return };
 
     var section = new Whiteboard.Models.Section({ id: id });
