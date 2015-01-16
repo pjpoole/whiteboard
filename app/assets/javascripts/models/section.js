@@ -10,7 +10,9 @@ Whiteboard.Models.Section = Backbone.Model.extend({
 
   vents: function () {
     if (!this._vents) {
-      this._vents = new Whiteboard.Collections.Events({}, { section: this });
+      this._vents = new Whiteboard.Collections.Events({}, {
+        section: this
+      });
     }
     return this._vents;
   },
@@ -22,7 +24,7 @@ Whiteboard.Models.Section = Backbone.Model.extend({
     }
 
     if (resp.events) {
-      this.vents().set(resp.events, { parse: true });
+      this.vents().set(resp.events);
       this.vents().sort();
       delete resp.events;
     }

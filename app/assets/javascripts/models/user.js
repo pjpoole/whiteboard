@@ -1,5 +1,12 @@
 Whiteboard.Models.User = Backbone.Model.extend({
-  urlRoot: '/api/users'
+  url: '/api/users',
+
+  memberOf: function (section) {
+    if (!section) return;
+    if (this.sections().get(section.id)) return true;
+    if (this.sectionsInstructed().get(section.id)) return true;
+    return false;
+  }
 });
 
 Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({

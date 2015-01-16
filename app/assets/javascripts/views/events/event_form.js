@@ -25,7 +25,6 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     $target = $(event.currentTarget);
-
     var eventContent = {
       section_id: this.collection.section.id,
       event: {

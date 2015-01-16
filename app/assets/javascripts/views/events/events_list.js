@@ -22,7 +22,7 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
 
       this.addSubview('.event-list-form', this.eventFormView);
     }
-
+    
     this.collection.each(this.addEventView, this);
 
 
