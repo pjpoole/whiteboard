@@ -48,9 +48,8 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   },
 
   sectionShow: function (id) {
-    var callback = this.sectionShow.bind(this);
+    var callback = this.sectionShow.bind(this, id);
     if (!this._requireSignedIn(callback)) { return };
-
     var section = new Whiteboard.Models.Section({ id: id });
     section.fetch();
 
@@ -114,6 +113,7 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
-    this.$rootEl.html(view.render().$el)
+    this.$rootEl.html(view.render().$el);
+    $('.select-after-input').focus();
   }
 });

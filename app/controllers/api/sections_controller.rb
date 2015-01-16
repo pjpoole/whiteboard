@@ -20,7 +20,6 @@ module Api
 
     def show
       @section = Section.includes(:events, :instructor).find(params[:id])
-
       render :show
     end
 
