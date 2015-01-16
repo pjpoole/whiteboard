@@ -21,7 +21,7 @@ Whiteboard.Views.SectionButtons = Backbone.View.extend({
 
 
   search: function () {
-    Backbone.history.navigate('#/sections', true);
+    Backbone.history.navigate('#sections', true);
   },
 
 
