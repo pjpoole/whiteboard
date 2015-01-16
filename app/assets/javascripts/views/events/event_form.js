@@ -24,9 +24,16 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var eventContent = this.$el.serializeJSON();
+    $target = $(event.currentTarget);
 
-    eventContent['section_id'] = this.collection.section.id;
+    var eventContent = {
+      section_id: this.collection.section.id,
+      event: {
+        date: moment($target.find('#event_date').val()).local(),
+        name: $target.find('#event_name').val(),
+        event_type: $target.find('#event_event_type').val()
+      }
+    };
 
     this.collection.create(eventContent, { wait: true });
     this.render(eventContent['event']['date']);
