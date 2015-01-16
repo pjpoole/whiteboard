@@ -28,3 +28,5 @@ Bucket
 * FIX: login input areas are wrong width
 * FIX: login h1 needs styling
 * FIX: Session create form is transparent
+* FIX: Adding a course doesn't make it appear on the page
+* FIX: Focus on re-render: swapview
