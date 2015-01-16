@@ -115,9 +115,7 @@ a {
 .modal-form {
   position: relative;
   left: -300px;
-  width: 540px;
   background: #e6e6e6;
-  padding: 30px;
 }
 
 .modal-input {
