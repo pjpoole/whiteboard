@@ -1,5 +1,6 @@
 Whiteboard.Views.EventForm = Backbone.View.extend({
-  tagName: 'form',
+  tagName: 'tr',
+  className: 'events-form table-form',
   template: JST['events/form'],
 
   events: {
