@@ -14,7 +14,7 @@ module Api
     end
 
     def show
-      @event = Event.find(params[:id])
+      @event = Event.includes(:posts, :section).find(params[:id])
     end
 
     def index

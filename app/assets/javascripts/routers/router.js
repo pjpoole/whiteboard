@@ -10,7 +10,9 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
     // 'users/:id': 'userShow',
     'session/new': 'signIn',
     'sections': 'sectionsIndex',
-    'sections/:id': 'sectionShow'
+    'sections/:id': 'sectionShow',
+
+    'events/:id': 'eventShow'
     // 'profile': 'showProfile'
   },
 
@@ -55,6 +57,24 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
     var view = new Whiteboard.Views.SectionShow({
       model: section
+    });
+
+    this._swapView(view);
+  },
+
+  eventShow: function (id) {
+    var callback = this.eventShow.bind(this, id);
+    if (!this._requireSignedOut(callback)) { return; }
+
+    var vent = new Whiteboard.Models.Event({ id: id });
+    vent.fetch({
+      success: function (model) {
+        model.parse();
+      }
+    });
+
+    var view = new Whiteboard.Views.EventShow({
+      model: vent
     });
 
     this._swapView(view);
