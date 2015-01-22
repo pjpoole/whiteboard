@@ -32,6 +32,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    backbone-nested-attributes (0.5.0)
+      rails (>= 3.2.8)
     backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
@@ -163,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  backbone-nested-attributes
   backbone-on-rails
   bcrypt (~> 3.1.7)
   better_errors
