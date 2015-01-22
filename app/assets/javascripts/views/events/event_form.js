@@ -11,7 +11,6 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
   render: function (currentDate) {
 
     var defaultDate = (moment(currentDate) || moment()).format('YYYY-MM-DD');
-    console.log(defaultDate)
     var content = this.template({ defaultDate: defaultDate });
 
     this.$el.html(content);

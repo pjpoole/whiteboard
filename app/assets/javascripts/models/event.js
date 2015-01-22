@@ -15,9 +15,5 @@ Whiteboard.Models.Event = Backbone.NestedAttributesModel.extend({
         return Whiteboard.Models.Post;
       }
     }
-  ],
-
-  initialize: function () {
-    console.log(this)
-  }
+  ]
 });
