@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.min
-//= require jquery-ui/selectmenu
 //= require underscore
 //= require backbone
+//
 //= require moment
+//= require backbone-nested-attributes/all
 //
 //= require whiteboard
 //

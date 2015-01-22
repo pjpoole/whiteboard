@@ -1,7 +1,23 @@
-Whiteboard.Models.Event = Backbone.Model.extend({
+Whiteboard.Models.Event = Backbone.NestedAttributesModel.extend({
   urlRoot: '/api/events',
 
-  parse: function (resp) {
+  relations: [
+    {
+      type: 'one',
+      key: 'section',
+      relatedModel: function () {
+        return Whiteboard.Models.Section;
+      }
+    },
+    {
+      key: 'posts',
+      relatedModel: function () {
+        return Whiteboard.Models.Post;
+      }
+    }
+  ],
 
+  initialize: function () {
+    console.log(this)
   }
 });

@@ -64,20 +64,18 @@ Whiteboard.Routers.Router = Backbone.Router.extend({
 
   eventShow: function (id) {
     var callback = this.eventShow.bind(this, id);
-    if (!this._requireSignedOut(callback)) { return; }
+    if (!this._requireSignedIn(callback)) { return; }
 
     var vent = new Whiteboard.Models.Event({ id: id });
     vent.fetch({
-      success: function (model) {
-        model.parse();
-      }
-    });
+      success: function () {
+        var view = new Whiteboard.Views.EventShow({
+          model: vent
+        });
 
-    var view = new Whiteboard.Views.EventShow({
-      model: vent
+        this._swapView(view);
+      }.bind(this)
     });
-
-    this._swapView(view);
   },
 
 

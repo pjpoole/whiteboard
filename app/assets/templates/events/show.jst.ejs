@@ -1,8 +1,8 @@
 <header class='event-header'>
-  <h3><%= vent.section.escape('title') %></h3>
-  
-  <h4 class="event-name"><%= vent.name %></h4>
-  <p><%= moment(vent.date).format('MMM-DD') %></p>
+  <h3><%= vent.get('section').escape('title') %></h3>
+
+  <h4 class="event-name"><%= vent.escape('name') %></h4>
+  <p><%= moment(vent.get('date')).format('MMM-DD') %></p>
   <p><%= vent.get('type') %></p>
 
 </header>
