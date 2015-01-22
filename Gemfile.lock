@@ -32,8 +32,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
-    backbone-nested-attributes (0.5.0)
-      rails (>= 3.2.8)
     backbone-on-rails (1.1.2.0)
       actionmailer
       actionpack
@@ -87,6 +85,8 @@ GEM
     json (1.8.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    marionette-rails (2.2.2)
+      railties (>= 3.1)
     method_source (0.8.2)
     mime-types (2.4.3)
     minitest (5.5.1)
@@ -165,7 +165,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  backbone-nested-attributes
   backbone-on-rails
   bcrypt (~> 3.1.7)
   better_errors
@@ -175,6 +174,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails (>= 3.0.0)
   jquery-ui-rails
+  marionette-rails
   momentjs-rails
   pg
   pry-rails

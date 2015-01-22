@@ -15,10 +15,10 @@ gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'backbone-nested-attributes'
 gem 'backbone-on-rails'
 gem 'jquery-rails', '>= 3.0.0'
 gem 'jquery-ui-rails'
+gem 'marionette-rails'
 gem 'momentjs-rails'
 
 group :development do
