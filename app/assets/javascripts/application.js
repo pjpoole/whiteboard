@@ -14,6 +14,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require backbone.routefilter
 //= require backbone.marionette
 //
 //= require moment
