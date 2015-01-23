@@ -11,17 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.serializejson.min
+//= require jquery.serializejson
 //= require underscore
 //= require backbone
-//= require backbone.marionette.min
+//= require backbone.marionette
 //
 //= require moment
 //
 //= require whiteboard
 //
 //= require_tree ../templates
-//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
