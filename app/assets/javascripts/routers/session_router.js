@@ -4,6 +4,15 @@ Whiteboard.Routers.Session = Backbone.Router.extend({
     'register': 'register'
   },
 
+  before: function () {
+    if (!Whiteboard.currentUser.isSignedIn()) {
+      return true;
+    }
+
+    Backbone.history.navigate('', { trigger: true });
+    return false;
+  },
+
   signIn: function () {
     Whiteboard.SessionController.signIn();
   },
