@@ -7,12 +7,16 @@ Whiteboard.Views.UserNew = Backbone.Modal.extend({
     'click a': 'toggle'
   },
 
+  initialize: function (options) {
+    this.options = options || {};
+  },
+
   beforeCancel: function () {
     return false;
   },
 
   toggle: function () {
-    Whiteboard.Controller.signIn(this.options);
+    Whiteboard.SessionController.signIn(this.options);
     this.destroy();
   },
 

@@ -18,8 +18,8 @@ Whiteboard.Routers.App = Backbone.Router.extend({
 
     $.when(Whiteboard.SessionController.signIn({ defer: defer }))
       .done(function () {
-        this.route.apply(this, params);
-    });
+        this.route.apply(this, [route].concat(params));
+    }.bind(this));
 
     return false;
   },

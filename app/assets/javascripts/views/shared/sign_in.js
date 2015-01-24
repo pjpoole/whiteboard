@@ -7,18 +7,21 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     'click a': 'toggle'
   },
 
+  initialize: function (options) {
+    this.options = options || {};
+  },
+
   beforeCancel: function () {
     return false;
   },
 
   toggle: function () {
-    Whiteboard.Controller.accountCreate(this.options);
+    Whiteboard.SessionController.accountCreate(this.options);
     this.destroy();
   },
 
   submit: function (event) {
-    event.preventDefault();
-    var $form = $(event.currentTarget).find('form');
+    var $form = $('form');
 
     // TODO: error handling
     Whiteboard.currentUser.signIn({

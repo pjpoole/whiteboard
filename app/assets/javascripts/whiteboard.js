@@ -1,6 +1,6 @@
 Mn.Renderer.render = function (template, data) {
   return template(data);
-}
+};
 
 window.Whiteboard = new Mn.Application();
 
@@ -17,11 +17,12 @@ Whiteboard.on('start', function () {
 
   Whiteboard.SessionRouter = new Whiteboard.Routers.Session();
   Whiteboard.AppRouter = new Whiteboard.Routers.App();
-  
+
   Whiteboard.SessionController = new Whiteboard.Controllers.Session();
   Whiteboard.AppController = new Whiteboard.Controllers.App();
 
   Whiteboard.mainLayout = new Whiteboard.Views.Layout();
+  Whiteboard.mainLayout.render();
 
   if (!Backbone.History.started) {
     Backbone.history.start();
