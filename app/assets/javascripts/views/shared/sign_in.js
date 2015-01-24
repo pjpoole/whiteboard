@@ -33,6 +33,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   setActive: function (options) {
     this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#' + options.name).addClass('active');
+    Backbone.history.navigate(options.name);
   },
 
   submit: function (event) {
