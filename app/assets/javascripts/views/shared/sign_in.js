@@ -19,7 +19,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   initialize: function (options) {
-    console.log(options)
     this.options = options || {};
   },
 
@@ -37,16 +36,40 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   submit: function (event) {
-    var $form = $('form');
+    var $form = $('#modal-region form'), data, error, method, options;
 
-    // TODO: error handling
-    Whiteboard.currentUser.signIn({
-        email: $('#user_email').val(),
-        password: $('#user_password').val(),
-        defer: this.options.defer,
-        error: function () {
-          alert("Wrong username or password.");
+    method = $('.active').attr('id');
+    options = this.options;
+
+    error = function (model, resp) {
+      console.log(resp);
+    };
+
+
+    data = {
+      user: {
+        email: $form.find('#user_email').val(),
+        password: $form.find('#user_password').val(),
+        password_verify: $form.find('#user_password_verify').val(),
+      }
+    };
+
+    if (method === 'signin') {
+      Whiteboard.currentUser.signIn({
+        data: data,
+        error: error
+      })
+    } else {
+      this.model.save(
+        data, {
+        success: function (model, resp) {
+          Whiteboard.currentUser.set(model);
+          options.defer.resolve();
+        },
+        error: function (model, resp) {
+          console.log(resp);
         }
-    });
+      });
+    }
   }
 });
