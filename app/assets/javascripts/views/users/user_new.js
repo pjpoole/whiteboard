@@ -1,16 +1,22 @@
-Whiteboard.Views.UserNew = Backbone.ModalView.extend({
+Whiteboard.Views.UserNew = Backbone.Modal.extend({
   template: JST['users/new'],
 
-  initialize: function (options) {
-    this.listenTo(Whiteboard.currentUser, 'change sync', this.signedIn);
-    Backbone.ModalView.prototype.initialize.call(this, options);
+  submitEl: 'button',
+
+  events: {
+    'click a': 'toggle'
   },
 
-  signedIn: function () {
-    Backbone.history.navigate('', { trigger: true })
+  beforeCancel: function () {
+    return false;
   },
 
-  create: function (event) {
+  toggle: function () {
+    Whiteboard.Controller.signIn(this.options);
+    this.destroy();
+  },
+
+  submit: function (event) {
     event.preventDefault();
     // TODO: error handling
 
@@ -22,7 +28,7 @@ Whiteboard.Views.UserNew = Backbone.ModalView.extend({
       }}, {
       success: function (model) {
         Whiteboard.currentUser.set(model);
-        Backbone.history.navigate('', { trigger: true });
+        this.options.defer.resolve();
       }.bind(this),
       error: function () {
         alert("Problem creating user.")

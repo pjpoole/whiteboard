@@ -1,4 +1,4 @@
-Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
+Whiteboard.Views.EventsList = Mn.CompositeView.extend({
   className: 'events-list',
 
   template: JST['events/list'],
@@ -22,7 +22,7 @@ Whiteboard.Views.EventsList = Backbone.CompositeView.extend({
 
       this.addSubview('.event-list-form', this.eventFormView);
     }
-    
+
     this.collection.each(this.addEventView, this);
 
 

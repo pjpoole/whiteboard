@@ -1,14 +1,6 @@
-Whiteboard.Views.EventItem = Backbone.View.extend({
+Whiteboard.Views.EventItem = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'event-item',
 
-  template: JST['events/item'],
-
-  render: function () {
-    var content = this.template({
-      model: this.model
-    });
-    this.$el.html(content);
-    return this;
-  }
+  template: JST['events/item']
 });

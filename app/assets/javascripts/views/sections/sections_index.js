@@ -1,36 +1,8 @@
-Whiteboard.Views.SectionsIndex = Backbone.CompositeView.extend({
+Whiteboard.Views.SectionsIndex = Mn.CompositeView.extend({
   tagName: 'section',
   className: 'section-index',
+  childView: Whiteboard.Views.SectionItem,
+  childViewContainer: '#sections-body',
 
-  template: JST['sections/index'],
-
-  searchOptions: {
-    selector: '.sections-body tr',
-    searchBox: '#section-search'
-  },
-
-  events: {
-    'keydown #section-search': 'liveSearch',
-    'keyup #section-search': 'liveSearch'
-  },
-
-  initialize: function (options) {
-    this.addSectionList();
-  },
-
-  addSectionList: function (sections) {
-    var view = new Whiteboard.Views.SectionsList({
-      collection: this.collection
-    });
-    this.addSubview('#sections-list', view);
-  },
-
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
-    this.attachSubviews();
-    return this;
-  }
+  template: JST['sections/index']
 });
-
-_.extend(Whiteboard.Views.SectionsIndex.prototype, Whiteboard.Utils.LiveSearch);

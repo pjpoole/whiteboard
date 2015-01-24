@@ -1,4 +1,4 @@
-Whiteboard.Views.SectionShow = Backbone.CompositeView.extend({
+Whiteboard.Views.SectionShow = Mn.CompositeView.extend({
   tagName: 'section',
   className: 'section-show',
 

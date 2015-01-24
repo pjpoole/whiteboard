@@ -1,18 +1,6 @@
-Whiteboard.Views.SectionItem = Backbone.View.extend({
+Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'section-item',
 
-  template: JST['sections/item'],
-
-  // events: {
-  //   'click td': 'editItem'
-  // },
-
-  render: function () {
-    var content = this.template({
-      section: this.model
-    });
-    this.$el.html(content);
-    return this;
-  }
+  template: JST['sections/item']
 });

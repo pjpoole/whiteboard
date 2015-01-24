@@ -1,33 +1,33 @@
-Whiteboard.Views.SignIn = Backbone.ModalView.extend({
+Whiteboard.Views.SignIn = Backbone.Modal.extend({
   template: JST['shared/sign_in'],
 
-  initialize: function (options) {
-    this.callback = options.callback;
-    this.listenTo(Whiteboard.currentUser, 'signIn', this.signInCallback);
+  submitEl: 'button',
 
-    Backbone.ModalView.prototype.initialize.call(this, options);
+  events: {
+    'click a': 'toggle'
   },
 
-  create: function (event) {
+  beforeCancel: function () {
+    return false;
+  },
+
+  toggle: function () {
+    Whiteboard.Controller.accountCreate(this.options);
+    this.destroy();
+  },
+
+  submit: function (event) {
     event.preventDefault();
     var $form = $(event.currentTarget).find('form');
-    var formData = $form.serializeJSON().user;
 
     // TODO: error handling
     Whiteboard.currentUser.signIn({
-        email: formData.email,
-        password: formData.password,
+        email: $('#user_email').val(),
+        password: $('#user_password').val(),
+        defer: this.options.defer,
         error: function () {
           alert("Wrong username or password.");
         }
     });
-  },
-
-  signInCallback: function (event) {
-    if (this.callback) {
-      this.callback();
-    } else {
-      Backbone.history.navigate("", { trigger: true });
-    }
   }
 });

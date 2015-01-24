@@ -1,4 +1,4 @@
-Whiteboard.Views.SectionModal = Backbone.ModalView.extend({
+Whiteboard.Views.SectionModal = Backbone.Modal.extend({
   template: JST['sections/form'],
 
   create: function (event) {

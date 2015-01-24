@@ -1,12 +1,5 @@
 Whiteboard.Models.User = Backbone.Model.extend({
-  urlRoot: '/api/users',
-
-  memberOf: function (section) {
-    if (!section) return;
-    if (this.sections().get(section.id)) return true;
-    if (this.sectionsInstructed().get(section.id)) return true;
-    return false;
-  }
+  urlRoot: '/api/users'
 });
 
 Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
@@ -45,7 +38,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
     };
 
     $.ajax({
-      url: this.url,
+      url: model.url,
       type: 'POST',
       data: credentials,
       dataType: 'json',
@@ -53,7 +46,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       success: function (data) {
         model.parse(data);
         model.set(data);
-        options.success && options.success();
+        options.defer && options.defer.resolve();
       },
       error: function () {
         options.error && options.error();
@@ -79,6 +72,14 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   fireSessionEvent: function () {
     if (this.isSignedIn()) this.trigger('signIn');
     else this.trigger('signOut');
+  },
+
+
+  memberOf: function (section) {
+    if (!section) return;
+    if (this.sections().get(section.id)) return true;
+    if (this.sectionsInstructed().get(section.id)) return true;
+    return false;
   },
 
   sections: function () {

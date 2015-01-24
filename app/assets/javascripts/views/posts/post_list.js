@@ -1,4 +1,4 @@
-Whiteboard.Views.PostsList = Backbone.CompositeView.extend({
+Whiteboard.Views.PostsList = Mn.CompositeView.extend({
   className: 'posts-list',
 
   template: JST['posts/list'],

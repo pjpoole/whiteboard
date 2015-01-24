@@ -1,4 +1,4 @@
-Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
+Whiteboard.Views.SectionsList = Mn.CollectionView.extend({
   className: 'section-list',
 
   template: JST['sections/list'],
@@ -10,25 +10,5 @@ Whiteboard.Views.SectionsList = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'add', this.addSectionView);
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'all', this.showEvent)
-  },
-
-  addSectionView: function (section) {
-    var view = new Whiteboard.Views.SectionItem({
-      model: section
-    });
-    this.addSubview('.sections-body', view);
-  },
-
-  showEvent: function () {
-    
-  },
-
-  render: function () {
-    var content = this.template({
-      heading: this.heading
-    });
-    this.$el.html(content);
-    this.attachSubviews();
-    return this;
   }
 });
