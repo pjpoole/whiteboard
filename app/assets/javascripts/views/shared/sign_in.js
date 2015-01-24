@@ -27,7 +27,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   setActive: function (options) {
-    this.$('.bbm-modal_tab a').removeClass('active');
+    this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#' + options.name).addClass('active');
   },
 

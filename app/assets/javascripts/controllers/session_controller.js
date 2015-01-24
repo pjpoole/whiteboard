@@ -19,10 +19,11 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
     dfd = options.defer || $.Deferred().then(this._goHome);
 
     var view = new Whiteboard.Views.SignIn({
+      name: 'signin',
       defer: dfd
     });
 
-    Whiteboard.mainLayout.getRegion('modal').show(view);
+    Whiteboard.mainLayout.getRegion('modal').show(view, { name: 'signin' });
 
     return dfd.promise();
   },

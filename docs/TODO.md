@@ -6,3 +6,5 @@ Bucket
 * REFACTOR: modal controller - app level
 
 * FEATURE: drill-down breadcrumbs
+
+* FIX: Make text entry fields more obvious on signin
