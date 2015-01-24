@@ -12,7 +12,8 @@
  *
  *= require_tree .
  *= require_self
- *= require jquery-ui/selectmenu
+ *= require backbone.modal
+ *= require backbone.modal.theme
  *
  */
 
@@ -92,7 +93,7 @@ a {
   display: block;
 }
 
-.modal-backdrop {
+/*.modal-backdrop {
   background: black;
   opacity: 0.5;
   position: fixed;
@@ -101,18 +102,18 @@ a {
   bottom: 0;
   right: 0;
   z-index: 1001;
-}
+}*/
 
-.modal-container {
+/*.modal-container {
   position: fixed;
   width: 0;
   height: 0;
   left: 50%;
   top: 100px;
   z-index: 1002;
-}
+}*/
 
-.modal-form {
+/*.modal-form {
   position: relative;
   left: -300px;
   background: #e6e6e6;
@@ -127,7 +128,7 @@ a {
 
 .button-container {
   margin: 10px;
-}
+}*/
 
 td {
   min-width: 200px;
