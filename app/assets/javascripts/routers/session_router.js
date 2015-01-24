@@ -1,7 +1,7 @@
 Whiteboard.Routers.Session = Backbone.Router.extend({
   routes: {
     'signin': 'signIn',
-    'register': 'accountCreate'
+    'register': 'register'
   },
 
   signIn: function () {

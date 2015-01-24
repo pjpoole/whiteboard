@@ -1,29 +1,28 @@
 Whiteboard.Controllers.Session = Mn.Controller.extend({
 
-  accountCreate: function (options) {
-    dfd = options.defer || $.Deferred().then(this._goHome);
+  register: function (options) {
+    options = options || {};
+    options.name = 'register';
+    options.model = new Whiteboard.Models.User();
 
-    var newUser = new Whiteboard.Models.User();
-
-    var view = new Whiteboard.Views.UserNew({
-      model: newUser,
-      defer: dfd
-    });
-
-    Whiteboard.mainLayout.getRegion('modal').show(view);
-
-    return dfd.promise();
+    Backbone.history.navigate('register');
+    return this.showHelper(options);
   },
 
   signIn: function (options) {
+    options = options || {};
+    options.name = 'signin'
+    
+    Backbone.history.navigate('signin');
+    return this.showHelper(options);
+  },
+
+  showHelper: function (options) {
     dfd = options.defer || $.Deferred().then(this._goHome);
 
-    var view = new Whiteboard.Views.SignIn({
-      name: 'signin',
-      defer: dfd
-    });
+    var view = new Whiteboard.Views.SignIn(options);
 
-    Whiteboard.mainLayout.getRegion('modal').show(view, { name: 'signin' });
+    Whiteboard.mainLayout.getRegion('modal').show(view);
 
     return dfd.promise();
   },
