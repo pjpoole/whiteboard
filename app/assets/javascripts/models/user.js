@@ -32,15 +32,10 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   signIn: function (options) {
     var model = this;
 
-    var credentials = {
-      'user[email]': options.email,
-      'user[password]': options.password
-    };
-
     $.ajax({
       url: model.url,
       type: 'POST',
-      data: credentials,
+      data: options.data,
       dataType: 'json',
       async: false,
       success: function (data) {
