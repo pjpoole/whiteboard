@@ -1,10 +1,21 @@
 Whiteboard.Views.SignIn = Backbone.Modal.extend({
-  template: JST['shared/sign_in'],
+  template: JST['shared/sign_in_or_up'],
 
-  submitEl: 'button',
+  submitEl: '.bbm-button',
 
-  events: {
-    'click a': 'toggle'
+  viewContainer: '.container',
+  views: {
+    'click #signin': {
+      name: 'signin',
+      view: JST['shared/sign_in'],
+      onActive: 'setActive'
+    },
+
+    'click #register': {
+      name: 'register',
+      view: JST['users/new'],
+      onActive: 'setActive'
+    }
   },
 
   initialize: function (options) {
@@ -15,9 +26,9 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     return false;
   },
 
-  toggle: function () {
-    Whiteboard.SessionController.accountCreate(this.options);
-    this.destroy();
+  setActive: function (options) {
+    this.$('.bbm-modal_tab a').removeClass('active');
+    this.$('#' + options.name).addClass('active');
   },
 
   submit: function (event) {
