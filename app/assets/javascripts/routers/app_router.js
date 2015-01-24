@@ -14,12 +14,13 @@ Whiteboard.Routers.App = Backbone.Router.extend({
     if (Whiteboard.currentUser.isSignedIn()) {
       return true;
     }
-    var defer = $.Deferred();
+    var defer = $.Deferred(),
+        that = this;
 
     $.when(Whiteboard.SessionController.signIn({ defer: defer }))
       .done(function () {
-        this.route.apply(this, [route].concat(params));
-    }.bind(this));
+        that.route.apply(that, [route].concat(params));
+    });
 
     return false;
   },
