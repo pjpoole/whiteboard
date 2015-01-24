@@ -4,7 +4,10 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
   el: 'body',
 
   regions: {
-    modal: '#modal-region',
+    modal: {
+      selector: '#modal-region',
+      regionType: Mn.Modals
+    },
     sidebar: '#sidebar-region',
     content: 'content-region'
   }
