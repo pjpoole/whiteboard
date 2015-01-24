@@ -3,7 +3,6 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
   register: function (options) {
     options = options || {};
     options.name = 'register';
-    options.model = new Whiteboard.Models.User();
 
     Backbone.history.navigate('register');
     return this.showHelper(options);
@@ -12,19 +11,20 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
   signIn: function (options) {
     options = options || {};
     options.name = 'signin'
-    
+
     Backbone.history.navigate('signin');
     return this.showHelper(options);
   },
 
   showHelper: function (options) {
-    dfd = options.defer || $.Deferred().then(this._goHome);
+    options.model = new Whiteboard.Models.User();
+    options.defer = options.defer || $.Deferred().then(this._goHome);
 
     var view = new Whiteboard.Views.SignIn(options);
 
     Whiteboard.mainLayout.getRegion('modal').show(view);
 
-    return dfd.promise();
+    return options.defer.promise();
   },
 
   _goHome: function () {
