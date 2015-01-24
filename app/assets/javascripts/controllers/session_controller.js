@@ -10,6 +10,8 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
       defer: dfd
     });
 
+    Whiteboard.mainLayout.getRegion('modal').show(view);
+
     return dfd.promise();
   },
 
@@ -19,6 +21,8 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
     var view = new Whiteboard.Views.SignIn({
       defer: dfd
     });
+
+    Whiteboard.mainLayout.getRegion('modal').show(view);
 
     return dfd.promise();
   },

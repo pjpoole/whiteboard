@@ -1,5 +1,5 @@
 Whiteboard.Views.Layout = Mn.LayoutView.extend({
-  template: 'shared/layout',
+  template: JST['shared/layout'],
 
   el: 'body',
 
