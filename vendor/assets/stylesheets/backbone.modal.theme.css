@@ -3,7 +3,7 @@
   -webkit-transition: background-color 0.3s; }
 
 .bbm-modal {
-  background: white;
+  background: #ddd;
   box-shadow: 0 0px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.9); }
 
 /* BLOCKS */
@@ -12,8 +12,7 @@
   padding: 0 30px; }
 
 .bbm-modal__topbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px; }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .bbm-modal__topbar > ul {
     list-style: none;
     text-align: center;
@@ -39,8 +38,8 @@
   color: #312D3A; }
 
 .bbm-modal__section {
-  padding: 0 30px;
-  margin-top: 0px;
+  background: white;
+  padding: 30px;
   font-size: 16px;
   line-height: 26px;
   color: #575656; }
@@ -61,8 +60,7 @@
 .bbm-modal__bottombar {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 18px;
-  text-align: right;
-  margin-top: 30px; }
+  text-align: right; }
 
 /* MODULES */
 .bbm-group {

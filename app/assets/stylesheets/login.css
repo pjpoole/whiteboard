@@ -1,44 +1,12 @@
-/*#signin-wrapper {
-  position: absolute;
-  left: 50%;
-}
-
-.create-form {
-  position: relative;
-  left: -50%;
-  width: 500px;
-  padding: 50px;
-  background: lightgreen;
-  font-size: 20px;
-}
-
-.create-form h1 {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.create-form label {
-  display: block;
-  width: 100%;
-  padding: 10px 0;
-}
-
 .create-form input {
-  display: block;
-  width: 480px;
+  box-sizing: border-box;
+  width: 100%;
   padding: 10px;
 }
 
 .create-form textarea {
-  width: 480px;
+  box-sizing: border-box;
+  width: 100%;
   padding: 10px;
   height: 100px;
 }
-
-
-.create-form button {
-  margin: 20px 0;
-  padding: 10px;
-}*/
