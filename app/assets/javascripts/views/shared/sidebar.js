@@ -18,7 +18,7 @@ Whiteboard.Views.Sidebar = Mn.ItemView.extend({
   signOut: function () {
     Whiteboard.currentUser.signOut({
       success: function () {
-        Backbone.history.navigate('signin', { trigger: true })
+        Backbone.history.navigate('signin', { trigger: true });
       }
     });
   },
