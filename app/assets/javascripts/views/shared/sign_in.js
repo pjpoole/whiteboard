@@ -42,9 +42,11 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     Backbone.history.navigate('#' + options.name);
   },
 
-  submit: function (event) {
-    var $form = $('#modal-region form'), data, error, method, options;
+  beforeSubmit: function (event) {
+    var $form = $('#modal-region form'),
+        data, error, method, options, that;
 
+    that = this;
     method = $('.active').attr('id');
     options = this.options;
 
@@ -67,15 +69,14 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
         error: error
       })
     } else {
-      this.model.save(
-        data, {
+      this.model.save(data, {
         success: function (model, resp) {
           Whiteboard.currentUser.set(model);
         },
-        error: function (model, resp) {
-          console.log(resp);
-        }
+        error: error
       });
     }
+
+    return false;
   }
 });

@@ -16,7 +16,7 @@ module Api
         sign_in(@user)
         render 'api/sessions/show'
       else
-        head :unprocessable_entity
+        render json: @user.errors.full_messages, status: :unprocessable_entity
       end
 
     end
