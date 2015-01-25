@@ -18,7 +18,7 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
 
   showHelper: function (options) {
     options.model = new Whiteboard.Models.User();
-    options.defer = options.defer || $.Deferred().then(this._goHome);
+    options.defer = options.defer || $.Deferred().done(this._goHome);
 
     var view = new Whiteboard.Views.SignIn(options);
 

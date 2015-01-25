@@ -15,11 +15,11 @@ Whiteboard.Routers.App = Backbone.Router.extend({
       return true;
     }
     var defer = $.Deferred(),
+        promise = Whiteboard.SessionController.signIn({ defer: defer }),
         that = this;
 
-    $.when(Whiteboard.SessionController.signIn({ defer: defer }))
-      .done(function () {
-        that.route.apply(that, [route].concat(params));
+    $.when(promise).done(function () {
+      that.routes[route].apply(that, params);
     });
 
     return false;

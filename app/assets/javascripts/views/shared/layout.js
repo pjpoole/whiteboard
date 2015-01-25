@@ -13,15 +13,10 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
   },
 
   initialize: function () {
-    this.listenTo(Whiteboard.currentUser, 'signIn', this.addMain);
-    this.listenTo(Whiteboard.currentUser, 'signOut', this.emptyContent);
+    this.listenTo(Whiteboard.currentUser, 'signOut', this.shutDown);
   },
 
-  addMain: function () {
-    this.getRegion('content').show(new Whiteboard.Views.Main());
-  },
-
-  emptyContent: function () {
+  shutDown: function () {
     this.getRegion('content').empty();
   },
 

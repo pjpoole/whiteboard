@@ -12,7 +12,6 @@ Whiteboard.Routers.Session = Backbone.Router.extend({
     if (!Whiteboard.currentUser.isSignedIn()) {
       return true;
     }
-
     Backbone.history.navigate('', { trigger: true });
     return false;
   },

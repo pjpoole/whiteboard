@@ -24,7 +24,12 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   onShow: function () {
-    $('#' + this.options.name).click();
+    this.$('#' + this.options.name).click();
+  },
+
+  onDestroy: function () {
+    $('tester').remove();
+    this.options.defer.resolve();
   },
 
   beforeCancel: function () {
@@ -34,7 +39,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   setActive: function (options) {
     this.$('.bbm-modal__tab a').removeClass('active');
     this.$('#' + options.name).addClass('active');
-    Backbone.history.navigate(options.name);
+    Backbone.history.navigate('#' + options.name);
   },
 
   submit: function (event) {
@@ -44,7 +49,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     options = this.options;
 
     error = function (model, resp) {
-      console.log(resp);
+      console.log(model, resp);
     };
 
 
@@ -59,10 +64,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     if (method === 'signin') {
       Whiteboard.currentUser.signIn({
         data: data,
-        success: function () {
-          // For some reason, this throws "undef is not a function."
-          options.defer && options.defer.resolve();
-        },
         error: error
       })
     } else {
@@ -70,7 +71,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
         data, {
         success: function (model, resp) {
           Whiteboard.currentUser.set(model);
-          options.defer.resolve();
         },
         error: function (model, resp) {
           console.log(resp);

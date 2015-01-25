@@ -9,7 +9,6 @@ Whiteboard.Views.Dashboard = Mn.LayoutView.extend({
     classes: '#all-classes'
   },
 
-
   initialize: function (options) {
     this.sections = options.sections;
   },
