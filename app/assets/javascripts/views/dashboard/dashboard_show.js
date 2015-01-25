@@ -6,7 +6,8 @@ Whiteboard.Views.Dashboard = Mn.LayoutView.extend({
 
   regions: {
     buttons: '#create-search',
-    classes: '#all-classes'
+    teaching: '#teaching',
+    enrollments: '#enrollments',
   },
 
   initialize: function (options) {
@@ -17,14 +18,14 @@ Whiteboard.Views.Dashboard = Mn.LayoutView.extend({
     this.getRegion('buttons').show(new Whiteboard.Views.SectionButtons());
 
     if (this.sections['sections']) {
-      this.getRegion('classes').show(new Whiteboard.Views.SectionsList({
+      this.getRegion('enrollments').show(new Whiteboard.Views.SectionsList({
         collection: this.sections['sections'],
         heading: 'Your enrollments:'
       }))
     }
     if (this.sections['sections']) {
-      this.getRegion('classes').show(new Whiteboard.Views.SectionsList({
-        collection: this.sections['sections'],
+      this.getRegion('teaching').show(new Whiteboard.Views.SectionsList({
+        collection: this.sections['instructed'],
         heading: 'You are teaching:'
       }))
     }
