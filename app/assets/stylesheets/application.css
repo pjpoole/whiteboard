@@ -14,6 +14,7 @@
  *= require_self
  *= require backbone.modal
  *= require backbone.modal.theme
+ *= require datatable
  *
  */
 
