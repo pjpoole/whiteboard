@@ -4,11 +4,17 @@ Whiteboard.Views.Dashboard = Mn.LayoutView.extend({
   tagName: 'section',
   className: 'dashboard',
 
+  regions: {
+    buttons: '#create-search',
+    classes: '#all-classes'
+  },
+
 
   initialize: function (options) {
     this.sections = options.sections;
-    this.courseButtons = new Whiteboard.Views.SectionButtons({
-      collection: this.sections['instructed']
-    });
+  },
+
+  onBeforeShow: function () {
+    this.getRegion('buttons').show(new Whiteboard.Views.SectionButtons());
   }
 });

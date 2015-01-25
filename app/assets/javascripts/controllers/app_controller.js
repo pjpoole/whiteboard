@@ -1,21 +1,25 @@
 Whiteboard.Controllers.App = Mn.Controller.extend({
   dashboard: function () {
-    var view = new Whiteboard.Views.Dashboard({
-      sections: {
-        // TODO: fix
-        sections: Whiteboard.currentUser.sections(),
-        instructed: Whiteboard.currentUser.sectionsInstructed()
-      }
-    });
+    this.region.show(
+      new Whiteboard.Views.Dashboard({
+        sections: {
+          // TODO: fix
+          sections: Whiteboard.currentUser.sections(),
+          instructed: Whiteboard.currentUser.sectionsInstructed()
+        }
+    }));
+    Backbone.history.navigate('');
   },
 
   sectionsIndex: function () {
     var allSections = new Whiteboard.Collections.Sections();
     allSections.fetch();
 
-    var view = new Whiteboard.Views.SectionsIndex({
-      collection: allSections
-    });
+    this.region.show(
+      new Whiteboard.Views.SectionsIndex({
+        collection: allSections
+    }));
+    Backbone.history.navigate('sections');
   },
 
   sectionShow: function (id) {
@@ -25,7 +29,7 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     var view = new Whiteboard.Views.SectionShow({
       model: section
     });
-
+    Backbone.history.navigate('sections/' + id);
   },
 
   eventShow: function (id) {
@@ -35,9 +39,8 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
         var view = new Whiteboard.Views.EventShow({
           model: vent
         });
-
-        this._swapView(view);
-      }.bind(this)
+      }
     });
+    Backbone.history.navigate('events/' + id);
   }
 });

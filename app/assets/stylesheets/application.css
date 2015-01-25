@@ -87,45 +87,18 @@ a {
 
 .button-container {
   float: left;
+  margin: 5px;
 }
 
-.section-buttons {
+.button-container a {
+  text-decoration: none;
+  background: #00f;
+  color: white;
   display: block;
+  padding: 5px 10px;
 }
 
-/*.modal-backdrop {
-  background: black;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1001;
-}*/
-
-/*.modal-container {
-  position: fixed;
-  width: 0;
-  height: 0;
-  left: 50%;
-  top: 100px;
-  z-index: 1002;
-}*/
-
-/*.modal-form {
-  position: relative;
-  left: -300px;
-  background: #e6e6e6;
-}
-
-.modal-input {
-  border: 0;
-  width: 530px;
-  margin: 0;
-  padding: 5px;
-}
-
+/*
 .button-container {
   margin: 10px;
 }*/
