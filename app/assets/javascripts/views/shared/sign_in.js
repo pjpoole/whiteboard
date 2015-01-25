@@ -59,6 +59,10 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     if (method === 'signin') {
       Whiteboard.currentUser.signIn({
         data: data,
+        success: function () {
+          // For some reason, this throws "undef is not a function."
+          options.defer && options.defer.resolve();
+        },
         error: error
       })
     } else {

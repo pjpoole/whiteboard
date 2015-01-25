@@ -41,7 +41,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       success: function (data) {
         model.parse(data);
         model.set(data);
-        options.defer && options.defer.resolve();
+        options.success && options.success();
       },
       error: function () {
         options.error && options.error();
