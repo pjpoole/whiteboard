@@ -1,14 +1,8 @@
 Whiteboard.Views.SectionsList = Mn.CollectionView.extend({
+  tagName: 'table',
   className: 'section-list',
+  childView: Whiteboard.Views.SectionItem,
+  childViewContainer: '#sections-body',
 
-  template: JST['sections/list'],
-
-  initialize: function (options) {
-    this.heading = options.heading;
-
-    this.collection.each(this.addSectionView, this);
-    this.listenTo(this.collection, 'add', this.addSectionView);
-    this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'all', this.showEvent)
-  }
+  template: JST['sections/list']
 });
