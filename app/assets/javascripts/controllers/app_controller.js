@@ -1,4 +1,8 @@
 Whiteboard.Controllers.App = Mn.Controller.extend({
+  initialize: function (options) {
+    this.region = options.region;
+  },
+
   dashboard: function () {
     this.region.show(
       new Whiteboard.Views.Dashboard({

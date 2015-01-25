@@ -22,7 +22,9 @@ Whiteboard.on('start', function () {
   Whiteboard.AppRouter = new Whiteboard.Routers.App();
 
   Whiteboard.SessionController = new Whiteboard.Controllers.Session();
-  Whiteboard.AppController = new Whiteboard.Controllers.App();
+  Whiteboard.AppController = new Whiteboard.Controllers.App({
+    region: Whiteboard.mainLayout.getRegion('content')
+  });
 
   if (!Backbone.History.started) {
     Backbone.history.start();
