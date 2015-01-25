@@ -17,15 +17,5 @@ Whiteboard.Views.SectionShow = Mn.CompositeView.extend({
     }
 
     this.listenTo(this.model, 'change', this.render);
-  },
-
-  render: function () {
-    var content = this.template({
-      section: this.model
-    });
-    this.$el.html(content);
-    this.attachSubviews();
-
-    return this;
   }
 });
