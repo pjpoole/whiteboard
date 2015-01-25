@@ -9,6 +9,10 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
       regionType: Mn.Modals
     },
     sidebar: '#sidebar-region',
-    content: 'content-region'
+    content: '#content-region'
+  },
+
+  onRender: function () {
+    this.getRegion('sidebar').show(new Whiteboard.Views.Sidebar());
   }
 });

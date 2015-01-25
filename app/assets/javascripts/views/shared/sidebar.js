@@ -1,4 +1,4 @@
-Whiteboard.Views.Sidebar = Backbone.View.extend({
+Whiteboard.Views.Sidebar = Mn.ItemView.extend({
   tagName: 'nav',
   className: 'nav sidebar',
   template: JST['shared/sidebar'],
@@ -8,15 +8,17 @@ Whiteboard.Views.Sidebar = Backbone.View.extend({
   },
 
   initialize: function (options) {
+    this.model = Whiteboard.currentUser;
+
     this.$el.animate({left: "-=200"}, 0);
-    this.listenTo(Whiteboard.currentUser, 'signIn', this.render);
+    this.listenTo(Whiteboard.currentUser, 'signIn', this.unhide);
     this.listenTo(Whiteboard.currentUser, 'signOut', this.hide);
   },
 
   signOut: function () {
     Whiteboard.currentUser.signOut({
       success: function () {
-        Backbone.history.navigate('session/new', { trigger: true })
+        Backbone.history.navigate('signin', { trigger: true })
       }
     });
   },
@@ -29,18 +31,11 @@ Whiteboard.Views.Sidebar = Backbone.View.extend({
     }.bind(this));
   },
 
-  render: function () {
-    var content = this.template({
-      currentUser: Whiteboard.currentUser
-    });
-
+  unhide: function () {
+    this.render();
     this.$el.animate({
         left: "+=200"
       }, 500, "linear"
     );
-
-    $('body').prepend(this.$el.html(content));
-
-    return this;
   }
 });

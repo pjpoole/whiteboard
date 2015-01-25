@@ -4,6 +4,10 @@ Whiteboard.Routers.Session = Backbone.Router.extend({
     'register': 'register'
   },
 
+  initialize: function () {
+    this.listenTo(Whiteboard.currentUser, 'signOut', this.signIn);
+  },
+
   before: function () {
     if (!Whiteboard.currentUser.isSignedIn()) {
       return true;
