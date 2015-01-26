@@ -90,6 +90,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   },
 
   sectionsInstructed: function () {
+    // don't bother setting options here, because the user doesn't have an id yet.
     if (!this._sectionsInstructed) {
       this._sectionsInstructed = new Whiteboard.Collections.SectionsInstructed();
     }

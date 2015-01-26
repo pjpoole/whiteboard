@@ -5,9 +5,12 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
 
   model: Whiteboard.Models.Section,
 
-  initialize: function (models, options) {
-    console.log(options)
-    this.user_id = options.user_id;
+  initialize: function () {
+    this.listenTo(Whiteboard.currentUser, 'signIn', this.setUserId);
+  },
+
+  setUserId: function () {
+    this.user_id = Whiteboard.currentUser.id;
   },
 
   enroll: function (section) {
