@@ -3,6 +3,9 @@ Whiteboard.Views.SectionsIndex = Mn.CompositeView.extend({
   className: 'section-index',
   childView: Whiteboard.Views.SectionItem,
   childViewContainer: '#sections-body',
+  childViewOptions: {
+    showEnrollment: true
+  },
 
   template: JST['sections/index'],
 
@@ -11,11 +14,13 @@ Whiteboard.Views.SectionsIndex = Mn.CompositeView.extend({
   },
 
   makeSortable: function () {
-    $('#section-list').datatable({
-      pageSize: 20,
-      sort: [true, true],
-      filters: [true, true],
-      filterText: 'Search...'
+    $('#section-list').dataTable({
+      pagingType: 'simple',
+      columns: [
+        { searchable: false },
+        null,
+        null
+      ]
     });
   }
 });
