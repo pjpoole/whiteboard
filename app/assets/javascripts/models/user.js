@@ -42,7 +42,6 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       type: 'POST',
       data: options.data,
       dataType: 'json',
-      async: false,
       success: function (data) {
         model.parse(data);
         model.set(data);
