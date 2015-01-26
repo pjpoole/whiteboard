@@ -15,7 +15,7 @@
 //
 //= require jquery
 //= require jquery.serializejson
-//= require datatable
+//= require jquery.dataTables
 //= require underscore
 //= require backbone
 //
