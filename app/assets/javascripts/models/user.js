@@ -6,15 +6,20 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   url: '/api/session',
 
   parse: function (resp) {
+    console.log(resp)
+
     if (resp.sections) {
-      this.sections().set(resp.sections, { parse: true });
+      this.sections().set(resp.sections, {
+        user_id: resp.id, parse: true
+      });
       delete resp.sections;
     }
 
     if (resp.sectionsInstructed) {
       this.sectionsInstructed().set(
-        resp.sectionsInstructed, { parse: true }
-      );
+        resp.sectionsInstructed, {
+          user_id: resp.id, parse: true
+      });
       delete resp.sectionsInstructed;
     }
 
@@ -79,14 +84,14 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
 
   sections: function () {
     if (!this._sections) {
-      this._sections = new Whiteboard.Collections.Sections();
+      this._sections = new Whiteboard.Collections.SectionsEnrolled();
     }
     return this._sections;
   },
 
   sectionsInstructed: function () {
     if (!this._sectionsInstructed) {
-      this._sectionsInstructed = new Whiteboard.Collections.Sections();
+      this._sectionsInstructed = new Whiteboard.Collections.SectionsInstructed();
     }
     return this._sectionsInstructed;
   }

@@ -6,6 +6,11 @@ Whiteboard.Views.SectionsIndex = Mn.CompositeView.extend({
   childViewOptions: {
     showEnrollment: true
   },
+  childEvents: {
+    'request:enrollment': function (view) {
+      Whiteboard.currentUser.sections().enroll(view.model);
+    }
+  },
 
   template: JST['sections/index'],
 

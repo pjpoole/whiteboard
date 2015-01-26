@@ -3,9 +3,15 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   className: 'section-item',
 
   triggers: {
-    'click': 'fire'
+    'click .button-container a': 'request:enrollment'
   },
-  
+
+  onRequestEnrollment: function (args) {
+    var view = args.view;
+    view.$('.button-container a').prop('disabled', true);
+    view.$('.button-container a').text('Enrolling...');
+  },
+
   getTemplate: function () {
     if (this.options.showEnrollment) {
       return JST['sections/item_enr'];
