@@ -31,6 +31,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
     eventChannel.comply('signOut:requested', this.signOut, this);
     eventChannel.comply('user:new:requested', this.newUser, this);
     eventChannel.comply('signin:requested', this.signIn, this);
+    eventChannel.comply('add:sectionInstructed', this.addSectionInstructed, this);
   },
 
   isSignedIn: function () {
@@ -104,5 +105,9 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       this._sectionsInstructed = new Whiteboard.Collections.SectionsInstructed();
     }
     return this._sectionsInstructed;
+  },
+
+  addSectionInstructed: function (model) {
+    this.sectionsInstructed().add(model);
   }
 });

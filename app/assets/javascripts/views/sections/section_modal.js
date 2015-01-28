@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Views.SectionModal = Backbone.Modal.extend({
   template: JST['sections/form'],
 
@@ -9,7 +11,7 @@ Whiteboard.Views.SectionModal = Backbone.Modal.extend({
 
   submit: function (ev) {
     var $form = $('#modal-region form');
-    debugger
+
     this.model.save({
       section: {
         title: $form.find('#section_title').val(),
@@ -17,7 +19,7 @@ Whiteboard.Views.SectionModal = Backbone.Modal.extend({
       }
     }, {
       success: function (model) {
-        Whiteboard.currentUser.sectionsInstructed().add(model);
+        eventChannel.command('add:sectionInstucted', model);
       },
       error: function (resp) {
         console.log(resp);

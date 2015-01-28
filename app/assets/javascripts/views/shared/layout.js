@@ -16,6 +16,7 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
 
   initialize: function () {
     this.listenTo(eventChannel, 'signOut', this.shutDown);
+    eventChannel.comply('section:create', this.sectionCreate, this);
   },
 
   logEvents: function (name) {
