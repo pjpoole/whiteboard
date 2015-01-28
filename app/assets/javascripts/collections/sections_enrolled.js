@@ -14,6 +14,16 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   },
 
   enroll: function (section) {
-    this.create(section);
+    var model = new this.model;
+
+    model.save({ section_id: section.get('id') }, {
+      success: function (model) {
+        this.add(model);
+        Whiteboard.currentUser.trigger('enrolled:' + model.section_id);
+      },
+      error: function (model, resp) {
+        console.log(resp);
+      }
+    })
   }
 });
