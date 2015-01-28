@@ -21,6 +21,8 @@
 //
 //= require backbone.routefilter
 //= require backbone.marionette
+//= require backbone.radio
+//= require radio.shim
 //= require backbone.modal-bundled
 //
 //= require moment
