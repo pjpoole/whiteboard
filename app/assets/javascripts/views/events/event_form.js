@@ -8,14 +8,8 @@ Whiteboard.Views.EventForm = Backbone.View.extend({
     'keydown': 'maybeSubmit'
   },
 
-  render: function (currentDate) {
-
+  onBeforeRender: function (currentDate) {
     var defaultDate = (moment(currentDate) || moment()).format('YYYY-MM-DD');
-    var content = this.template({ defaultDate: defaultDate });
-
-    this.$el.html(content);
-
-    return this;
   },
 
   maybeSubmit: function (event) {

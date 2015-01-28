@@ -4,6 +4,13 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
 
   template: JST['sections/show'],
 
+  templateHelpers: function () {
+      return {
+        instructor: this.model.instructor()
+      };
+  },
+
+
   regions: {
     description: '#course-section',
     forum: '#forum',
@@ -11,20 +18,16 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
   },
 
   onBeforeShow: function () {
-    
+    var userIsMember = eventChannel.request('user:member', this.model);
+
+    if (userIsMember) {
+      this.getRegion('syllabus').show(new Whiteboard.Views.EventsList({
+        collection: this.model.vents()
+      }));
+    }
   },
 
-  initialize: function (options) {
-
-    this.model = options.model;
-    if (Whiteboard.currentUser.memberOf(this.model)) {
-      this.eventListView = new Whiteboard.Views.EventsList({
-        collection: this.model.vents()
-      });
-
-      this.addSubview('.syllabus', this.eventListView);
-    }
-
-    this.listenTo(this.model, 'change', this.render);
+  initialize: function () {
+    // debugger
   }
 });
