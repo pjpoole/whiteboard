@@ -19,7 +19,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   initialize: function (options) {
-    this.listenTo(eventChannel, 'signIn', this.destroy);
     this.options = options || {};
   },
 
@@ -27,8 +26,13 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     this.options.defer.resolve();
   },
 
+  onShow: function () {
+    if (eventChannel.request('user:isSignedIn')) this.destroy();
+    this.listenTo(eventChannel, 'signIn', this.destroy);
+  },
+
   beforeCancel: function () {
-    return false;
+    return eventChannel.request('user:isSignedIn');
   },
 
   setActive: function (options) {
@@ -58,7 +62,5 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       this.model.set(data);
       eventChannel.command('user:new:requested', { model: this.model });
     }
-
-    return false;
   }
 });

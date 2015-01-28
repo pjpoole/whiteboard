@@ -34,7 +34,8 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
     }, this);
 
     eventChannel.reply({
-      'user:member': this.memberOf
+      'user:member': this.memberOf,
+      'user:isSignedIn': this.isSignedIn
     }, this);
   },
 
