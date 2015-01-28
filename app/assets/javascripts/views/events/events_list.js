@@ -8,7 +8,13 @@ Whiteboard.Views.EventsList = Mn.CompositeView.extend({
     'keydown #event-list-form': 'maybeSubmit'
   },
 
-  template: JST['events/list'],
+  getTemplate: function () {
+    if (eventChannel.request('user:teaches', this.collection.section)) {
+      return JST['events/list'];
+    } else {
+      return JST['events/list_clean'];
+    }
+  },
 
   templateHelpers: {
     defaultDate: moment().format('YYYY-MM-DD')

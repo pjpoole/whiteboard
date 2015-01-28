@@ -35,6 +35,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
     eventChannel.reply({
       'user:member': this.memberOf,
+      'user:teaches': this.teaches,
       'user:isSignedIn': this.isSignedIn
     }, this);
   },
@@ -94,8 +95,12 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   memberOf: function (section) {
     if (!section) return;
     if (this.sections().get(section.id)) return true;
-    if (this.sectionsInstructed().get(section.id)) return true;
+    if (this.teaches(section)) return true;
     return false;
+  },
+
+  teaches: function (section) {
+    if (this.sectionsInstructed().get(section.id)) return true;
   },
 
   sections: function () {
