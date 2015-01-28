@@ -3,10 +3,6 @@ Whiteboard.Views.SectionModal = Backbone.Modal.extend({
 
   submitEl: '.bbm-button',
 
-  onDestroy: function () {
-    $('tester').remove();
-  },
-
   submit: function (ev) {
     var $form = $('#modal-region form');
 

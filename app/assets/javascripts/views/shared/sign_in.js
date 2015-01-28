@@ -24,7 +24,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   onDestroy: function () {
-    $('tester').remove();
     this.options.defer.resolve();
   },
 
