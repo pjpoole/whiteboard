@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Views.SectionButtons = Mn.ItemView.extend({
   tagName: 'div',
   className: 'clearfix section-buttons',
@@ -9,6 +11,6 @@ Whiteboard.Views.SectionButtons = Mn.ItemView.extend({
   },
 
   onSectionCreate: function () {
-    Whiteboard.trigger('section:create');
+    eventChannel.trigger('section:create');
   }
 });

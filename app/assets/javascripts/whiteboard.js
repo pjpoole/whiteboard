@@ -12,8 +12,6 @@ Whiteboard.Controllers = {};
 Whiteboard.Routers =     {};
 
 Whiteboard.on('start', function () {
-  Whiteboard.eventChannel = Backbone.Radio.channel('events');
-
   Whiteboard.currentUser = new Whiteboard.Models.CurrentUser();
   Whiteboard.currentUser.fetch();
 

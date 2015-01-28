@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users'
 });
@@ -67,8 +69,8 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   },
 
   fireSessionEvent: function () {
-    if (this.isSignedIn()) Whiteboard.eventChannel.trigger('signIn');
-    else Whiteboard.eventChannel.trigger('signOut');
+    if (this.isSignedIn()) eventChannel.trigger('signIn');
+    else eventChannel.trigger('signOut');
   },
 
 

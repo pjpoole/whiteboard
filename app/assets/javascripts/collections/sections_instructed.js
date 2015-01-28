@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Collections.SectionsInstructed = Backbone.Collection.extend({
   url: function () {
     return '/api/users/' + this.user_id + '/sections';
@@ -6,7 +8,7 @@ Whiteboard.Collections.SectionsInstructed = Backbone.Collection.extend({
   model: Whiteboard.Models.Section,
 
   initialize: function () {
-    this.listenTo(Whiteboard.eventChannel, 'signIn', this.setUserId);
+    this.listenTo(eventChannel, 'signIn', this.setUserId);
   },
 
   setUserId: function () {

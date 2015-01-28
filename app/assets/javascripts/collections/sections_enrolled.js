@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   url: function () {
     return '/api/users/' + this.user_id + '/enrollments';
@@ -6,7 +8,7 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   model: Whiteboard.Models.Section,
 
   initialize: function () {
-    this.listenTo(Whiteboard.eventChannel, 'signIn', this.setUserId);
+    this.listenTo(eventChannel, 'signIn', this.setUserId);
   },
 
   setUserId: function () {
@@ -19,7 +21,7 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
     model.save({ section_id: section.get('id') }, {
       success: function (model) {
         this.add(model);
-        Whiteboard.currentUser.trigger('enrolled:' + model.section_id);
+        eventChannel.trigger('enrolled:' + model.section_id);
       },
       error: function (model, resp) {
         console.log(resp);

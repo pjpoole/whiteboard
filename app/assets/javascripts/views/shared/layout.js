@@ -1,3 +1,5 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Views.Layout = Mn.LayoutView.extend({
   template: JST['shared/layout'],
 
@@ -13,7 +15,7 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
   },
 
   initialize: function () {
-    this.listenTo(Whiteboard.eventChannel, 'signOut', this.shutDown);
+    this.listenTo(eventChannel, 'signOut', this.shutDown);
   },
 
   logEvents: function (name) {
