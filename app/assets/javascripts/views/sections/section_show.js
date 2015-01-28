@@ -5,11 +5,10 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
   template: JST['sections/show'],
 
   templateHelpers: function () {
-      return {
-        instructor: this.model.instructor()
-      };
+    return {
+      instructor: this.model.instructor()
+    };
   },
-
 
   regions: {
     description: '#course-section',
@@ -25,9 +24,5 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
         collection: this.model.vents()
       }));
     }
-  },
-
-  initialize: function () {
-    // debugger
   }
 });
