@@ -1,11 +1,27 @@
-<table class="events-display">
-  <thead class="events-header">
-    <tr>
-      <td data-column-name="date">Date</td>
-      <td data-column-name="name">Name</td>
-      <td data-column-name="event_type">Type</td>
-    </tr>
-  </thead>
-  <tbody id="event-list-form"></tbody>
-  <tbody id="events-body"></tbody>
-</table>
+<thead class="events-header">
+  <tr>
+    <td data-column-name="date">Date</td>
+    <td data-column-name="name">Name</td>
+    <td data-column-name="event_type">Type</td>
+  </tr>
+</thead>
+<tbody id="event-list-form">
+  <tr>
+    <td>
+      <input type="date" id="event_date" name="event[date]" value="<%= defaultDate %>">
+    </td>
+    <td>
+      <input type="text" id="event_name" name="event[name]" value="" placeholder="Name..." class="select-after-input">
+    </td>
+    <td>
+      <select id="event_event_type" class="selectmenu" name="event[event_type]">
+        <option value="event">Event</option>
+        <option value="session">Class</option>
+        <option value="assignment">Assignment</option>
+        <option value="reading">Reading</option>
+        <option value="assessment">Quiz or test</option>
+      </select>
+    </td>
+  </tr>
+</tbody>
+<tbody id="events-body"></tbody>

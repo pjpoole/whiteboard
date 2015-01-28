@@ -1,23 +1,38 @@
 Whiteboard.Views.EventsList = Mn.CompositeView.extend({
-  className: 'events-list',
+  tagName: 'table',
+  className: 'events-display',
   childView: Whiteboard.Views.EventItem,
   childViewContainer: '#events-body',
 
+  events: {
+    'keydown #event-list-form': 'maybeSubmit'
+  },
+
   template: JST['events/list'],
 
-  initialize: function () {
-    var sections = eventChannel.request('sections:enrolled');
-    if (sections.get(this.collection.section.id)) {
-      this.eventFormView = new Whiteboard.Views.EventForm({
-        model: new Whiteboard.Models.Event(),
-        collection: this.collection
-      });
+  templateHelpers: {
+    defaultDate: moment().format('YYYY-MM-DD')
+  },
+
+  maybeSubmit: function (event) {
+    if (event.keyCode === 13) {
+      this.submit(event);
     }
   },
 
-  onRender: function () {
-    $('#event-list-form').append(
-      new Whiteboard.Views.EventForm().$el
-    );
+  submit: function (event) {
+    $target = $(event.currentTarget);
+    var eventContent = {
+      section_id: this.collection.section.id,
+      event: {
+        date: moment($target.find('#event_date').val()).local(),
+        name: $target.find('#event_name').val(),
+        event_type: $target.find('#event_event_type').val()
+      }
+    };
+
+    this.collection.create(eventContent, { wait: true });
   }
+
+
 });

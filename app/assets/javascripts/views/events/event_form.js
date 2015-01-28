@@ -1,15 +1,15 @@
-Whiteboard.Views.EventForm = Backbone.View.extend({
+Whiteboard.Views.EventForm = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'events-form table-form',
   template: JST['events/form'],
 
+  templateHelpers: {
+    defaultDate: moment().format('YYYY-MM-DD')
+  },
+
   events: {
     'submit': 'submit',
     'keydown': 'maybeSubmit'
-  },
-
-  onBeforeRender: function (currentDate) {
-    var defaultDate = (moment(currentDate) || moment()).format('YYYY-MM-DD');
   },
 
   maybeSubmit: function (event) {
