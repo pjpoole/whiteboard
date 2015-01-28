@@ -4,6 +4,8 @@ Whiteboard.Views.SectionsList = Mn.CompositeView.extend({
   childView: Whiteboard.Views.SectionItem,
   childViewContainer: '#sections-body',
 
+  emptyView: Whiteboard.Views.NoSections,
+
   template: JST['sections/list'],
 
   templateHelpers: function () {

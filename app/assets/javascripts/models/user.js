@@ -6,8 +6,6 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   url: '/api/session',
 
   parse: function (resp) {
-    console.log(resp)
-
     if (resp.sections) {
       this.sections().set(resp.sections, {
         user_id: resp.id, parse: true

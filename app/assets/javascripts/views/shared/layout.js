@@ -14,11 +14,17 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
 
   initialize: function () {
     this.listenTo(Whiteboard.currentUser, 'signOut', this.shutDown);
-    this.listenTo(this, 'all', this.logEvent);
   },
 
-  logEvent: function (name) {
+  logEvents: function (name) {
     console.log(name);
+  },
+
+  sectionCreate: function (view) {
+    var section = new Whiteboard.Models.Section();
+    this.getRegion('modal').show(new Whiteboard.Views.SectionModal({
+      model: section
+    }));
   },
 
   shutDown: function () {

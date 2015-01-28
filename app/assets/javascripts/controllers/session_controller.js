@@ -11,7 +11,6 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
   signIn: function (options) {
     options = options || {};
     options.name = 'signin'
-
     Backbone.history.navigate('signin');
     return this.showHelper(options);
   },

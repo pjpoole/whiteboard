@@ -1,18 +1,27 @@
 Whiteboard.Views.SectionModal = Backbone.Modal.extend({
   template: JST['sections/form'],
 
-  create: function (event) {
-    event.preventDefault();
+  submitEl: '.bbm-button',
 
+  onDestroy: function () {
+    $('tester').remove();
+  },
+
+  submit: function (ev) {
+    var $form = $('#modal-region form');
+    debugger
     this.model.save({
-      title: this.$('#section_title').val(),
-      description: this.$('#section_description').val()
+      section: {
+        title: $form.find('#section_title').val(),
+        description: $form.find('#section_description').val()
+      }
     }, {
       success: function (model) {
-        this.collection.add(model);
-        this.remove();
-        Backbone.history.navigate('#sections/' + this.model.id, true);
-      }.bind(this)
+        Whiteboard.currentUser.sectionsInstructed().add(model);
+      },
+      error: function (resp) {
+        console.log(resp);
+      }
     });
   }
 });

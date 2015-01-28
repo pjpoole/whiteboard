@@ -8,6 +8,7 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
 
   onRequestEnrollment: function (args) {
     var view = args.view;
+    this.one(Whiteboard.currentUser, 'enrolled:' + this.model.get('id'), this.render);
     view.$('.button-container a').prop('disabled', true);
     view.$('.button-container a').text('Enrolling...');
   },

@@ -17,18 +17,14 @@ Whiteboard.Views.Dashboard = Mn.LayoutView.extend({
   onBeforeShow: function () {
     this.getRegion('buttons').show(new Whiteboard.Views.SectionButtons());
 
-    if (this.sections['sections']) {
-      this.getRegion('enrollments').show(new Whiteboard.Views.SectionsList({
-        collection: this.sections['sections'],
-        heading: 'Your enrollments:'
-      }))
-    }
-    if (this.sections['sections']) {
-      this.getRegion('teaching').show(new Whiteboard.Views.SectionsList({
-        collection: this.sections['instructed'],
-        heading: 'You are teaching:'
-      }))
-    }
+    this.getRegion('enrollments').show(new Whiteboard.Views.SectionsList({
+      collection: this.sections['sections'],
+      heading: 'Your enrollments:'
+    }));
 
+    this.getRegion('teaching').show(new Whiteboard.Views.SectionsList({
+      collection: this.sections['instructed'],
+      heading: 'You are teaching:'
+    }));
   }
 });

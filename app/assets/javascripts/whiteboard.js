@@ -26,6 +26,10 @@ Whiteboard.on('start', function () {
     region: Whiteboard.mainLayout.getRegion('content')
   });
 
+  Whiteboard.on('section:create', function () {
+    Whiteboard.mainLayout.sectionCreate();
+  });
+
   if (!Backbone.History.started) {
     Backbone.history.start();
   }
