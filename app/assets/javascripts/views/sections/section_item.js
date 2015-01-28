@@ -1,14 +1,21 @@
+var eventChannel = Backbone.Radio.channel('event');
+
 Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'section-item',
 
   triggers: {
-    'click .button-container a': 'request:enrollment'
+    'click .button-container': 'request:enrollment'
   },
 
   onRequestEnrollment: function (args) {
     var view = args.view;
-    this.one(Whiteboard.currentUser, 'enrolled:' + this.model.get('id'), this.render);
+
+    eventChannel.complyOnce('enrolled:' + this.model.id, this.render, this);
+    eventChannel.command('enrollment:requested', {
+      section: args.model
+    });
+
     view.$('.button-container a').prop('disabled', true);
     view.$('.button-container a').text('Enrolling...');
   },

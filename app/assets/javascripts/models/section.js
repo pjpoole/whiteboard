@@ -1,5 +1,11 @@
 Whiteboard.Models.Section = Backbone.Model.extend({
-  urlRoot: '/api/sections',
+  urlRoot: function () {
+    if (this.collection) {
+      return _.result(this.collection, 'url');
+    } else {
+      return '/api/sections';
+    }
+  },
 
   instructor: function () {
     if (!this._instructor) {

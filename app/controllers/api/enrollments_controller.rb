@@ -13,7 +13,7 @@ module Api
       )
 
       if enrollment
-        render json: section
+        render json: enrollment.section
       else
         head :unprocessable_entity
       end

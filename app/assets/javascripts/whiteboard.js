@@ -2,6 +2,10 @@ Mn.Renderer.render = function (template, data) {
   return template(data);
 };
 
+Backbone.Radio.tuneIn('event');
+
+
+
 window.Whiteboard = new Mn.Application();
 
 Whiteboard.Utils =       {};

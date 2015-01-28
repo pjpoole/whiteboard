@@ -11,3 +11,4 @@ Bucket
 * FIX: Render errors somewhere other than alert window; session controller has no text to send to you'll have to make it up on client side
 * FIX: section table styling
 * FIX: datatable styling
+* FIX: before callback should issue a request to the user model if not signed in

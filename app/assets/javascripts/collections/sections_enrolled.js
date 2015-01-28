@@ -9,19 +9,21 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
 
   initialize: function () {
     this.listenTo(eventChannel, 'signIn', this.setUserId);
+    eventChannel.comply('enrollment:requested', this.enroll, this);
   },
 
   setUserId: function () {
     this.user_id = Whiteboard.currentUser.id;
   },
 
-  enroll: function (section) {
-    var model = new this.model;
+  enroll: function (options) {
+    var that = this,
+        model = new this.model({}, { collection: this });
 
-    model.save({ section_id: section.get('id') }, {
+    model.save({ section_id: options.section.get('id') }, {
       success: function (model) {
-        this.add(model);
-        eventChannel.trigger('enrolled:' + model.section_id);
+        that.add(model);
+        eventChannel.command('enrolled:' + model.id);
       },
       error: function (model, resp) {
         console.log(resp);

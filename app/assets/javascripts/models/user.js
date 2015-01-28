@@ -28,10 +28,12 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
   initialize: function (options) {
     this.listenTo(this, 'change', this.fireSessionEvent);
-    eventChannel.comply('signOut:requested', this.signOut, this);
-    eventChannel.comply('user:new:requested', this.newUser, this);
-    eventChannel.comply('signin:requested', this.signIn, this);
-    eventChannel.comply('add:sectionInstructed', this.addSectionInstructed, this);
+    eventChannel.comply({
+      'signOut:requested': this.signOut,
+      'user:new:requested': this.newUser,
+      'signin:requested': this.signIn,
+      'add:sectionInstructed': this.addSectionInstructed
+    }, this)
   },
 
   isSignedIn: function () {
@@ -58,6 +60,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       success: function (data) {
         model.parse(data);
         model.set(data);
+        options.defer && options.defer.resolve();
       },
       error: function () {
         options.error && options.error();
