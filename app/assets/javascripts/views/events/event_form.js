@@ -1,3 +1,4 @@
+// TODO: deprecated
 Whiteboard.Views.EventForm = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'events-form table-form',
