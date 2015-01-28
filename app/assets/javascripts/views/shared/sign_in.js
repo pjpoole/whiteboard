@@ -42,16 +42,9 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
 
   beforeSubmit: function (event) {
     var $form = $('#modal-region form'),
-        data, error, method, options, that;
+        data, method;
 
-    that = this;
     method = $('.active').attr('id');
-    options = this.options;
-
-    error = function (model, resp) {
-      console.log(model, resp);
-    };
-
 
     data = {
       user: {
@@ -61,18 +54,12 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       }
     };
 
+
     if (method === 'signin') {
-      Whiteboard.currentUser.signIn({
-        data: data,
-        error: error
-      })
+      eventChannel.command('signin:requested', { data: data });
     } else {
-      this.model.save(data, {
-        success: function (model, resp) {
-          Whiteboard.currentUser.set(model);
-        },
-        error: error
-      });
+      this.model.set(data);
+      eventChannel.command('user:new:requested', { model: this.model });
     }
 
     return false;

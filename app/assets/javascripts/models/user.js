@@ -4,7 +4,7 @@ Whiteboard.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users'
 });
 
-Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
+Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   url: '/api/session',
 
   parse: function (resp) {
@@ -28,13 +28,25 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
 
   initialize: function (options) {
     this.listenTo(this, 'change', this.fireSessionEvent);
+    eventChannel.comply('signOut:requested', this.signOut, this);
+    eventChannel.comply('user:new:requested', this.newUser, this);
+    eventChannel.comply('signin:requested', this.signIn, this);
   },
 
   isSignedIn: function () {
     return !this.isNew();
   },
 
+  newUser: function (options) {
+    options.model.save({}, {
+      success: function (model) {
+        this.set(model);
+      }.bind(this)
+    });
+  },
+
   signIn: function (options) {
+
     var model = this;
 
     $.ajax({
@@ -45,7 +57,6 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       success: function (data) {
         model.parse(data);
         model.set(data);
-        options.success && options.success();
       },
       error: function () {
         options.error && options.error();
@@ -53,7 +64,7 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
     });
   },
 
-  signOut: function (options) {
+  signOut: function () {
     var model = this;
 
     // TODO: Why can't this be a Backbone method?
@@ -63,7 +74,6 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
       dataType: 'json',
       success: function (data) {
         model.clear();
-        options.success && options.success();
       }
     })
   },

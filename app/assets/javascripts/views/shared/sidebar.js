@@ -15,14 +15,11 @@ Whiteboard.Views.Sidebar = Mn.ItemView.extend({
     this.$el.animate({left: "-=200"}, 0);
     this.listenTo(eventChannel, 'signIn', this.unhide);
     this.listenTo(eventChannel, 'signOut', this.hide);
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   signOut: function () {
-    Whiteboard.currentUser.signOut({
-      success: function () {
-        Backbone.history.navigate('signin', { trigger: true });
-      }
-    });
+    eventChannel.command('signOut:requested');
   },
 
   hide: function () {
