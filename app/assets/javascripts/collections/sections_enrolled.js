@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   url: function () {
     return '/api/users/' + this.user_id + '/enrollments';

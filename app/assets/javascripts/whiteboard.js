@@ -2,6 +2,8 @@ Mn.Renderer.render = function (template, data) {
   return template(data);
 };
 
+var eventChannel = Backbone.Radio.channel('event');
+
 Backbone.Radio.tuneIn('event');
 
 

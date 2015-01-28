@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Views.SignIn = Backbone.Modal.extend({
   template: JST['shared/sign_in_or_up'],
 

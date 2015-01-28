@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   tagName: 'tr',
   className: 'section-item',

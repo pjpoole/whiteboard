@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Routers.Session = Backbone.Router.extend({
   routes: {
     'signin': 'signIn',

@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Views.Layout = Mn.LayoutView.extend({
   template: JST['shared/layout'],
 

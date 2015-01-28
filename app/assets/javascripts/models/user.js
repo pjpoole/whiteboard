@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users'
 });

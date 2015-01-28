@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Views.SectionModal = Backbone.Modal.extend({
   template: JST['sections/form'],
 

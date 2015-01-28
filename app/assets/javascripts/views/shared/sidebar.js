@@ -1,5 +1,3 @@
-var eventChannel = Backbone.Radio.channel('event');
-
 Whiteboard.Views.Sidebar = Mn.ItemView.extend({
   tagName: 'nav',
   className: 'nav sidebar',
