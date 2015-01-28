@@ -13,7 +13,7 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
   },
 
   initialize: function () {
-    this.listenTo(Whiteboard.currentUser, 'signOut', this.shutDown);
+    this.listenTo(Whiteboard.eventChannel, 'signOut', this.shutDown);
   },
 
   logEvents: function (name) {

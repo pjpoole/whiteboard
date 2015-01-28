@@ -67,8 +67,8 @@ Whiteboard.Models.CurrentUser = Whiteboard.Models.User.extend({
   },
 
   fireSessionEvent: function () {
-    if (this.isSignedIn()) this.trigger('signIn');
-    else this.trigger('signOut');
+    if (this.isSignedIn()) Whiteboard.eventChannel.trigger('signIn');
+    else Whiteboard.eventChannel.trigger('signOut');
   },
 
 

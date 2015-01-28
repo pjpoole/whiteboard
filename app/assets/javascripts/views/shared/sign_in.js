@@ -19,7 +19,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   initialize: function (options) {
-    this.listenTo(Whiteboard.currentUser, 'signIn', this.destroy);
+    this.listenTo(Whiteboard.eventChannel, 'signIn', this.destroy);
     this.options = options || {};
   },
 

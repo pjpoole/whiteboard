@@ -1,7 +1,7 @@
 <% teaches = current_user.teaches?(@section) %>
 <% enrolled = current_user.enrolled_in?(@section) %>
 
-<header class="course-section">
+<header id="course-section">
   <h2><%= @section.title %></h2>
   <p class="description"><%= @section.description %></p>
 </header>

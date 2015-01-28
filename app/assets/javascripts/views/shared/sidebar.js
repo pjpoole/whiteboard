@@ -11,8 +11,8 @@ Whiteboard.Views.Sidebar = Mn.ItemView.extend({
     this.model = Whiteboard.currentUser;
 
     this.$el.animate({left: "-=200"}, 0);
-    this.listenTo(Whiteboard.currentUser, 'signIn', this.unhide);
-    this.listenTo(Whiteboard.currentUser, 'signOut', this.hide);
+    this.listenTo(Whiteboard.eventChannel, 'signIn', this.unhide);
+    this.listenTo(Whiteboard.eventChannel, 'signOut', this.hide);
   },
 
   signOut: function () {

@@ -5,7 +5,7 @@ Whiteboard.Routers.Session = Backbone.Router.extend({
   },
 
   initialize: function () {
-    this.listenTo(Whiteboard.currentUser, 'signOut', this.signIn);
+    this.listenTo(Whiteboard.eventChannel, 'signOut', this.signIn);
   },
 
   before: function () {
