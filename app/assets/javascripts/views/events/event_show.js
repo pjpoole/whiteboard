@@ -1,15 +1,14 @@
-Whiteboard.Views.EventShow = Backbone.View.extend({
+Whiteboard.Views.EventShow = Mn.LayoutView.extend({
   template: JST['events/show'],
 
-  initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+  regions: {
+    forum: '#forum'
   },
 
-  render: function () {
-    var content = this.template({ vent: this.model });
-
-    this.$el.html(content);
-    debugger
-    return this;
+  onBeforeShow: function () {
+    this.getRegion('forum').show(new Whiteboard.Views.PostsList({
+      collection: this.model.posts();
+    }));
   }
+
 });

@@ -30,7 +30,7 @@ Whiteboard.Models.Section = Backbone.Model.extend({
     }
 
     if (resp.events) {
-      this.vents().set(resp.events);
+      this.vents().set(resp.events, { parse: true });
       delete resp.events;
     }
 
