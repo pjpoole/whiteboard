@@ -19,7 +19,12 @@ module Api
     end
 
     def show
-      @section = Section.includes(:events, :instructor).find(params[:id])
+      @section = Section.includes(
+        :events,
+        :instructor,
+        :posts
+      ).find(params[:id])
+      
       render :show
     end
 
