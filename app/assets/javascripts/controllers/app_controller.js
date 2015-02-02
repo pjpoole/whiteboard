@@ -27,13 +27,18 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
   },
 
   sectionShow: function (id) {
-    var that = this;
-    var section = new Whiteboard.Models.Section({ id: id });
+    var section, that = this;
+    if (eventChannel.request('user:member', id)) {
+      section = eventChannel.request('user:section', id);
+    } else {
+      section = new Whiteboard.Models.Section({ id: id });
+    }
     section.fetch().done( function () {
       that.region.show(new Whiteboard.Views.SectionShow({
         model: section
       }));
     });
+
     Backbone.history.navigate('sections/' + id);
   },
 

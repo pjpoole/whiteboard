@@ -17,7 +17,7 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
   },
 
   onBeforeShow: function () {
-    var userIsMember = eventChannel.request('user:member', this.model);
+    var userIsMember = eventChannel.request('user:member', this.model.id);
 
     if (userIsMember) {
       this.getRegion('syllabus').show(new Whiteboard.Views.EventsList({

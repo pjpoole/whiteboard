@@ -4,8 +4,8 @@ Whiteboard.Models.Event = Backbone.Model.extend({
   posts: function () {
     if (!this._posts) {
       this._posts = new Whiteboard.Collection.Posts({}, {
-        vent = this;
-        section = this.section;
+        vent: this,
+        section: this.section
       });
     }
 

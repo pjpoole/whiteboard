@@ -7,7 +7,7 @@ Whiteboard.Views.EventShow = Mn.LayoutView.extend({
 
   onBeforeShow: function () {
     this.getRegion('forum').show(new Whiteboard.Views.PostsList({
-      collection: this.model.posts();
+      collection: this.model.posts()
     }));
   }
 
