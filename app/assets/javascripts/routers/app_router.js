@@ -18,11 +18,8 @@ Whiteboard.Routers.App = Backbone.Router.extend({
         promise = Whiteboard.SessionController.signIn({ defer: defer }),
         that = this;
 
-    // I keep getting undefined elements in this.
-    if (!params[params.length - 1]) params.pop();
-
     $.when(promise).done(function () {
-      that[that.routes[route]].apply(params);
+      that[that.routes[route]].apply(this, params);
     });
 
     return false;
