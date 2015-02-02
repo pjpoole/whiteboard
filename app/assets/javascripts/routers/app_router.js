@@ -22,7 +22,7 @@ Whiteboard.Routers.App = Backbone.Router.extend({
     if (!params[params.length - 1]) params.pop();
 
     $.when(promise).done(function () {
-      that[that.routes[route]](params);
+      that[that.routes[route]].apply(params);
     });
 
     return false;

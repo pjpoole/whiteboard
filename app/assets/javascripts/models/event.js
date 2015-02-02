@@ -3,13 +3,13 @@ Whiteboard.Models.Event = Backbone.Model.extend({
 
   posts: function () {
     if (!this._posts) {
-      this._posts = new Whiteboard.Collection.Posts({}, {
+      this._posts = new Whiteboard.Collections.Posts({}, {
         vent: this,
         section: this.section
       });
     }
 
-    return this._posts();
+    return this._posts;
   },
 
   parse: function (resp, options) {
