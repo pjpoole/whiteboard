@@ -1,4 +1,4 @@
-json.extract! @post, :topic, :body, :user_id, :section_id, :event_id
+json.partial! 'api/posts/post', post: @post
 
 json.section do
   json.partial! 'api/sections/section', section: @post.section
