@@ -25,10 +25,22 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
     this.getRegion('modal').show(view);
   },
 
-  sectionCreate: function (view) {
-    var section = new Whiteboard.Models.Section();
+  sectionCreate: function () {
     this.getRegion('modal').show(new Whiteboard.Views.SectionModal({
-      model: section
+      model: new Whiteboard.Models.Section()
+    }));
+  },
+
+  postCreate: function (options) {
+    if (!options || !options.section_id) {
+      return;
+    }
+
+    this.getRegion('modal').show(new Whiteboard.Views.PostModal({
+      model: new Whiteboard.Models.Post({
+        section_id: options.section_id,
+        event_id: options.event_id
+      })
     }));
   },
 

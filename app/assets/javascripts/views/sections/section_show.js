@@ -16,6 +16,18 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
     syllabus: '#syllabus'
   },
 
+  events: {
+    'click .post-create': 'postCreate'
+  },
+
+  postCreate: function (ev) {
+    ev.preventDefault();
+
+    eventChannel.command('post:create', {
+      section_id: this.model.id
+    });
+  },
+
   onBeforeShow: function () {
     var userIsMember = eventChannel.request('user:member', this.model.id);
 

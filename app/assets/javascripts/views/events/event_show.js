@@ -13,10 +13,25 @@ Whiteboard.Views.EventShow = Mn.LayoutView.extend({
     forum: '#forum'
   },
 
+  events: {
+    'click .post-create': 'postCreate'
+  },
+
+  postCreate: function (ev) {
+    ev.preventDefault();
+
+    eventChannel.command('post:create', {
+      event_id: this.model.id,
+      section_id: this.model.section().id
+    });
+  },
+
   onBeforeShow: function () {
-    this.getRegion('forum').show(new Whiteboard.Views.PostsList({
-      collection: this.model.posts()
-    }));
+    if (this.model.posts().size() !== 0) {
+      this.getRegion('forum').show(new Whiteboard.Views.PostsList({
+        collection: this.model.posts()
+      }));
+    }
   }
 
 });
