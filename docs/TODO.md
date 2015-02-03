@@ -13,6 +13,8 @@ Bucket
 * FIX: datatable styling
 * FIX: Flicker on user sign in
 
+* REFACTOR: Check to make sure fetches happen periodically in case data gets out-of-date
+
 Development:
 Send post headings with section
 When event gets shown, show post headers with it
