@@ -20,17 +20,23 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   },
 
   enroll: function (options) {
-    var that = this,
-        model = new this.model({}, { collection: this });
+    var data, model, that = this;
 
-    model.save({ section_id: options.section.get('id') }, {
-      success: function (model) {
-        that.add(model);
+    data = {
+      section_id: options.section.id
+    }
+
+    $.ajax({
+      url: that.url(),
+      type: 'POST',
+      data: data,
+      success: function (resp) {
+        model = that.add(resp);
         eventChannel.command('enrolled:' + model.id);
       },
-      error: function (model, resp) {
+      error: function (resp) {
         console.log(resp);
       }
-    })
+    });
   }
 });
