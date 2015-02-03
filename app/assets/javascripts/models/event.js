@@ -12,6 +12,16 @@ Whiteboard.Models.Event = Backbone.Model.extend({
     return this._posts;
   },
 
+  section: function () {
+    if (!this._section) {
+      this._section = eventChannel.request(
+        'user:section', this.get('section_id')
+      );
+    }
+
+    return this._section;
+  },
+
   parse: function (resp, options) {
     if (resp.posts) {
       this.posts().set(resp.posts, { parse: true });

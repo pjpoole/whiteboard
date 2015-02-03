@@ -1,4 +1,3 @@
-* Bind post to section through event
 * event view
 * Forum view
 * new post - separate button

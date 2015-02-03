@@ -43,14 +43,16 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
   },
 
   eventShow: function (id) {
-    var vent = new Whiteboard.Models.Event({ id: id });
+    var that = this,
+        vent = new Whiteboard.Models.Event({ id: id });
+
     vent.fetch({
       success: function (model, resp) {
         var section = eventChannel.request('user:section', vent.get('section_id'));
         vent = section.vents().add(model, { merge: true });
-        var view = new Whiteboard.Views.EventShow({
+        that.region.show(new Whiteboard.Views.EventShow({
           model: vent
-        });
+        }));
       }
     });
     Backbone.history.navigate('events/' + id);
