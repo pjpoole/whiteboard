@@ -49,9 +49,9 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     vent.fetch({
       success: function (model, resp) {
         var section = eventChannel.request('user:section', vent.get('section_id'));
-        vent = section.vents().add(model, { merge: true });
+        section.vents().add(model, { merge: true });
         that.region.show(new Whiteboard.Views.EventShow({
-          model: vent
+          model: model
         }));
       }
     });
