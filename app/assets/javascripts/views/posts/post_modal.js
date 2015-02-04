@@ -6,7 +6,7 @@ Whiteboard.Views.PostModal = Backbone.Modal.extend({
   initialize: function () {
     this.sectionName = eventChannel.request(
       'user:section', this.model.get('section_id')
-    ).get('title');
+    ).escape('title');
   },
 
   submit: function (ev) {

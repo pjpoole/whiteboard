@@ -26,22 +26,22 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
     }
   },
 
-  templateHelpers: {
-    enrollmentButton: function () {
-      var cu = Whiteboard.currentUser;
-      var button = _.template('<div class="button-container"><a href="<%= link %>"><%= text %></a></div>');
-      // debugger
-      if (cu.sections().findWhere({ id: this.id })) {
-        return "Enrolled";
-      } else if (cu.sectionsInstructed().findWhere({ id: this.id })) {
-        return "Teaching";
-      } else {
-        // debugger
-        return button({
-          link: "#",
-          text: "Enroll!"
-        });
-      }
+  templateHelpers: function () {
+    var button, model = this.model;
+
+    if (eventChannel.request('user:teaches', model.id)) {
+      button = "Teaching";
+    } else if (eventChannel.request('user:member', model.id)) {
+      button = "Enrolled";
+    } else {
+      var template = _.template('<div class="button-container"><a href="<%= link %>"><%= text %></a></div>');
+      button = template({ link: '#', text: 'Enroll!' });
+    }
+
+    return {
+      enrollmentButton: button,
+      sectionTitle: model.escape('title'),
+      sectionDescription: model.escape('description')
     }
   }
 });

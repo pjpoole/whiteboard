@@ -5,8 +5,11 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
   template: JST['sections/show'],
 
   templateHelpers: function () {
+    var model = this.model;
     return {
-      instructor: this.model.instructor()
+      instructor: model.instructor(),
+      sectionTitle: model.escape('title'),
+      sectionDescription: model.escape('description')
     };
   },
 

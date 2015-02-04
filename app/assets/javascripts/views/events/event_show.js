@@ -1,11 +1,14 @@
 Whiteboard.Views.EventShow = Mn.LayoutView.extend({
   template: JST['events/show'],
   templateHelpers: function () {
+    var model = this.model;
     return {
-      sectionTitle: this.model.section().escape('title'),
-      sectionId: this.model.section().id,
+      sectionTitle: model.section().escape('title'),
+      sectionId: model.section().id,
+      eventName: model.escape('name'),
+      eventBody: model.escape('body'),
       formattedDate: moment(
-        this.model.get('date')).format('MMM-DD')
+        model.get('date')).format('MMM-DD')
     };
   },
 

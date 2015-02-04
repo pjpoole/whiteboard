@@ -11,7 +11,7 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
     }
     return {
       sectionId: model.get('section_id'),
-      sectionTitle: model.section().get('title'),
+      sectionTitle: model.section().escape('title'),
       hasEvent: hasEvent,
       eventId: eventId,
       eventName: eventName,

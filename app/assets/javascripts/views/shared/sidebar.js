@@ -2,6 +2,11 @@ Whiteboard.Views.Sidebar = Mn.ItemView.extend({
   tagName: 'nav',
   className: 'nav sidebar',
   template: JST['shared/sidebar'],
+  templateHelpers: function () {
+    return {
+      userName: this.model.escape('name')
+    };
+  },
 
   events: {
     'click .sign-out': 'signOut'
