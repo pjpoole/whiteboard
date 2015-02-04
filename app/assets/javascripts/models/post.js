@@ -17,6 +17,8 @@ Whiteboard.Models.Post = Backbone.Model.extend({
   },
 
   section: function () {
+    if (!this.get('section_id')) return;
+
     if (!this.collection) {
       this.collection = eventChannel.request(
         'user:section', this.get('section_id')

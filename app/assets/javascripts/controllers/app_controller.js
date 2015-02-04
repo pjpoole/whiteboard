@@ -33,12 +33,12 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     } else {
       section = new Whiteboard.Models.Section({ id: id });
     }
-    section.fetch().done( function () {
-      that.region.show(new Whiteboard.Views.SectionShow({
-        model: section
-      }));
-    });
+    
+    section.fetch();
 
+    that.region.show(new Whiteboard.Views.SectionShow({
+      model: section
+    }));
     Backbone.history.navigate('sections/' + id);
   },
 
@@ -47,13 +47,17 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
         vent = new Whiteboard.Models.Event({ id: id });
     vent.fetch({
       success: function (model, resp) {
-        var section = eventChannel.request('user:section', vent.get('section_id'));
-        section.vents().add(model, { merge: true });
-        that.region.show(new Whiteboard.Views.EventShow({
-          model: model
-        }));
+        var section = eventChannel.request(
+          'user:section', vent.get('section_id')
+        );
+
+        vent = section.vents().add(model, { merge: true });
       }
     });
+
+    that.region.show(new Whiteboard.Views.EventShow({
+      model: vent
+    }));
     Backbone.history.navigate('events/' + id);
   },
 
@@ -62,13 +66,17 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
         post = new Whiteboard.Models.Post({ id: id });
     post.fetch({
       success: function (model, resp) {
-        var section = eventChannel.request('user:section', post.get('section_id'));
+        var section = eventChannel.request(
+          'user:section', post.get('section_id')
+        );
+
         post = section.posts().add(model, { merge: true });
-        that.region.show(new Whiteboard.Views.PostShow({
-          model: post
-        }));
       }
     });
+
+    that.region.show(new Whiteboard.Views.PostShow({
+      model: post
+    }));
     Backbone.history.navigate('posts/' + id);
   }
 });
