@@ -1,4 +1,17 @@
 Whiteboard.Views.PostShow = Mn.CompositeView.extend({
+  childView: Whiteboard.Views.CommentsItem,
+  childViewContainer: '#comments',
+  childViewOptions: function (model) {
+    var childComments = this.model.comments().where({
+      parent_id: model.id
+    });
+
+    return {
+      post: this.model,
+      collection: new Whiteboard.Collections.Comments(childComments)
+    };
+  },
+
   template: JST['posts/show'],
   templateHelpers: function () {
     var model = this.model, eventName, eventId, hasEvent;
@@ -27,7 +40,7 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
   },
 
   onRender: function () {
-    this.$commentForm = this.$el.find('#new_comment');
+    this.$commentForm = this.$('#new_comment');
   },
 
   showReply: function (ev) {
@@ -43,22 +56,27 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
   newComment: function (ev) {
     ev.preventDefault();
 
-    var $body, comments, comment, model = this.model;
+    var $body, comments, comment, $form,
+        collection = this.collection,
+        model = this.model;
 
     comments = model.comments();
     comment = new comments.model();
-    $body = this.$commentForm.find('#comment_body');
+    $form = this.$commentForm
+    $body = $form.find('#comment_body');
 
     comment.save({
       comment: {
         body: $body.val(),
         post_id: model.id,
         parent_id: null
-      }, {
-        success: function () {
-          $body.val("");
-        }
       }
+    }, {
+        success: function (data) {
+          $body.val("");
+          $form.addClass('hidden');
+          collection.add(data);
+        }
     });
   }
 

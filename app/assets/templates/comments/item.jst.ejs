@@ -1,0 +1,13 @@
+<p><%= commentBody %></p>
+<a href="#" class="show_reply">Reply</a>
+<form id="new_comment_<%= id %>" class="new_comment hidden">
+  <label for="comment_body">New reply</label>
+    <textarea
+      id="comment_body"
+      name="comment[body]"
+      rows="8"
+      cols="40"
+    ></textarea>
+  <button name="submit">Submit</button>
+</form>
+<div class="children"></div>

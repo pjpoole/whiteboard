@@ -88,6 +88,14 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     });
 
     view = new Whiteboard.Views.PostShow({ model: post });
+    promise.done(function () {
+      var childComments = post.comments().where({ parent_id: null });
+
+      view.collection = new Whiteboard.Collections.Comments(
+        childComments
+      );
+    });
+
     this.showHelper(view, post, promise);
 
     Backbone.history.navigate('posts/' + id);
