@@ -20,4 +20,14 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
     }
   },
 
+  events: {
+    'click .show_reply': 'showReply',
+    'submit .new_comment': 'newComment'
+  },
+
+  showReply: function (ev) {
+    ev.preventDefault();
+    this.$el.find('form').removeClass('hidden');
+  }
+
 });
