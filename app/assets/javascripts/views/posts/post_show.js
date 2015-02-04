@@ -1,13 +1,20 @@
 Whiteboard.Views.PostShow = Mn.CompositeView.extend({
   template: JST['posts/show'],
   templateHelpers: function () {
-    var model = this.model;
+    var model = this.model, eventName, eventId, hasEvent;
+
+    hasEvent = !!model.event_id;
+
+    if (hasEvent) {
+      eventName = model.vent().escape('name');
+      eventId = model.get('event_id');
+    }
     return {
-      sectionId: model.section_id,
+      sectionId: model.get('section_id'),
       sectionTitle: model.section().get('title'),
-      hasEvent: !!model.event_id,
-      eventId: model.event_id,
-      eventName: model.vent().get('name'),
+      hasEvent: hasEvent,
+      eventId: eventId,
+      eventName: eventName,
       postTopic: model.escape('topic'),
       postBody: model.escape('body')
     }
