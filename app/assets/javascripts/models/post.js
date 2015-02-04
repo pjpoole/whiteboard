@@ -1,21 +1,29 @@
 Whiteboard.Models.Post = Backbone.Model.extend({
   urlRoot: '/api/posts',
 
+  initialize: function (options) {
+    options || (options = {});
+
+    if (options.vent) this._vent = options.vent;
+  },
+
   comments: function () {
     if (!this._comments) {
-      this._comments = new Whiteboard.Collections.Comments();
+      this._comments = new Whiteboard.Collections.Comments(null, {
+        post: this
+      });
     }
     return this._comments;
   },
 
   section: function () {
-    if (!this._section) {
-      this._section = eventChannel.request(
+    if (!this.collection) {
+      this.collection = eventChannel.request(
         'user:section', this.get('section_id')
-      );
+      ).posts();
     }
 
-    return this._section;
+    return this.collection.section;
   },
 
   vent: function () {

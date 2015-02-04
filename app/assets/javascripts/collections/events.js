@@ -3,6 +3,7 @@ Whiteboard.Collections.Events = Backbone.Collection.extend({
   model: Whiteboard.Models.Event,
 
   initialize: function (models, options) {
+    options || (options = {});
     this.section = options.section;
   },
 

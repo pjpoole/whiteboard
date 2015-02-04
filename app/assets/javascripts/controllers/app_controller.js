@@ -45,7 +45,6 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
   eventShow: function (id) {
     var that = this,
         vent = new Whiteboard.Models.Event({ id: id });
-
     vent.fetch({
       success: function (model, resp) {
         var section = eventChannel.request('user:section', vent.get('section_id'));
