@@ -66,8 +66,9 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
         post = section.posts().add(model, { merge: true });
         that.region.show(new Whiteboard.Views.PostShow({
           model: post
-        }))
+        }));
       }
     });
+    Backbone.history.navigate('posts/' + id);
   }
 });
