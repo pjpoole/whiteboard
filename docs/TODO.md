@@ -14,7 +14,7 @@ Bucket
 * FIX: Flicker on user sign in
 
 * REFACTOR: Check to make sure fetches happen periodically in case data gets out-of-date
-* FIX: Sanitize templates with "escape"
+* FIX: send user_id with posts
 
 Development:
 Send post headings with section
