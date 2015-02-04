@@ -3,6 +3,16 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     this.region = options.region;
   },
 
+  showHelper: function (view, model, promise) {
+    if (model.isNew) {
+      promise.done(function () {
+        this.region.show(view);
+      }.bind(this));
+    } else {
+      this.region.show(view);
+    }
+  },
+
   dashboard: function () {
     this.region.show(
       new Whiteboard.Views.Dashboard({
@@ -27,25 +37,27 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
   },
 
   sectionShow: function (id) {
-    var section, that = this;
+    var promise, section, view;
     if (eventChannel.request('user:member', id)) {
       section = eventChannel.request('user:section', id);
     } else {
       section = new Whiteboard.Models.Section({ id: id });
     }
-    
-    section.fetch();
 
-    that.region.show(new Whiteboard.Views.SectionShow({
+    promise = section.fetch();
+    view = new Whiteboard.Views.SectionShow({
       model: section
-    }));
+    });
+
+    this.showHelper(view, section, promise)
+
     Backbone.history.navigate('sections/' + id);
   },
 
   eventShow: function (id) {
-    var that = this,
+    var promise, view,
         vent = new Whiteboard.Models.Event({ id: id });
-    vent.fetch({
+    promise = vent.fetch({
       success: function (model, resp) {
         var section = eventChannel.request(
           'user:section', vent.get('section_id')
@@ -55,16 +67,17 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
       }
     });
 
-    that.region.show(new Whiteboard.Views.EventShow({
-      model: vent
-    }));
+    view = new Whiteboard.Views.EventShow({ model: vent });
+    this.showHelper(view, vent, promise);
+
     Backbone.history.navigate('events/' + id);
   },
 
   postShow: function (id) {
-    var that = this,
+    var promise, view,
         post = new Whiteboard.Models.Post({ id: id });
-    post.fetch({
+
+    promise = post.fetch({
       success: function (model, resp) {
         var section = eventChannel.request(
           'user:section', post.get('section_id')
@@ -74,9 +87,9 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
       }
     });
 
-    that.region.show(new Whiteboard.Views.PostShow({
-      model: post
-    }));
+    view = new Whiteboard.Views.PostShow({ model: post });
+    this.showHelper(view, post, promise);
+
     Backbone.history.navigate('posts/' + id);
   }
 });
