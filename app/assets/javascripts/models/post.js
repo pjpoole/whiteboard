@@ -26,8 +26,8 @@ Whiteboard.Models.Post = Backbone.Model.extend({
     return this.collection.section;
   },
 
-  vent: function () {
-    var event_id = this.get('event_id');
+  vent: function (event_id) {
+    var event_id = event_id || this.get('event_id');
 
     if (event_id && !this._vent) {
       this._vent = this.section().vents().getOrFetch(event_id);
@@ -39,9 +39,16 @@ Whiteboard.Models.Post = Backbone.Model.extend({
   },
 
   parse: function (resp) {
+    this.set('section_id', resp.section_id);
+
     if (resp.comments) {
       this.comments().set(resp.comments, { parse: true })
       delete resp.comments
+    }
+
+    if (resp.event) {
+      this.vent(resp.event_id).set(resp.vent, { parse: true });
+      delete resp.vent;
     }
 
     return resp;
