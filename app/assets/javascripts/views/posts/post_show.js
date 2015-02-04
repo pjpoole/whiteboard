@@ -22,12 +22,36 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
 
   events: {
     'click .show_reply': 'showReply',
+    'click .hide_reply': 'hideReply',
     'submit .new_comment': 'newComment'
+  },
+
+  onRender: function () {
+    this.commentForm = this.$el.find('#new_comment');
   },
 
   showReply: function (ev) {
     ev.preventDefault();
-    this.$el.find('form').removeClass('hidden');
+    this.commentForm.removeClass('hidden');
+  },
+
+  hideReply: function (ev) {
+    ev.preventDefault();
+    this.commentForm.addClass('hidden');
+  },
+
+  newComment: function (ev) {
+    ev.preventDefault();
+
+    var model = this.model;
+
+    var comment = new this.comments().model({
+      body: this.commentForm.find('#comment_body').val(),
+      section_id: model.get('section_id'),
+      event_id: null
+    });
+
+
   }
 
 });
