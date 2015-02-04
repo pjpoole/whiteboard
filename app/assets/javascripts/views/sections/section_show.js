@@ -35,6 +35,10 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
       this.getRegion('syllabus').show(new Whiteboard.Views.EventsList({
         collection: this.model.vents()
       }));
+
+      this.getRegion('forum').show(new Whiteboard.Views.PostsList({
+        collection: this.model.posts()
+      }))
     }
   }
 });

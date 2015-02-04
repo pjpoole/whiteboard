@@ -17,6 +17,16 @@ Whiteboard.Models.Section = Backbone.Model.extend({
     return this._vents;
   },
 
+  posts: function () {
+    if (!this._posts) {
+      this._posts = new Whiteboard.Collections.Posts(null, {
+        section: this
+      });
+    }
+
+    return this._posts;
+  },
+
   parse: function (resp) {
     if (resp.instructor) {
       this.instructor().set(resp.instructor, { parse: true });
@@ -26,6 +36,11 @@ Whiteboard.Models.Section = Backbone.Model.extend({
     if (resp.events) {
       this.vents().set(resp.events, { parse: true });
       delete resp.events;
+    }
+
+    if (resp.posts) {
+      this.posts().set(resp.posts, { parse: true });
+      delete resp.posts;
     }
 
     return resp;
