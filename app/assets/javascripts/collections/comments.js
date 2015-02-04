@@ -1,5 +1,6 @@
 Whiteboard.Collections.Comments = Backbone.Collection.extend({
   url: '/api/comments',
+  model: Whiteboard.Models.Comment,
 
   initialize: function (models, options) {
     options || (options = {});

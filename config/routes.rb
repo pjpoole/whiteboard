@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :sections, only: [:create, :show, :index]
     resources :events, only: [:create, :show, :index]
     resources :posts, only: [:create, :show, :index]
+    resources :comments, only: [:create, :destroy]
   end
 
 
