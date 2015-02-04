@@ -6,7 +6,9 @@ Whiteboard.Routers.App = Backbone.Router.extend({
     'sections': 'sectionsIndex',
     'sections/:id': 'sectionShow',
 
-    'events/:id': 'eventShow'
+    'events/:id': 'eventShow',
+
+    'posts/:id': 'postShow'
     // 'profile': 'showProfile'
   },
 
@@ -39,5 +41,9 @@ Whiteboard.Routers.App = Backbone.Router.extend({
 
   eventShow: function (id) {
     Whiteboard.AppController.eventShow(id);
+  },
+
+  postShow: function (id) {
+    Whiteboard.AppController.postShow(id);
   }
 });

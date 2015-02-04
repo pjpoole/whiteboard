@@ -55,5 +55,19 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
       }
     });
     Backbone.history.navigate('events/' + id);
+  },
+
+  postShow: function (id) {
+    var that = this,
+        post = new Whiteboard.Models.Post({ id: id });
+    post.fetch({
+      success: function (model, resp) {
+        var section = eventChannel.request('user:section', post.get('section_id'));
+        post = section.posts().add(model, { merge: true });
+        that.region.show(new Whiteboard.Views.PostShow({
+          model: post
+        }))
+      }
+    });
   }
 });
