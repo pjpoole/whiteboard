@@ -11,4 +11,6 @@ class Event < ActiveRecord::Base
 
   belongs_to :section
   has_many :posts, dependent: :destroy
+
+  has_many :tasks, dependent: :destroy
 end
