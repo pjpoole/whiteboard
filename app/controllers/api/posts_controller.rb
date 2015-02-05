@@ -1,7 +1,7 @@
 module Api
   class PostsController < ApiController
     def create
-      @post = Post.create(post_params)
+      @post = current_user.posts.new(post_params)
 
       if @post.save
         render :show
