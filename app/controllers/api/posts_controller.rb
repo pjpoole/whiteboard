@@ -12,7 +12,12 @@ module Api
     end
 
     def show
-      @post = Post.includes(:section, :event).find(params[:id])
+      @post = Post.includes(
+        :section,
+        :event,
+        :user,
+        comments: :user
+      ).find(params[:id])
 
       if @post
         render :show

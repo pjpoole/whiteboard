@@ -6,4 +6,11 @@ if !@post.event_id.nil?
   end
 end
 
-json.comments @post.comments, partial: 'api/comments/comment', as: :comment
+json.user do
+  json.partial! @post.user, partial: 'api/users/user', as: :user
+end
+
+json.comments @post.comments do |comment|
+  json.partial! comment, partial: 'api/comments/comment', as: :comment
+  json.user comment.user, :name, :id 
+end
