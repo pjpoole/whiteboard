@@ -21,7 +21,7 @@ Whiteboard.Controllers.Session = Mn.Controller.extend({
 
     var view = new Whiteboard.Views.SignIn(options);
 
-    eventChannel.command('signin:show', view);
+    modalChannel.command('signin:show', view);
 
     return options.defer.promise();
   },

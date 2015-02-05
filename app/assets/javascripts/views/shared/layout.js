@@ -14,7 +14,7 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
 
   initialize: function () {
     this.listenTo(eventChannel, 'signOut', this.shutDown);
-    eventChannel.comply({
+    modalChannel.comply({
       'section:create': this.sectionCreate,
       'signin:show': this.showSignIn,
       'post:create': this.postCreate

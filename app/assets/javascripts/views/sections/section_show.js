@@ -26,7 +26,7 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
   postCreate: function (ev) {
     ev.preventDefault();
 
-    eventChannel.command('post:create', {
+    modalChannel.command('post:create', {
       section_id: this.model.id
     });
   },

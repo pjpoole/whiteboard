@@ -3,7 +3,8 @@ Mn.Renderer.render = function (template, data) {
 };
 
 var eventChannel   = Backbone.Radio.channel('event'),
-    sessionChannel = Backbone.Radio.channel('session');
+    sessionChannel = Backbone.Radio.channel('session'),
+    modalChannel   = Backbone.Radio.channel('modal');
 
 Backbone.Radio.tuneIn('event');
 

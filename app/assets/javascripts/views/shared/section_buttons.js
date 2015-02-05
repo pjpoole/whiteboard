@@ -9,6 +9,6 @@ Whiteboard.Views.SectionButtons = Mn.ItemView.extend({
   },
 
   onSectionCreate: function () {
-    eventChannel.command('section:create');
+    modalChannel.command('section:create');
   }
 });
