@@ -4,7 +4,7 @@
 <% } %>
 <h3><%= postTopic %></h3>
 <p><%= postBody %></p>
-<p>posted <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
+<p>posted by <%= postAuthor %> <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
 <form id="new_comment" class="hidden">
   <label for="comment_body">New reply</label>
     <textarea

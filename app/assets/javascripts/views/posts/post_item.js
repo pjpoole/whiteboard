@@ -7,6 +7,7 @@ Whiteboard.Views.PostItem = Mn.ItemView.extend({
     var model = this.model;
     return {
       postTopic: model.escape('topic'),
+      postAuthor: userChannel.request('user:name', model.get('user_id')),
       formattedDate: moment(model.get('created_at')).fromNow()
     }
   }

@@ -17,8 +17,8 @@ Whiteboard.Collections.Users = Backbone.Collection.extend({
   },
 
   yieldName: function (id) {
-    var name, user = this.get('id');
+    var user = this.get(id);
 
-    return user.get('name');
+    return user.escape('name');
   }
 });

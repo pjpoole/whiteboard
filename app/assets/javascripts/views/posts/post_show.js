@@ -30,6 +30,7 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
       eventName: eventName,
       postTopic: model.escape('topic'),
       postBody: model.escape('body'),
+      postAuthor: userChannel.request('user:name', model.get('user_id')),
       timeAgo: moment(model.get('created_at')).fromNow()
     }
   },

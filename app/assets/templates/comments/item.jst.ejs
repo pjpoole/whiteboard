@@ -1,5 +1,5 @@
 <p><%= commentBody %></p>
-<p>posted: <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
+<p>posted by <%= commentAuthor %> <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
 <form id="new_comment_<%= id %>" class="new_comment hidden">
   <label for="comment_body">New reply</label>
     <textarea
