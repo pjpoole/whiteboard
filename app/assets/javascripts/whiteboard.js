@@ -4,7 +4,8 @@ Mn.Renderer.render = function (template, data) {
 
 var eventChannel   = Backbone.Radio.channel('event'),
     sessionChannel = Backbone.Radio.channel('session'),
-    modalChannel   = Backbone.Radio.channel('modal');
+    modalChannel   = Backbone.Radio.channel('modal'),
+    userChannel    = Backbone.Radio.channel('user');
 
 Backbone.Radio.tuneIn('event');
 

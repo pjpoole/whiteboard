@@ -42,6 +42,10 @@ Whiteboard.Models.Post = Backbone.Model.extend({
 
   parse: function (resp) {
     this.set('section_id', resp.section_id);
+    if (resp.user) {
+      userChannel.command('user:add', resp.user);
+      delete resp.user;
+    }
 
     if (resp.comments) {
       this.comments().set(resp.comments, { parse: true })

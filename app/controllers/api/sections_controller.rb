@@ -22,9 +22,9 @@ module Api
       @section = Section.includes(
         :events,
         :instructor,
-        :posts
+        posts: :user
       ).find(params[:id])
-      
+
       render :show
     end
 
