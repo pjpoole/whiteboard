@@ -5,10 +5,15 @@ Whiteboard.Views.SectionButtons = Mn.ItemView.extend({
   template: JST['shared/section_buttons'],
 
   triggers: {
-    'click #create-section a': 'section:create'
+    'click #create-section': 'section:create',
+    'click #search-sections': 'section:search'
   },
 
   onSectionCreate: function () {
     modalChannel.command('section:create');
+  },
+
+  onSectionSearch: function () {
+    Backbone.history.navigate('#sections', { trigger: true });
   }
 });
