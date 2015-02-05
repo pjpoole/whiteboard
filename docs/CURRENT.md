@@ -1,8 +1,4 @@
-
-* Forum view
-* new post - separate button
 * posts show view - section index
-* comments show
 
 * events click tr: makeEditable - only in syllabus view
   * tabbable edit fields
