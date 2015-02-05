@@ -8,7 +8,7 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
       selector: '#modal-region',
       regionType: Mn.Modals
     },
-    sidebar: '#sidebar-region',
+    navbar: '#navbar-region',
     content: '#content-region'
   },
 
@@ -49,6 +49,6 @@ Whiteboard.Views.Layout = Mn.LayoutView.extend({
   },
 
   onRender: function () {
-    this.getRegion('sidebar').show(new Whiteboard.Views.Sidebar());
+    this.getRegion('navbar').show(new Whiteboard.Views.Navbar());
   }
 });
