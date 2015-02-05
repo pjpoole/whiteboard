@@ -48,8 +48,8 @@ Whiteboard.Models.Post = Backbone.Model.extend({
     }
 
     if (resp.comments) {
-      this.comments().set(resp.comments, { parse: true })
-      delete resp.comments
+      this.comments().set(resp.comments, { parse: true });
+      delete resp.comments;
     }
 
     if (resp.event) {

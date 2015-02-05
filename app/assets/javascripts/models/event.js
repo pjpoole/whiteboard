@@ -28,7 +28,7 @@ Whiteboard.Models.Event = Backbone.Model.extend({
     this.set('section_id', resp.section_id);
     if (resp.posts) {
       this.posts().set(resp.posts, { parse: true });
-      delete resp.posts
+      delete resp.posts;
     } else if (options.posts) {
       this.posts().set(options.posts, { parse: true });
     }
