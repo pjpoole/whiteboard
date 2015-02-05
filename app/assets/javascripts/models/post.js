@@ -20,7 +20,7 @@ Whiteboard.Models.Post = Backbone.Model.extend({
     if (!this.get('section_id')) return;
 
     if (!this.collection) {
-      this.collection = eventChannel.request(
+      this.collection = sessionChannel.request(
         'user:section', this.get('section_id')
       ).posts();
     }

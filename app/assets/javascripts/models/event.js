@@ -14,7 +14,7 @@ Whiteboard.Models.Event = Backbone.Model.extend({
 
   section: function () {
     if (!this.collection) {
-      var section = eventChannel.request(
+      var section = sessionChannel.request(
         'user:section', this.get('section_id')
       );
       this.collection = section.vents();

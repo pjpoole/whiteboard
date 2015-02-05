@@ -8,7 +8,7 @@ Whiteboard.Collections.SectionsEnrolled = Backbone.Collection.extend({
   initialize: function () {
     this.listenTo(eventChannel, 'signIn', this.setUserId);
     eventChannel.comply('enrollment:requested', this.enroll, this);
-    eventChannel.reply('sections:enrolled', this.tellSections, this);
+    sessionChannel.reply('sections:enrolled', this.tellSections, this);
   },
 
   setUserId: function () {

@@ -9,7 +9,7 @@ Whiteboard.Routers.Session = Backbone.Router.extend({
   },
 
   before: function () {
-    if (eventChannel.request('user:isSignedIn')) {
+    if (sessionChannel.request('user:isSignedIn')) {
       return true;
     } else {
       Backbone.history.navigate('', { trigger: true });

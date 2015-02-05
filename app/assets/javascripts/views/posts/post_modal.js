@@ -4,7 +4,7 @@ Whiteboard.Views.PostModal = Backbone.Modal.extend({
   submitEl: '.bbm-button',
 
   initialize: function () {
-    this.sectionName = eventChannel.request(
+    this.sectionName = sessionChannel.request(
       'user:section', this.model.get('section_id')
     ).escape('title');
   },

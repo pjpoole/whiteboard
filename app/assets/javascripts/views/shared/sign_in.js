@@ -27,12 +27,12 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   onShow: function () {
-    if (eventChannel.request('user:isSignedIn')) this.destroy();
+    if (sessionChannel.request('user:isSignedIn')) this.destroy();
     this.listenTo(eventChannel, 'signIn', this.destroy);
   },
 
   beforeCancel: function () {
-    return eventChannel.request('user:isSignedIn');
+    return sessionChannel.request('user:isSignedIn');
   },
 
   setActive: function (options) {

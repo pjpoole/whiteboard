@@ -38,8 +38,8 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
 
   sectionShow: function (id) {
     var promise, section, view;
-    if (eventChannel.request('user:member', id)) {
-      section = eventChannel.request('user:section', id);
+    if (sessionChannel.request('user:member', id)) {
+      section = sessionChannel.request('user:section', id);
     } else {
       section = new Whiteboard.Models.Section({ id: id });
     }
@@ -59,7 +59,7 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
         vent = new Whiteboard.Models.Event({ id: id });
     promise = vent.fetch({
       success: function (model, resp) {
-        var section = eventChannel.request(
+        var section = sessionChannel.request(
           'user:section', vent.get('section_id')
         );
 
@@ -79,7 +79,7 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
 
     promise = post.fetch({
       success: function (model, resp) {
-        var section = eventChannel.request(
+        var section = sessionChannel.request(
           'user:section', post.get('section_id')
         );
 

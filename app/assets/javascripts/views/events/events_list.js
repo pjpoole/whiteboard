@@ -9,7 +9,7 @@ Whiteboard.Views.EventsList = Mn.CompositeView.extend({
   },
 
   getTemplate: function () {
-    if (eventChannel.request('user:teaches', this.collection.section.id)) {
+    if (sessionChannel.request('user:teaches', this.collection.section.id)) {
       return JST['events/list'];
     } else {
       return JST['events/list_clean'];

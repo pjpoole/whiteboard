@@ -2,7 +2,8 @@ Mn.Renderer.render = function (template, data) {
   return template(data);
 };
 
-var eventChannel = Backbone.Radio.channel('event');
+var eventChannel   = Backbone.Radio.channel('event'),
+    sessionChannel = Backbone.Radio.channel('session');
 
 Backbone.Radio.tuneIn('event');
 
@@ -18,6 +19,8 @@ Whiteboard.Controllers = {};
 Whiteboard.Routers =     {};
 
 Whiteboard.on('start', function () {
+  Whiteboard.users = new Whiteboard.Collections.Users();
+
   Whiteboard.currentUser = new Whiteboard.Models.CurrentUser();
   Whiteboard.currentUser.fetch();
 

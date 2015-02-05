@@ -33,7 +33,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       'add:sectionInstructed': this.addSectionInstructed
     }, this);
 
-    eventChannel.reply({
+    sessionChannel.reply({
       'user:member': this.memberOf,
       'user:teaches': this.teaches,
       'user:isSignedIn': this.isSignedIn,

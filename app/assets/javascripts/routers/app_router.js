@@ -13,7 +13,7 @@ Whiteboard.Routers.App = Backbone.Router.extend({
   },
 
   before: function (route, params) {
-    if (eventChannel.request('user:isSignedIn')) {
+    if (sessionChannel.request('user:isSignedIn')) {
       return true;
     }
     var defer = $.Deferred(),
