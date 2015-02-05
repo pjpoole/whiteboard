@@ -29,11 +29,11 @@ Whiteboard.Views.EventsList = Mn.CompositeView.extend({
   submit: function (event) {
     $target = $(event.currentTarget);
     var eventContent = {
-      section_id: this.collection.section.id,
       event: {
         date: moment($target.find('#event_date').val()).local(),
         name: $target.find('#event_name').val(),
-        event_type: $target.find('#event_event_type').val()
+        event_type: $target.find('#event_event_type').val(),
+        section_id: this.collection.section.id
       }
     };
 
