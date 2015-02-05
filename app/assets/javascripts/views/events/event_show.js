@@ -23,7 +23,7 @@ Whiteboard.Views.EventShow = Mn.LayoutView.extend({
   postCreate: function (ev) {
     ev.preventDefault();
 
-    eventChannel.command('post:create', {
+    modalChannel.command('post:create', {
       event_id: this.model.id,
       section_id: this.model.section().id
     });
