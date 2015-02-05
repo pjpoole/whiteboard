@@ -32,6 +32,18 @@ class User < ActiveRecord::Base
 
   has_many :tasks, dependent: :destroy
 
+  has_many(
+    :messages_sent,
+    class_name: 'Message',
+    foreign_key: :sender_id
+  )
+
+  has_many(
+    :messages,
+    class_name: 'Message',
+    foreign_key: :receiver_id
+  )
+
 
   attr_reader :password, :password_verify
 
