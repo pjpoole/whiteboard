@@ -29,9 +29,9 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   templateHelpers: function () {
     var button, model = this.model;
 
-    if (eventChannel.request('user:teaches', model.id)) {
+    if (sessionChannel.request('user:teaches', model.id)) {
       button = "Teaching";
-    } else if (eventChannel.request('user:member', model.id)) {
+    } else if (sessionChannel.request('user:member', model.id)) {
       button = "Enrolled";
     } else {
       var template = _.template('<div class="button-container"><a href="<%= link %>"><%= text %></a></div>');
