@@ -15,7 +15,8 @@ Whiteboard.Views.CommentsItem = Mn.CompositeView.extend({
   template: JST['comments/item'],
   templateHelpers: function () {
     return {
-      commentBody: this.model.escape('body')
+      commentBody: this.model.escape('body'),
+      timeAgo: moment(this.model.get('created_at')).fromNow()
     }
   },
 
