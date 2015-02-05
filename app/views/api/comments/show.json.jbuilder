@@ -1,3 +1,3 @@
-json.partial! 'api/comments/comment', comment: @comment
+json.partial! @comment
 
-json.partial! 'api/users/user', user: @comment.user
+json.partial! @comment.user
