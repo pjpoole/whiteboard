@@ -18,12 +18,12 @@ Whiteboard.Views.Navbar = Mn.ItemView.extend({
     // this.$el.animate({left: "-=200"}, 0);
     // this.listenTo(eventChannel, 'signIn', this.unhide);
     // this.listenTo(eventChannel, 'signOut', this.hide);
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
 
   signOut: function () {
     eventChannel.command('signOut:requested');
-  },
+  }
 
   // hide: function () {
   //   this.$el.animate({

@@ -1,20 +1,22 @@
 Whiteboard.Views.SignIn = Backbone.Modal.extend({
   template: JST['shared/sign_in_or_up'],
 
-  submitEl: '.bbm-button',
+  submitEl: '.modal-sumbit',
 
-  viewContainer: '.container',
+  viewContainer: '.modal-views',
   views: {
     'click #signin': {
       name: 'signin',
       view: JST['shared/sign_in'],
-      onActive: 'setActive'
+      onActive: 'setActive',
+      focusEl: '.focus0'
     },
 
     'click #register': {
       name: 'register',
       view: JST['users/new'],
-      onActive: 'setActive'
+      onActive: 'setActive',
+      focusEl: '.focus1'
     }
   },
 
@@ -36,7 +38,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   setActive: function (options) {
-    this.$('.bbm-modal__tab a').removeClass('active');
+    this.$('.modal-tab a').removeClass('active');
     this.$('#' + options.name).addClass('active');
     Backbone.history.navigate('#' + options.name);
   },

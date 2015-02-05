@@ -1,7 +1,7 @@
 Whiteboard.Views.SectionModal = Backbone.Modal.extend({
   template: JST['sections/form'],
 
-  submitEl: '.bbm-button',
+  submitEl: '.modal-submit',
 
   submit: function (ev) {
     var $form = $('#modal-region form');

@@ -5,3 +5,133 @@
 @import "bootstrap";
 
 body { padding-top: 70px; }
+
+
+/* Modals */
+.bbm-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  padding: 50px 10px;
+  overflow: auto;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.bbm-wrapper {
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-transition: background-color 0.3s;
+}
+
+.bbm-modal {
+  background: #ddd;
+  border-radius: 3px;
+  margin: auto;
+  width: auto;
+  max-width: 500px;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.modal-topbar {
+  padding: 0 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.modal-bottombar {
+  padding: 20px 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: right;
+}
+.modal-title {
+  padding: 20px 0 19px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1em;
+  color: #312D3A;
+}
+.modal-tab {
+  display: inline-block;
+  a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #999;
+
+    &:hover, &.active {
+      color: #222;
+      background: white;
+    }
+  }
+}
+.modal-section {
+  background: white;
+  padding: 20px 40px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #575656;
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #575656;
+    &:last-child {
+      padding: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: #FF643C;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1em;
+  }
+}
+
+.bbm-modal--open {
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-fill-mode: both;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-backface-visibility: hidden;
+}
+
+.bbm-modal--destroy {
+  -webkit-animation-duration: 0.43333s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-fill-mode: both;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-backface-visibility: hidden;
+}
+
+.vertical-resize {
+  @include resizable(vertical);
+}
+
+.tabbed {
+  border-bottom: 0;
+}
+
+// Overly specific selectors to compensate for braindead bootstrap
+// defaults
+.nav-tabs {
+  a.active {
+    &:active, &:hover, &:focus {
+      background-color: white;
+      border-bottom-color: white;
+    }
+  }
+}

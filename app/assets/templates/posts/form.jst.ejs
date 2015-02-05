@@ -1,21 +1,24 @@
-<div class="bbm-modal__topbar">
-  <h1 class="bbm-modal__title"><%= this.sectionName %></h1>
+<div class="modal-topbar">
+  <h1 class="modal-title"><%= this.sectionName %></h1>
 </div>
-<div class="bbm-modal__section">
+<div class="modal-section">
   <form class="create-form">
     <h3>New Post</h3>
-    <label for="post_topic">Topic</label>
-    <input class="modal-input" type="text" id="post_topic" name="post[topic]" value="">
+    <div class="form-group">
+      <label for="post_topic">Topic</label>
+      <input class="form-control" type="text" id="post_topic" name="post[topic]" value="">
+    </div>
 
-    <label for="post_body">Body</label>
-    <textarea id="post_body"
-              class="modal-input"
-              name="post[body]"
-              rows="8"
-              cols="40"
-    ></textarea>
+    <div class="form-group">
+      <label for="post_body">Body</label>
+      <textarea id="post_body"
+                class="form-control vertical-resize"
+                name="post[body]"
+                rows="3"
+      ></textarea>
+    </div>
   </form>
 </div>
-<div class="bbm-modal__bottombar">
-  <button name="submit" class="bbm-button">Post</button>
+<div class="modal-bottombar">
+  <button name="submit" type="button" class="btn btn-default btn-primary modal-submit">Post</button>
 </div>

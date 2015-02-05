@@ -1,7 +1,7 @@
 Whiteboard.Views.PostModal = Backbone.Modal.extend({
   template: JST['posts/form'],
 
-  submitEl: '.bbm-button',
+  submitEl: '.modal-submit',
 
   initialize: function () {
     this.sectionName = sessionChannel.request(

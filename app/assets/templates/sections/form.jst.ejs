@@ -1,21 +1,24 @@
-<div class="bbm-modal__topbar">
-  <h1 class="bbm-modal__title">Create Class</h1>
+<div class="modal-topbar">
+  <h1 class="modal-title">Create Class</h1>
 </div>
-<div class="bbm-modal__section">
+<div class="modal-section">
   <form class="create-form">
-    <h3>New Course</h3>
-    <label for="section_title">Title</label>
-    <input class="modal-input" type="text" id="section_title" name="section[title]" value="">
+    <div class="form-group">
+      <label for="section_title">Title</label>
+      <input class="form-control" type="text" id="section_title" name="section[title]" value="">
+    </div>
 
-    <label for="section_description">Description</label>
-    <textarea id="section_description"
-              class="modal-input"
-              name="section[description]"
-              rows="8"
-              cols="40"
-    ></textarea>
+    <div class="form-group">
+      <label for="section_description">Description</label>
+      <textarea id="section_description"
+                class="form-control vertical-resize"
+                name="section[description]"
+                rows="3"
+      ></textarea>
+    </div>
+
   </form>
 </div>
-<div class="bbm-modal__bottombar">
-  <button name="submit" class="bbm-button">Create</button>
+<div class="modal-bottombar">
+  <button name="submit" type="button" class="btn btn-default btn-primary modal-submit">Create</button>
 </div>
