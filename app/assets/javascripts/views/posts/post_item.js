@@ -6,7 +6,8 @@ Whiteboard.Views.PostItem = Mn.ItemView.extend({
   templateHelpers: function () {
     var model = this.model;
     return {
-      postTopic: model.escape('topic')
+      postTopic: model.escape('topic'),
+      formattedDate: moment(model.get('created_at')).fromNow()
     }
   }
 });
