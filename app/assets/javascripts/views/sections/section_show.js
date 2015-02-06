@@ -9,7 +9,8 @@ Whiteboard.Views.SectionShow = Mn.LayoutView.extend({
     return {
       instructor: model.instructor(),
       sectionTitle: model.escape('title'),
-      sectionDescription: model.escape('description')
+      sectionDescription: model.escape('description'),
+      isMember: sessionChannel.request('user:member', model.id)
     };
   },
 

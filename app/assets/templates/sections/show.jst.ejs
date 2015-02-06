@@ -1,9 +1,20 @@
 <header class='section-header'>
   <h3><%= sectionTitle %></h3>
-  <p class='description'><%= sectionDescription %></p>
+  <p class='description'><em><%= sectionDescription %></em></p>
   <p class='instructor'>Instructor: <a href="#users/<%= instructor.id %>"><%= instructor.get('name') %></a></p>
 
 </header>
-<section id='syllabus'></section>
-<a href='#' class='post-create'>Write a new post</a>
-<section id='forum'></section>
+<% if (isMember) { %>
+  <div class="row">
+    <div class="col-lg-6">
+      <h4>Syllabus</h4>
+      <section id='syllabus'></section>
+    </div>
+
+    <div class="col-lg-6">
+      <h4>Forum</h4>
+      <a href='#' class='post-create'>Write a new post</a>
+      <section id='forum'></section>
+    </div>
+  </div>
+<% } %>
