@@ -1,13 +1,15 @@
+<p class="author"><%= commentAuthor %></p>
 <p><%= commentBody %></p>
-<p>posted by <%= commentAuthor %> <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
-<form id="new_comment_<%= id %>" class="new_comment hidden">
-  <label for="comment_body">New reply</label>
-    <textarea
-      id="comment_body"
-      name="comment[body]"
-      rows="8"
-      cols="40"
-    ></textarea>
-  <button name="submit">Submit</button>
+<p><small><%= timeAgo %> <a href="#" class="show-reply">reply</a></small></p>
+<form id="new_comment_<%= id %>" class="new-comment hidden">
+  <label for="comment_body" class="sr-only">New reply</label>
+  <textarea
+    id="comment_body"
+    name="comment[body]"
+    class="form-control"
+    rows="4"
+  ></textarea>
+  <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success">Submit</button>
+  <button type="button" name="cancel" class="btn btn-sm btn-default hide-reply">Cancel</button></div>
 </form>
 <div class="children"></div>

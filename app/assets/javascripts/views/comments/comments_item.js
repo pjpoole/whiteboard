@@ -23,9 +23,9 @@ Whiteboard.Views.CommentsItem = Mn.CompositeView.extend({
   },
 
   events: {
-    'click .show_reply': 'showReply',
-    'click .hide_reply': 'hideReply',
-    'submit .new_comment': 'newComment'
+    'click .show-reply': 'showReply',
+    'click .hide-reply': 'hideReply',
+    'submit .new-comment': 'newComment'
   },
 
   initialize: function (options) {

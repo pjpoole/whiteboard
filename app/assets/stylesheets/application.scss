@@ -3,9 +3,17 @@
  */
 
 @import "bootstrap";
+$darkest-color: #542170;
+$darker-color: #6C3888;
+$primary-color: #88F9A2;
+$lighter-color: #AC86C1;
+$lightest-color: #D3BBE0;
 
 body { padding-top: 70px; }
 
+a {
+  color: $primary-color;
+}
 
 /* Modals */
 .bbm-wrapper {
@@ -134,4 +142,25 @@ body { padding-top: 70px; }
       border-bottom-color: white;
     }
   }
+}
+
+// Comments display
+
+.author {
+  color: $primary-color;
+  font-weight: bold;
+}
+
+.button-container {
+  float: right;
+  display: block;
+  margin: 10px 0;
+}
+
+.children {
+  padding-left: 20px;
+}
+
+.new-comment {
+  @include clearfix();
 }
