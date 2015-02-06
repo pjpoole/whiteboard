@@ -3,7 +3,7 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
   className: 'section-item',
 
   triggers: {
-    'click .button-container': 'request:enrollment'
+    'click button': 'request:enrollment'
   },
 
   onRequestEnrollment: function (args) {
@@ -14,8 +14,8 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
       section: args.model
     });
 
-    view.$('.button-container a').prop('disabled', true);
-    view.$('.button-container a').text('Enrolling...');
+    view.$('button').prop('disabled', true);
+    view.$('button').text('Enrolling...');
   },
 
   getTemplate: function () {
@@ -34,8 +34,8 @@ Whiteboard.Views.SectionItem = Mn.ItemView.extend({
     } else if (sessionChannel.request('user:member', model.id)) {
       button = "Enrolled";
     } else {
-      var template = _.template('<div class="button-container"><a href="<%= link %>"><%= text %></a></div>');
-      button = template({ link: '#', text: 'Enroll!' });
+      var template = _.template('<button type="button" class="btn btn-xs btn-primary">Enroll!</button>');
+      button = template();
     }
 
     return {

@@ -1,6 +1,6 @@
 Whiteboard.Views.EventsList = Mn.CompositeView.extend({
   tagName: 'table',
-  className: 'events-display',
+  className: 'events-display table table-striped',
   childView: Whiteboard.Views.EventItem,
   childViewContainer: '#events-body',
 

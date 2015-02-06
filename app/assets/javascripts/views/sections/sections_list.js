@@ -1,6 +1,6 @@
 Whiteboard.Views.SectionsList = Mn.CompositeView.extend({
   tagName: 'table',
-  className: 'section-list',
+  className: 'section-list table table-striped',
   childView: Whiteboard.Views.SectionItem,
   childViewContainer: '#sections-body',
 

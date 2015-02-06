@@ -3,11 +3,11 @@
  */
 
 @import "bootstrap";
-$darkest-color: #542170;
-$darker-color: #6C3888;
-$primary-color: #88F9A2;
-$lighter-color: #AC86C1;
-$lightest-color: #D3BBE0;
+$darkest-color: #DAC5E3;
+$darker-color: #B592C4;
+$primary-color: #9063A4;
+$lighter-color: #733F89;
+$lightest-color: #58236F;
 
 body { padding-top: 70px; }
 
@@ -163,4 +163,34 @@ a {
 
 .new-comment {
   @include clearfix();
+}
+
+// Tables
+.button-column {
+  min-width: 100px;
+  text-align: center;
+  & > button {
+    display: block;
+    margin: auto;
+  }
+}
+
+.dataTables_filter {
+  float: right;
+}
+
+.dataTables_paginate {
+  float: right;
+}
+
+.dataTables_length {
+  float: left;
+}
+
+.dataTables_info {
+  float: left;
+}
+
+.paginate_button {
+  margin-left: 10px;
 }
