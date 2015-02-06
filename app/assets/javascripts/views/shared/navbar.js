@@ -21,7 +21,8 @@ Whiteboard.Views.Navbar = Mn.ItemView.extend({
     this.listenTo(this.model, 'change', this.render);
   },
 
-  signOut: function () {
+  signOut: function (ev) {
+    ev.preventDefault();
     eventChannel.command('signOut:requested');
   }
 
