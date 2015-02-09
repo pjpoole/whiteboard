@@ -68,5 +68,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       this.model.set(data);
       eventChannel.command('user:new:requested', { model: this.model });
     }
+    return sessionChannel.request('user:isSignedIn');
   }
 });
