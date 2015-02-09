@@ -9,3 +9,5 @@ Bucket
 * FIX: section table styling
 * FIX: datatable styling
 * FIX: Flicker on user sign in
+* FIX: Post show on create
+* FIX: Top-level comments box styling

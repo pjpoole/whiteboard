@@ -38,8 +38,12 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   setActive: function (options) {
+    var userName = $('#modal-region #user_email').val();
     this.$('.modal-tab a').removeClass('active');
     this.$('#' + options.name).addClass('active');
+    setTimeout(function () {
+      $('#modal-region #user_email').val(userName);
+    }, 150)
     Backbone.history.navigate('#' + options.name);
   },
 
