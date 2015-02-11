@@ -1,7 +1,7 @@
 <p class="author"><%= commentAuthor %></p>
 <p><%= commentBody %></p>
 <p><small><%= timeAgo %> <a href="#" class="show-reply">reply</a></small></p>
-<form id="new_comment_<%= id %>" class="new-comment hidden">
+<form id="new_comment_<%= id %>" class="hidden clearfix">
   <label for="comment_body" class="sr-only">New reply</label>
   <textarea
     id="comment_body"
@@ -9,7 +9,7 @@
     class="form-control"
     rows="4"
   ></textarea>
-  <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success">Submit</button>
+  <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success new-comment">Submit</button>
   <button type="button" name="cancel" class="btn btn-sm btn-default hide-reply">Cancel</button></div>
 </form>
 <div class="children"></div>

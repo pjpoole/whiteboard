@@ -36,13 +36,14 @@ Whiteboard.Views.PostShow = Mn.CompositeView.extend({
   },
 
   events: {
-    'click .show_reply': 'showReply',
-    'click .hide_reply': 'hideReply',
-    'submit #new_comment': 'newComment'
+    'click .show-reply': 'showReply',
+    'click .hide-reply': 'hideReply',
+    'click .new-comment': 'newComment'
   },
 
   onRender: function () {
     this.$commentForm = this.$('#new_comment');
+    debugger
   },
 
   showReply: function (ev) {
