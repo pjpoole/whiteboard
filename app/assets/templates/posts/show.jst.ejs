@@ -4,15 +4,16 @@
 <% } %>
 <h3><%= postTopic %></h3>
 <p><%= postBody %></p>
-<p>posted by <%= postAuthor %> <%= timeAgo %> <a href="#" class="show_reply">Reply</a></p>
+<p>posted by <%= postAuthor %> <%= timeAgo %> <a href="#" class="show_reply">reply</a></p>
 <form id="new_comment" class="hidden">
-  <label for="comment_body">New reply</label>
+  <label for="comment_body" class="sr-only">New reply</label>
     <textarea
       id="comment_body"
       name="comment[body]"
-      rows="8"
-      cols="40"
+      class="form-control"
+      rows="4"
     ></textarea>
-  <button name="submit">Submit</button>
+  <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success">Submit</button>
+  <button type="button" name="cancel" class="btn btn-sm btn-default hide-reply">Cancel</button></div>
 </form>
 <section id="comments"></section>
