@@ -1,6 +1,13 @@
 Whiteboard.Views.UserShow = Mn.ItemView.extend({
   tagName: 'section',
-  template: JST['users/show'],
+
+  getTemplate: function () {
+    if (this.model.id === sessionChannel.request('user:getId')) {
+      return JST['users/profile'];
+    } else {
+      return JST['users/show'];
+    }
+  },
   templateHelpers: function () {
     var model = this.model;
 
