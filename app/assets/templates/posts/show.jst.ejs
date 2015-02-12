@@ -1,19 +1,21 @@
-<h3><a href='#sections/<%= sectionId %>'><%= sectionTitle %></a></h3>
-<% if (hasEvent) { %>
-  <h4><a href='#events/<%= eventId %>'><%= eventName %></a></h4>
-<% } %>
-<h3><%= postTopic %></h3>
-<p><%= postBody %></p>
-<p>posted by <%= postAuthor %> <%= timeAgo %> <a href="#" class="show-reply">reply</a></p>
-<form id="new_comment" class="hidden clearfix">
-  <label for="comment_body" class="sr-only">New reply</label>
-    <textarea
-      id="comment_body"
-      name="comment[body]"
-      class="form-control"
-      rows="4"
-    ></textarea>
-  <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success new-comment">Submit</button>
-  <button type="button" name="cancel" class="btn btn-sm btn-default hide-reply">Cancel</button></div>
-</form>
-<section id="comments"></section>
+<div class="contrast-head">
+  <p><a href='#sections/<%= sectionId %>'><%= sectionTitle %></a></p>
+  <% if (hasEvent) { %>
+    <h4><a href='#events/<%= eventId %>'><%= eventName %></a></h4>
+  <% } %>
+  <h3><%= postTopic %></h3>
+  <p><%= postBody %></p>
+  <p>posted by <%= postAuthor %> <%= timeAgo %> <a href="#" class="show-reply">reply</a></p>
+  <form id="new_comment" class="hidden clearfix comment-form">
+    <label for="comment_body" class="sr-only">New reply</label>
+      <textarea
+        id="comment_body"
+        name="comment[body]"
+        class="form-control"
+        rows="4"
+      ></textarea>
+    <div class="button-container"><button type="button" name="submit" class="btn btn-sm btn-success new-comment">Submit</button>
+    <button type="button" name="cancel" class="btn btn-sm btn-default hide-reply">Cancel</button></div>
+  </form>
+</div>
+<section id="comments" class="comments"></section>

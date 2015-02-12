@@ -3,13 +3,16 @@
  */
 
 @import "bootstrap";
-$darkest-color: #DAC5E3;
-$darker-color: #B592C4;
+$lightest-color: #DAC5E3;
+$lighter-color: #B592C4;
 $primary-color: #9063A4;
-$lighter-color: #733F89;
-$lightest-color: #58236F;
+$darker-color: #733F89;
+$darkest-color: #58236F;
 
-body { padding-top: 70px; }
+body {
+  padding-top: 70px;
+  margin-bottom: 50px;
+}
 
 a {
   color: $primary-color;
@@ -131,6 +134,23 @@ a {
 
 .tabbed {
   border-bottom: 0;
+}
+
+.contrast-head {
+  padding: 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background: $lightest-color;
+  border-bottom: 1px solid $darker-color;
+}
+
+.comments {
+  padding: 20px;
+  background: whitesmoke;
+}
+
+.comment-form {
+  max-width: 450px;
 }
 
 // Overly specific selectors to compensate for braindead bootstrap

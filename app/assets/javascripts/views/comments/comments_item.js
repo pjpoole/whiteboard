@@ -14,11 +14,15 @@ Whiteboard.Views.CommentsItem = Mn.CompositeView.extend({
 
   template: JST['comments/item'],
   templateHelpers: function () {
-    var model = this.model;
+    var model = this.model, commentAuthor;
+
+    commentAuthor = userChannel.request('user:name', model.get('user_id'));
+
     return {
       commentBody: model.escape('body'),
-      commentAuthor: userChannel.request('user:name', model.get('user_id')),
-      timeAgo: moment(model.get('created_at')).fromNow()
+      commentAuthor: commentAuthor,
+      timeAgo: moment(model.get('created_at')).fromNow(),
+      isOwner: (commentAuthor === sessionChannel.request())
     }
   },
 
