@@ -35,8 +35,8 @@ Whiteboard.Routers.App = Backbone.Router.extend({
     this.controller.dashboard();
   },
 
-  userShow: function () {
-    this.controller.userShow();
+  userShow: function (id) {
+    this.controller.userShow(id);
   },
 
   sectionsIndex: function () {

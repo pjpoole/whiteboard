@@ -25,6 +25,19 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
     Backbone.history.navigate('');
   },
 
+  userShow: function (id) {
+    var user, view;
+    user = userChannel.request('user:get', id);
+
+    this.region.show(
+      new Whiteboard.Views.UserShow({
+        model: user
+      })
+    );
+
+    Backbone.history.navigate('users/' + user.id);
+  },
+
   sectionsIndex: function () {
     var allSections = new Whiteboard.Collections.Sections();
     allSections.fetch();
