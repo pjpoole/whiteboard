@@ -12,7 +12,10 @@ module Api
     end
 
     def show
-      @event = Event.includes(:posts, :section).find(params[:id])
+      @event = Event.includes(
+        :section,
+        posts: :user
+      ).find(params[:id])
     end
 
     def index
