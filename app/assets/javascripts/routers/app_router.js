@@ -2,7 +2,7 @@ Whiteboard.Routers.App = Backbone.Router.extend({
 
   routes: {
     '': 'dashboard',
-    // 'users/:id': 'userShow',
+    'users/:id': 'userShow',
     'sections': 'sectionsIndex',
     'sections/:id': 'sectionShow',
 
@@ -10,6 +10,10 @@ Whiteboard.Routers.App = Backbone.Router.extend({
 
     'posts/:id': 'postShow'
     // 'profile': 'showProfile'
+  },
+
+  initialize: function (options) {
+    this.controller = options.controller;
   },
 
   before: function (route, params) {
@@ -21,29 +25,33 @@ Whiteboard.Routers.App = Backbone.Router.extend({
         that = this;
 
     $.when(promise).done(function () {
-      that[that.routes[route]].apply(this, params);
+      that[that.routes[route]].apply(that, params);
     });
 
     return false;
   },
 
   dashboard: function () {
-    Whiteboard.AppController.dashboard();
+    this.controller.dashboard();
+  },
+
+  userShow: function () {
+    this.controller.userShow();
   },
 
   sectionsIndex: function () {
-    Whiteboard.AppController.sectionsIndex();
+    this.controller.sectionsIndex();
   },
 
   sectionShow: function (id) {
-    Whiteboard.AppController.sectionShow(id);
+    this.controller.sectionShow(id);
   },
 
   eventShow: function (id) {
-    Whiteboard.AppController.eventShow(id);
+    this.controller.eventShow(id);
   },
 
   postShow: function (id) {
-    Whiteboard.AppController.postShow(id);
+    this.controller.postShow(id);
   }
 });

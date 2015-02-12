@@ -29,12 +29,14 @@ Whiteboard.on('start', function () {
   Whiteboard.mainLayout = new Whiteboard.Views.Layout();
   Whiteboard.mainLayout.render();
 
-  Whiteboard.SessionRouter = new Whiteboard.Routers.Session();
-  Whiteboard.AppRouter = new Whiteboard.Routers.App();
-
   Whiteboard.SessionController = new Whiteboard.Controllers.Session();
   Whiteboard.AppController = new Whiteboard.Controllers.App({
     region: Whiteboard.mainLayout.getRegion('content')
+  });
+
+  Whiteboard.SessionRouter = new Whiteboard.Routers.Session();
+  Whiteboard.AppRouter = new Whiteboard.Routers.App({
+    controller: Whiteboard.AppController
   });
 
   if (!Backbone.History.started) {
