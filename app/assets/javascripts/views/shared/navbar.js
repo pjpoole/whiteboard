@@ -4,6 +4,7 @@ Whiteboard.Views.Navbar = Mn.ItemView.extend({
   template: JST['shared/navbar'],
   templateHelpers: function () {
     return {
+      userId: this.model.id,
       userName: this.model.escape('name')
     };
   },
