@@ -7,33 +7,33 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 students = User.create!([
-  { name: "Anthony", email: "anthony@mail.com", password: "password" },
-  { name: "Benjamin", email: "ben@mail.com", password: "password" },
-  { name: "Carl", email: "carl@mail.com", password: "password" },
-  { name: "Cihangir", email: "cihangir@mail.com", password: "password" },
-  { name: "Connie", email: "connie@mail.com", password: "password" },
-  { name: "Ed", email: "edward@mail.com", password: "password" },
-  { name: "Eva", email: "eva@mail.com", password: "password" },
-  { name: "Garrett", email: "garrett@mail.com", password: "password" },
-  { name: "Jake", email: "jeffrey@mail.com", password: "password" },
-  { name: "Jesus", email: "jesus@mail.com", password: "password" },
-  { name: "Justin", email: "justin@mail.com", password: "password" },
-  { name: "Louie", email: "louie@mail.com", password: "password" },
-  { name: "Mark", email: "mark@mail.com", password: "password" },
-  { name: "Max", email: "maxwell@mail.com", password: "password" },
-  { name: "Mike", email: "michael@mail.com", password: "password" },
-  { name: "Peter", email: "peter@mail.com", password: "password" },
-  { name: "Ron", email: "ronald@mail.com", password: "password" },
-  { name: "Sai", email: "saikartik@mail.com", password: "password" },
-  { name: "Tim", email: "tim@mail.com", password: "password" },
-  { name: "Wes", email: "wesley@mail.com", password: "password" },
-  { name: "Zach", email: "zach@mail.com", password: "password" }
+  { name: "Anthony", email: "anthony@example.com", password: "password" },
+  { name: "Benjamin", email: "ben@example.com", password: "password" },
+  { name: "Carl", email: "carl@example.com", password: "password" },
+  { name: "Cihangir", email: "cihangir@example.com", password: "password" },
+  { name: "Connie", email: "connie@example.com", password: "password" },
+  { name: "Ed", email: "edward@example.com", password: "password" },
+  { name: "Eva", email: "eva@example.com", password: "password" },
+  { name: "Garrett", email: "garrett@example.com", password: "password" },
+  { name: "Jake", email: "jeffrey@example.com", password: "password" },
+  { name: "Jesus", email: "jesus@example.com", password: "password" },
+  { name: "Justin", email: "justin@example.com", password: "password" },
+  { name: "Louie", email: "louie@example.com", password: "password" },
+  { name: "Mark", email: "mark@example.com", password: "password" },
+  { name: "Max", email: "maxwell@example.com", password: "password" },
+  { name: "Mike", email: "michael@example.com", password: "password" },
+  { name: "Peter", email: "peter@example.com", password: "password" },
+  { name: "Ron", email: "ronald@example.com", password: "password" },
+  { name: "Sai", email: "saikartik@example.com", password: "password" },
+  { name: "Tim", email: "tim@example.com", password: "password" },
+  { name: "Wes", email: "wesley@example.com", password: "password" },
+  { name: "Zach", email: "zach@example.com", password: "password" }
 ])
 
 
 
 instructor = User.create!(
-  name: "Jonathan", email: "jonathan@mail.com", password: "password"
+  name: "Jonathan", email: "jonathan@example.com", password: "password"
 )
 
 
