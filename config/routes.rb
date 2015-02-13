@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    module: 'api',
+    path_prefix: 'api',
+    path: 'session',
+    sign_out_via: :delete
+  devise_scope :user do
+    get 'api/session' => 'api/sessions#show'
+  end
   # # Rails root
   # root to: 'sessions#new'
 
@@ -11,7 +18,6 @@ Rails.application.routes.draw do
   #
   # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
-    resource :session, only: [:create, :show, :destroy]
 
     resources :users, only: [:create, :show] do
       resources :enrollments, only: [:create, :index, :destroy]

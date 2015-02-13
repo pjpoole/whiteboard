@@ -7,7 +7,7 @@ module Api
     end
 
     def require_signed_in!
-      head :unprocessable_entity unless signed_in?
+      head :unprocessable_entity unless user_signed_in?
     end
   end
 end

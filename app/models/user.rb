@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :email, :password_digest, presence: true
+  validates :email, :encrypted_password, presence: true
   validates :email, uniqueness: true
   validates :email, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
     message: "Invalid email address"
   }
   validates :password, length: { minimum: 6, allow_nil: true }
-  validate :password_matches_verification,
-    on: [:create, :update],
-    message: "Password must match"
+  # validate :password_matches_verification,
+  #   on: [:create, :update],
+  #   message: "Password must match"
 
   after_validation :set_initial_name, on: :create
   after_initialize :ensure_session_token
@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   )
 
 
-  attr_reader :password, :password_verify
+  # attr_reader :password, :password_verify
 
   public
   def self.find_by_credentials(email, password)
@@ -66,18 +66,18 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def is_password?(password)
-    BCrypt::Password.new(self.password_digest) == password
-  end
-
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
-  end
-
-  def password_verify=(password)
-    @password_verify = password
-  end
+  # def is_password?(password)
+  #   BCrypt::Password.new(self.password_digest) == password
+  # end
+  #
+  # def password=(password)
+  #   @password = password
+  #   self.password_digest = BCrypt::Password.create(password)
+  # end
+  #
+  # def password_verify=(password)
+  #   @password_verify = password
+  # end
 
 
   def can_see?(section)
@@ -109,9 +109,9 @@ class User < ActiveRecord::Base
   #   end
   # end
 
-  def password_matches_verification
-    return self.password == self.password_verify if self.password
-    return true
-  end
+  # def password_matches_verification
+  #   return self.password == self.password_verify if self.password
+  #   return true
+  # end
 
 end

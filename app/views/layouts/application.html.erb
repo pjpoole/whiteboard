@@ -9,13 +9,13 @@
 <body>
 <%= render 'layouts/errors' %>
 
-<%= render 'layouts/sidebar' if signed_in? %>
+<%= render 'layouts/sidebar' if user_signed_in? %>
 
 <main class="content">
   <%= yield %>
 </main>
 
-<%= render 'layouts/footer' if signed_in? %>
+<%= render 'layouts/footer' if user_signed_in? %>
 
 </body>
 </html>
