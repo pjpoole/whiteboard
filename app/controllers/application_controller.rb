@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   # before_action :require_signed_in!
-  before_action :authenticate_user!
+  before_action :authenticate_user!, unless: :devise_controller?
 
   # helper_method :current_user, :signed_in?
 

@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   #
   # Again, trying to keep the routing conservative.
   namespace :api, defaults: { format: :json } do
-
     resources :users, only: [:create, :show] do
       resources :enrollments, only: [:create, :index, :destroy]
     end

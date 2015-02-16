@@ -1,22 +1,16 @@
 class Api::SessionsController < Devise::SessionsController
-# before_filter :configure_sign_in_params, only: [:create]
+  respond_to :json
+  # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new; end
 
   # POST /resource/sign_in
   def create
-    user = User.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
-    )
+    # p self.class.ancestors
+    super
 
-    if user
-      sign_in(user)
-      render :show
-    else
-      head :unprocessable_entity
-    end
+    # render json: flash
   end
 
   def show
@@ -28,9 +22,9 @@ class Api::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # protected
 

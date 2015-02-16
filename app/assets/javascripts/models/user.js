@@ -63,7 +63,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
     var model = this;
 
     $.ajax({
-      url: model.url,
+      url: model.url + '/sign_in',
       type: 'POST',
       data: options.data,
       dataType: 'json',
@@ -83,7 +83,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
     // TODO: Why can't this be a Backbone method?
     $.ajax({
-      url: this.url,
+      url: this.url + '/sign_out',
       type: 'DELETE',
       dataType: 'json',
       success: function (data) {
