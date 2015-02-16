@@ -68,10 +68,11 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       data: options.data,
       dataType: 'json',
       success: function () {
+        console.log(model)
         model.fetch({
-          success: function (data) {
-            model.parse(data);
-            model.set(data);
+          success: function (data, resp) {
+            model.parse(resp);
+            model.set(resp);
             options.defer && options.defer.resolve();
           },
           error: function () {
