@@ -127,6 +127,9 @@ a {
   -webkit-transform-origin: 50% 50%;
   -webkit-backface-visibility: hidden;
 }
+/*** END MODAL ***/
+
+
 
 .vertical-resize {
   @include resizable(vertical);

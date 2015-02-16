@@ -1,8 +1,0 @@
-<h2><%= @user.name %></h2>
-<p>Email: <%= @user.email %></p>
-
-<% if @user == current_user %>
-  <%= button_to "Edit Profile", { action: :edit }, method: :get %>
-  <%= render 'sections/create_button' %>
-  <%= render 'sections/add_button' %>
-<% end %>
