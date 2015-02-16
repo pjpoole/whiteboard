@@ -87,6 +87,8 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       type: 'DELETE',
       dataType: 'json',
       success: function (data) {
+        model.sections().reset();
+        model.sectionsInstructed().reset();
         model.clear();
       }
     })
