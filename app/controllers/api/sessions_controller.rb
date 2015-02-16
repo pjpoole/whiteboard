@@ -7,10 +7,7 @@ class Api::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    # p self.class.ancestors
     super
-
-    # render json: flash
   end
 
   def show

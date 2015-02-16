@@ -67,13 +67,17 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       type: 'POST',
       data: options.data,
       dataType: 'json',
-      success: function (data) {
-        model.parse(data);
-        model.set(data);
-        options.defer && options.defer.resolve();
-      },
-      error: function () {
-        options.error && options.error();
+      success: function () {
+        model.fetch({
+          success: function (data) {
+            model.parse(data);
+            model.set(data);
+            options.defer && options.defer.resolve();
+          },
+          error: function () {
+            options.error && options.error();
+          }
+        });
       }
     });
   },

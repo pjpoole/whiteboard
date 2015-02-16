@@ -6,8 +6,5 @@ module Api
       end
     end
 
-    def after_sign_in_path_for(resource)
-      api_session_path(current_user)
-    end
   end
 end
