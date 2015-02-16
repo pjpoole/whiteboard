@@ -21,11 +21,11 @@ Whiteboard.Controllers = {};
 Whiteboard.Routers =     {};
 
 Whiteboard.on('start', function () {
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
+  // $.ajaxSetup({
+  //   headers: {
+  //     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  //   }
+  // });
 
   Whiteboard.users = new Whiteboard.Collections.Users();
 

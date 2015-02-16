@@ -11,3 +11,4 @@ Bucket
 * FIX: Flicker on user sign in
 * FIX: Post show on create
 * FIX: Top-level comments box styling
+* FIX: CSRF via ajax: https://technpol.wordpress.com/2014/04/17/rails4-angularjs-csrf-and-devise/
