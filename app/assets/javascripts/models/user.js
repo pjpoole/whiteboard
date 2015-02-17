@@ -30,7 +30,8 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       'signOut:requested': this.signOut,
       'user:new:requested': this.newUser,
       'signin:requested': this.signIn,
-      'add:sectionInstructed': this.addSectionInstructed
+      'add:sectionInstructed': this.addSectionInstructed,
+      'add:post': this.addPost
     }, this);
 
     sessionChannel.reply({
@@ -144,5 +145,9 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
   addSectionInstructed: function (model) {
     this.sectionsInstructed().add(model);
+  },
+
+  addPost: function (model) {
+    return this.getSection(model.get('section_id')).posts().add(model);
   }
 });
