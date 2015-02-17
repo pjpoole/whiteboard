@@ -129,6 +129,25 @@ a {
 }
 /*** END MODAL ***/
 
+.navbar {
+  background: #4d8;
+}
+
+.navbar-brand {
+  margin-top: -3px;
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    margin-top: -4px;
+    display: inline-block;
+  }
+
+  .brand-text {
+    color: #e26;
+    font-style: italic;
+    margin-left: -3px;
+  }
+}
 
 
 .vertical-resize {
