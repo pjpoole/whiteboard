@@ -144,7 +144,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   },
 
   addSectionInstructed: function (model) {
-    this.sectionsInstructed().add(model);
+    return this.sectionsInstructed().add(model);
   },
 
   addPost: function (model) {
