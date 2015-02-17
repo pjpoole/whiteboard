@@ -3,11 +3,11 @@
  */
 
 @import "bootstrap";
-$lightest-color: #DAC5E3;
-$lighter-color: #B592C4;
-$primary-color: #9063A4;
-$darker-color: #733F89;
-$darkest-color: #58236F;
+$primary-color: #43DB92;
+$lightest-color: saturate(lighten($primary-color, 30%), 10%);
+$lighter-color: saturate(lighten($primary-color, 15%), 10%);
+$darker-color: saturate(darken($primary-color, 20%), 10%);
+$darkest-color: saturate(darken($primary-color, 40%), 10%);
 
 body {
   padding-top: 70px;
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-  color: $primary-color;
+  color: $darker-color;
 }
 
 /* Modals */
@@ -130,7 +130,7 @@ a {
 /*** END MODAL ***/
 
 .navbar {
-  background: #4d8;
+  background: $primary-color;
 }
 
 .navbar-brand {
@@ -162,13 +162,13 @@ a {
   padding: 20px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  background: $lightest-color;
+  background: $lighter-color;
   border-bottom: 1px solid $darker-color;
 }
 
 .comments {
   padding: 20px;
-  background: whitesmoke;
+  background: $lightest-color;
 }
 
 .comment-form {
@@ -189,7 +189,7 @@ a {
 // Comments display
 
 .author {
-  color: $primary-color;
+  color: $darker-color;
   font-weight: bold;
 }
 
