@@ -57,7 +57,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       user: {
         email: $form.find('#user_email').val(),
         password: $form.find('#user_password').val(),
-        password_verify: $form.find('#user_password_verify').val(),
+        password_confirmation: $form.find('#user_password_verify').val(),
       }
     };
 
@@ -65,8 +65,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     if (method === 'signin') {
       eventChannel.command('signin:requested', { data: data });
     } else {
-      this.model.set(data);
-      eventChannel.command('user:new:requested', { model: this.model });
+      eventChannel.command('user:new:requested', { model: this.model, data: data });
     }
     return sessionChannel.request('user:isSignedIn');
   }

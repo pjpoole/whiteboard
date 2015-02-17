@@ -51,7 +51,11 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   },
 
   newUser: function (options) {
-    options.model.save({}, {
+    $.ajax({
+      url: 'api/session',
+      type: 'POST',
+      data: options.data,
+      dataType: 'json',
       success: function (model) {
         this.set(model);
       }.bind(this)
