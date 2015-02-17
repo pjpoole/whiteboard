@@ -67,9 +67,13 @@ a {
   padding: 20px 0 19px;
   margin: 0;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 1em;
-  color: #312D3A;
+  .brand-text {
+    color: #e26;
+    font-style: italic;
+    margin-left: -5px;
+  }
 }
 .modal-tab {
   display: inline-block;
