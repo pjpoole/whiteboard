@@ -2,6 +2,8 @@
  *
  */
 
+// depend_on_asset "icon_64.png"
+
 @import "bootstrap";
 $primary-color: #43DB92;
 $lightest-color: saturate(lighten($primary-color, 30%), 10%);
@@ -73,6 +75,8 @@ a {
     color: #e26;
     font-style: italic;
     margin-left: -5px;
+    position: relative;
+    top: -23px;
   }
 }
 .modal-tab {
@@ -140,6 +144,10 @@ a {
 .navbar-brand {
   margin-top: -3px;
   .brand-icon {
+    background: {
+      image:url('<%= asset_path("images/icon_64.png") %>');
+      size: 32px;
+    }
     width: 32px;
     height: 32px;
     margin-top: -4px;
@@ -150,7 +158,16 @@ a {
     color: #e26;
     font-style: italic;
     margin-left: -3px;
+    position: relative;
+    top: -10px;
   }
+}
+
+.login-icon {
+  background-image:url('<%= asset_path("images/icon_64.png") %>');
+  width: 64px;
+  height: 64px;
+  display: inline-block;
 }
 
 
