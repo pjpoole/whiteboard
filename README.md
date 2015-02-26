@@ -8,12 +8,13 @@ It was originally my intent to try to make a comprehensive system, and over time
 
 As such, a list of what's currently in use in this project:
 * [Ruby on Rails](http://jquery.com) for the backend
+* [Postgres](http://www.postgresql.org/) as the database engine
 * [Backbone.js](http://backbonejs.org) on the frontend
 * [Marionette.js](http://marionettejs.com) on top of that
 * [Backbone.Radio](https://github.com/marionettejs/backbone.radio) for events aggregation
 * [Devise](https://github.com/plataformatec/devise) for authentication
-* [Bootstrap](http://getbootstrap.com)
-* [SASS](http://sass-lang.com) via the Rails asset pipeline
+* [Bootstrap](http://getbootstrap.com) for simple styling
+* [SASS](http://sass-lang.com) via the Rails asset pipeline (sprockets)
 * A couple smaller files to address particular shortcomings, including:
   * [Backbone.Modal](http://awkward.github.io/backbone.modal/)
   * [Backbone.Routefilter](https://github.com/boazsender/backbone.routefilter) for before routing callbacks
