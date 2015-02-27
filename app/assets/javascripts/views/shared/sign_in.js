@@ -20,12 +20,9 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     }
   },
 
-  events: {
-
-  },
-
   initialize: function (options) {
     this.options = options || {};
+    modalChannel.comply('showErrors', this.showErrors, this);
   },
 
   onDestroy: function () {
@@ -78,8 +75,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
 
   validateData: function (data) {
     $('#alert-box').remove();
-    var $alertBox = $(JST['shared/errors']()),
-        data = data.user,
+    var data = data.user,
         errorMsg = "",
         hasError = false;
 
@@ -89,7 +85,11 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     }
 
     if (data.password === "") {
+      hasError = true;
       errorMsg += "Password can't be blank<br>";
+    } else if (data.password.length < 8) {
+      hasError = true;
+      errorMsg += "Password must be at least 8 characters<br>"
     }
 
     if (data.password_confirmation === ""
@@ -99,11 +99,36 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     }
 
     if (hasError) {
-      $alertBox.find('#alert-text').html(errorMsg);
-      $('.modal-section').prepend($alertBox)
-      return false;
+      this.showAlert(errorMsg);
     }
 
-    return true;
+    return !hasError;
+  },
+
+  showErrors: function (errors) {
+    var errorMsg = "", err;
+
+    if (errors.error) {
+      errorMsg = errors.error + "<br>";
+    } else {
+      console.log(errors)
+      err = errors.errors;
+      $.each(err, function (key) {
+        var i;
+        for (i = 0; i < err[key].length; i++) {
+          errorMsg += key + " " + err[key][i] + "<br>";
+        }
+      })
+    }
+
+    this.showAlert(errorMsg);
+  },
+
+  showAlert: function (alertText) {
+    var $alertBox = $(JST['shared/errors']());
+
+    $alertBox.find('#alert-text').html(alertText);
+    $('.modal-section').prepend($alertBox);
+
   }
 });

@@ -59,6 +59,9 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       dataType: 'json',
       success: function (model) {
         this.set(model);
+      }.bind(this),
+      error: function (resp) {
+        this.handleError(resp);
       }.bind(this)
     });
   },
@@ -84,8 +87,15 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
             options.error && options.error();
           }
         });
-      }
+      },
+      error: function (resp) {
+        this.handleError(resp);
+      }.bind(this)
     });
+  },
+
+  handleError: function (resp) {
+    modalChannel.command('showErrors', resp.responseJSON);
   },
 
   signOut: function () {
