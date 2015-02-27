@@ -28,15 +28,18 @@ Whiteboard.Controllers.App = Mn.Controller.extend({
   userShow: function (id) {
     var user, view;
 
-    if (id === sessionChannel.request('user:getId')){
-      view = new Whiteboard.Views.UserProfile();
+    if (id == sessionChannel.request('user:getId')){
+      user = sessionChannel.request('user:get');
+      view = new Whiteboard.Views.UserProfile({
+        model: user
+      });
     } else {
       user = userChannel.request('user:get', id);
       view = new Whiteboard.Views.UserShow({
         model: user
       });
     }
-    
+
     this.region.show(view);
 
     Backbone.history.navigate('users/' + user.id);

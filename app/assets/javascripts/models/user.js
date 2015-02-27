@@ -36,6 +36,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
     sessionChannel.reply({
       'user:getId': this.userId,
+      'user:get': this.getSelf,
       'user:member': this.memberOf,
       'user:teaches': this.teaches,
       'user:isSignedIn': this.isSignedIn,
@@ -49,6 +50,10 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
 
   userId: function () {
     if (!this.isNew()) return this.id;
+  },
+
+  getSelf: function () {
+    return this;
   },
 
   newUser: function (options) {
