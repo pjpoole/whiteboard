@@ -52,7 +52,6 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   beforeSubmit: function (event) {
-    console.log("beforeSubmit");
     var $form = $('#modal-region form'),
         data, method;
 
