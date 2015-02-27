@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
 
   private
   def set_initial_name
-    self.name = self.email.match(/\A([^@\s]+)@.*/)[1]
+    self.name = self.email.match(/\A([^@\s]+)@.*/)[1] unless self.name
   end
 
 end

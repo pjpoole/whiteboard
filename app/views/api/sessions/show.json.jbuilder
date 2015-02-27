@@ -1,4 +1,4 @@
-json.extract! current_user, :id, :name, :email
+json.extract! current_user, :id, :name, :first_name, :last_name, :email
 
 # TODO: is this pre-fetching the user's classes?
 json.sections current_user.classes,
