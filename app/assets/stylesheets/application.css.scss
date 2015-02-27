@@ -1,5 +1,6 @@
 //= depend_on_asset 'icon_64.png'
 
+@import 'bootstrap-sprockets';
 @import "bootstrap";
 $primary-color: #43DB92;
 $lightest-color: saturate(lighten($primary-color, 30%), 10%);
@@ -14,6 +15,10 @@ body {
 
 a {
   color: $darker-color;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Modals */

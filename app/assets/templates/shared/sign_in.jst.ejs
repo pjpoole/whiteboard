@@ -1,13 +1,19 @@
 <div class="modal-section">
   <form class="create-form">
     <div class="form-group">
-      <label for="user_email">Email address</label>
-      <input type="email" class="form-control focus0" id="user_email" name="user[email]" value="" placeholder="email address">
+      <label for="user_email" class="sr-only">Email address</label>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+        <input type="email" class="form-control focus0" id="user_email" name="user[email]" value="" placeholder="email address">
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="user_password">Password</label>
-      <input type="password" class="form-control" id="user_password" name="user[password]" value="" placeholder="Password">
+      <label for="user_password" class="sr-only">Password</label>
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+        <input type="password" class="form-control" id="user_password" name="user[password]" value="" placeholder="password">
+      </div>
     </div>
   </form>
 </div>

@@ -1,7 +1,7 @@
 Whiteboard.Views.SignIn = Backbone.Modal.extend({
   template: JST['shared/sign_in_or_up'],
 
-  submitEl: '.modal-sumbit',
+  submitEl: '.modal-submit',
 
   viewContainer: '.modal-views',
   views: {
@@ -18,6 +18,10 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       onActive: 'setActive',
       focusEl: '.focus1'
     }
+  },
+
+  events: {
+
   },
 
   initialize: function (options) {
@@ -48,6 +52,7 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
   },
 
   beforeSubmit: function (event) {
+    console.log("beforeSubmit");
     var $form = $('#modal-region form'),
         data, method;
 
@@ -61,12 +66,45 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       }
     };
 
-
-    if (method === 'signin') {
-      eventChannel.command('signin:requested', { data: data });
-    } else {
-      eventChannel.command('user:new:requested', { model: this.model, data: data });
+    if (this.validateData(data)) {
+      if (method === 'signin') {
+        eventChannel.command('signin:requested', { data: data });
+      } else {
+        eventChannel.command('user:new:requested', { model: this.model, data: data });
+      }
     }
+
     return sessionChannel.request('user:isSignedIn');
+  },
+
+  validateData: function (data) {
+    $('#alert-box').remove();
+    var $alertBox = $(JST['shared/errors']()),
+        data = data.user,
+        errorMsg = "",
+        hasError = false;
+
+    if (!data.email.match(/[^@\s]+@(?:[-a-z0-9]+\.)+[a-z]{2,}/i)) {
+      hasError = true;
+      errorMsg += "Email address is invalid<br>";
+    }
+
+    if (data.password === "") {
+      errorMsg += "Password can't be blank<br>";
+    }
+
+    if (data.password_confirmation === ""
+        && data.password_confirmation !== data.password) {
+      hasError = true;
+      errorMsg += "Password and verification must match<br>";
+    }
+
+    if (hasError) {
+      $alertBox.find('#alert-text').html(errorMsg);
+      $('.modal-section').prepend($alertBox)
+      return false;
+    }
+
+    return true;
   }
 });
