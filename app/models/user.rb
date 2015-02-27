@@ -4,13 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, :encrypted_password, presence: true
-  validates :email, uniqueness: true
+  # validates :email, uniqueness: true
   validates :email, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
     on: :create,
     message: "Invalid email address"
   }
-  validates :password, length: { minimum: 6, allow_nil: true }
+  # validates :password, length: { minimum: 6, allow_nil: true }
 
   after_validation :set_initial_name, on: :create
 
