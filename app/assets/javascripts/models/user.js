@@ -89,7 +89,6 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       data: options.data,
       dataType: 'json',
       success: function () {
-        model.signedIn = true;
         model.fetch({
           success: function (data, resp) {
             model.parse(resp);
@@ -120,7 +119,6 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       type: 'DELETE',
       dataType: 'json',
       success: function (data) {
-        model.signedIn = false;
         model.sections().reset();
         model.sectionsInstructed().reset();
         model.clear();
@@ -129,9 +127,14 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   },
 
   fireSessionEvent: function () {
-    if (!this.signedIn) {
-      if (this.isSignedIn()) eventChannel.trigger('signIn');
-      else eventChannel.trigger('signOut');
+    if (!this.signedIn && this.isSignedIn()) {
+      this.signedIn = true;
+      eventChannel.trigger('signIn');
+    } else if (this.isSignedIn()) {
+      this.signedIn = true;
+    } else {
+      this.signedIn = false;
+      eventChannel.trigger('signOut');
     }
   },
 
