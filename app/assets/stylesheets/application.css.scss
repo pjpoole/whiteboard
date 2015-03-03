@@ -251,6 +251,9 @@ input {
 
 .dataTables_filter {
   float: right;
+  input {
+    display: inline-block;
+  }
 }
 
 .dataTables_paginate {
