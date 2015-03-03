@@ -5,7 +5,8 @@ Whiteboard.Models.User = Backbone.Model.extend({
 Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   url: '/api/session',
 
-  parse: function (resp) {
+  parse: function (resp, options) {
+    if (options.parse === false) return;
     if (resp.sections) {
       this.sections().set(resp.sections, {
         user_id: resp.id, parse: true
@@ -25,6 +26,9 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   },
 
   initialize: function (options) {
+    this.signedIn = false;
+    this.listenTo(this, 'all', this.logEvents);
+
     this.listenTo(this, 'change', this.fireSessionEvent);
     eventChannel.comply({
       'signOut:requested': this.signOut,
@@ -42,6 +46,10 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       'user:isSignedIn': this.isSignedIn,
       'user:section': this.getSection
     }, this);
+  },
+
+  logEvents: function (e) {
+    console.log(e);
   },
 
   isSignedIn: function () {
@@ -81,7 +89,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       data: options.data,
       dataType: 'json',
       success: function () {
-        console.log(model)
+        model.signedIn = true;
         model.fetch({
           success: function (data, resp) {
             model.parse(resp);
@@ -112,6 +120,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
       type: 'DELETE',
       dataType: 'json',
       success: function (data) {
+        model.signedIn = false;
         model.sections().reset();
         model.sectionsInstructed().reset();
         model.clear();
@@ -120,8 +129,10 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   },
 
   fireSessionEvent: function () {
-    if (this.isSignedIn()) eventChannel.trigger('signIn');
-    else eventChannel.trigger('signOut');
+    if (!this.signedIn) {
+      if (this.isSignedIn()) eventChannel.trigger('signIn');
+      else eventChannel.trigger('signOut');
+    }
   },
 
 

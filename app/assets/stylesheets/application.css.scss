@@ -7,6 +7,7 @@ $lightest-color: saturate(lighten($primary-color, 30%), 10%);
 $lighter-color: saturate(lighten($primary-color, 15%), 10%);
 $darker-color: saturate(darken($primary-color, 20%), 10%);
 $darkest-color: saturate(darken($primary-color, 40%), 10%);
+$font-size-base: 14px;
 
 body {
   padding-top: 70px;
@@ -15,6 +16,10 @@ body {
 
 a {
   color: $darker-color;
+}
+
+input {
+  display: block;
 }
 
 .hidden {
@@ -178,6 +183,11 @@ a {
 
 .tabbed {
   border-bottom: 0;
+}
+
+.editable {
+  min-height: $font-size-base;
+  cursor: pointer;
 }
 
 .contrast-head {

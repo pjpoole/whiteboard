@@ -20,9 +20,11 @@ class Api::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super do |resource|
+      resource.update(account_params)
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -39,6 +41,14 @@ class Api::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
+  # def update_resource(resource, params)
+  #   resource.update_without_password(params)
+  # end
+
+  private
+  def account_params
+    params.require(:registration).permit(:name, :first_name, :last_name)
+  end
 
   # You can put the params you want to permit in the empty array.
   # def configure_sign_up_params
@@ -47,7 +57,9 @@ class Api::RegistrationsController < Devise::RegistrationsController
 
   # You can put the params you want to permit in the empty array.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :attribute
+  #   devise_parameter_sanitizer.for(:account_update) do |u|
+  #     u.permit(:name, :first_name, :last_name)
+  #   end
   # end
 
   # The path used after sign up.
