@@ -17,6 +17,12 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
       view: JST['users/new'],
       onActive: 'setActive',
       focusEl: '.focus1'
+    },
+
+    'click #guest': {
+      name: 'guest',
+      view: JST['shared/guest'],
+      onActive: 'guestActive'
     }
   },
 
@@ -48,7 +54,25 @@ Whiteboard.Views.SignIn = Backbone.Modal.extend({
     Backbone.history.navigate('#' + options.name);
   },
 
-  beforeSubmit: function (event) {
+  guestActive: function () {
+    this.$('.modal-tab a').removeClass('active');
+    this.$('#guest').addClass('active');
+  },
+
+  beforeSubmit: function () {
+    if ($('#guest').hasClass('active')) {
+      eventChannel.command('signin:requested', {
+        data: {
+          user: {
+            email: 'guest@example.com',
+            password: 'password'
+          }
+        }
+      });
+
+      return false;
+    }
+
     var $form = $('#modal-region form'),
         data, method;
 
