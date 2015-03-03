@@ -6,7 +6,7 @@ Whiteboard.Models.CurrentUser = Backbone.Model.extend({
   url: '/api/session',
 
   parse: function (resp, options) {
-    if (options.parse === false) return;
+    if (options && options.parse === false) return;
     if (resp.sections) {
       this.sections().set(resp.sections, {
         user_id: resp.id, parse: true

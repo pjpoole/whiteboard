@@ -14,11 +14,14 @@ class User < ActiveRecord::Base
 
   after_validation :set_initial_name, on: :create
 
-
+  # dependent: :destroy is here for guest account use.
+  # It doesn't make sense, necessarily, for a class to disappear
+  # just because the instructor has been replaced.
   has_many(
     :classes_taught,
     class_name: 'Section',
-    foreign_key: :instructor_id
+    foreign_key: :instructor_id,
+    dependent: :destroy
   )
 
   has_many :enrollments, dependent: :destroy

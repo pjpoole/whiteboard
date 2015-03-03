@@ -7,6 +7,9 @@ class Api::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    if (params[:user][:email] == "guest@example.com")
+      prep_guest
+    end
     super
   end
 
@@ -23,7 +26,38 @@ class Api::SessionsController < Devise::SessionsController
     super
   end
 
-  # protected
+  protected
+
+  def prep_guest
+    guest = User.find_by(email: 'guest@example.com')
+    guest.destroy if guest
+
+    guest = User.create(
+      name: 'Guest Account',
+      first_name: 'Guesty',
+      last_name: 'McGuesterson',
+      email: 'guest@example.com',
+      password: 'password'
+    )
+
+    klass = guest.classes_taught.create(
+      title: "Intro to some things I know",
+      description: "Teaching internet people things that I'm good at"
+    )
+
+    student_ids = User.pluck(:id).sort_by { rand }.slice(0,5)
+
+    student_ids.each do |id|
+      Enrollment.create( section_id: klass.id, user_id: id )
+    end
+
+    klass.events.create(
+      event_type: :session,
+      date: (1.day.from_now.beginning_of_day + 12.hours),
+      name: "First class!",
+      body: "I'll introduce myself and tell you some of the things I know"
+    )
+  end
 
   # You can put the params you want to permit in the empty array.
   # def configure_sign_in_params
