@@ -34,10 +34,10 @@ class Api::SessionsController < Devise::SessionsController
 
     guest = User.create(
       email: 'guest@example.com',
-      password: 'password'
+      password: 'password',
       name: 'Guest Account',
       first_name: 'Guesty',
-      last_name: 'McGuesterson',
+      last_name: 'McGuesterson'
     )
 
     klass = guest.classes_taught.create(
