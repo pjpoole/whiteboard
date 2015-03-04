@@ -33,11 +33,11 @@ class Api::SessionsController < Devise::SessionsController
     guest.destroy if guest
 
     guest = User.create(
+      email: 'guest@example.com',
+      password: 'password'
       name: 'Guest Account',
       first_name: 'Guesty',
       last_name: 'McGuesterson',
-      email: 'guest@example.com',
-      password: 'password'
     )
 
     klass = guest.classes_taught.create(
